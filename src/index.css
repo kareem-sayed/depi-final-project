@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 95%;
+    --foreground: 150 30% 15%;
+
+    --card: 40 30% 97%;
+    --card-foreground: 150 30% 15%;
+
+    --popover: 40 30% 97%;
+    --popover-foreground: 150 30% 15%;
+
+    --primary: 153 40% 25%;
+    --primary-foreground: 40 30% 97%;
+
+    --secondary: 38 50% 85%;
+    --secondary-foreground: 150 30% 15%;
+
+    --muted: 40 25% 90%;
+    --muted-foreground: 150 10% 45%;
+
+    --accent: 38 60% 55%;
+    --accent-foreground: 150 30% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 153 40% 25%;
+
+    --radius: 0.75rem;
+
+    --hero-overlay: linear-gradient(to bottom, hsla(38, 50%, 85%, 0.1), hsla(40, 33%, 95%, 0.5));
+    --cta-gradient: linear-gradient(135deg, hsl(153, 40%, 25%), hsl(153, 45%, 35%));
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 150 20% 8%;
+    --foreground: 40 30% 92%;
+    --card: 150 20% 12%;
+    --card-foreground: 40 30% 92%;
+    --popover: 150 20% 12%;
+    --popover-foreground: 40 30% 92%;
+    --primary: 153 40% 45%;
+    --primary-foreground: 150 20% 8%;
+    --secondary: 38 30% 20%;
+    --secondary-foreground: 40 30% 92%;
+    --muted: 150 15% 18%;
+    --muted-foreground: 40 15% 60%;
+    --accent: 38 50% 45%;
+    --accent-foreground: 40 30% 92%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 150 15% 20%;
+    --input: 150 15% 20%;
+    --ring: 153 40% 45%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-cairo;
+    direction: rtl;
+  }
+}
+
+@layer utilities {
+  .font-cairo {
+    font-family: 'Cairo', sans-serif;
+  }
+}
