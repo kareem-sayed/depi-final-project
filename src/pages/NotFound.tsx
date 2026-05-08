@@ -60,7 +60,7 @@ export default function NotFound() {
             <SecondryButton
                 text={lang === "AR" ? "تصفح قصص الأنبياء" : "Browse Stories"}
                 icon="fas fa-book"
-                to="/"
+                to="/prophets"
             />
           </div>
 

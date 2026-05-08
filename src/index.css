@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;600;700;800&display=swap");
+@import "@fortawesome/fontawesome-free/css/all.min.css";
 
 @tailwind base;
 @tailwind components;
@@ -36,8 +37,16 @@
 
     --radius: 0.75rem;
 
-    --hero-overlay: linear-gradient(to bottom, hsla(38, 50%, 85%, 0.1), hsla(40, 33%, 95%, 0.5));
-    --cta-gradient: linear-gradient(135deg, hsl(153, 40%, 25%), hsl(153, 45%, 35%));
+    --hero-overlay: linear-gradient(
+      to bottom,
+      hsla(38, 50%, 85%, 0.1),
+      hsla(40, 33%, 95%, 0.5)
+    );
+    --cta-gradient: linear-gradient(
+      135deg,
+      hsl(153, 40%, 25%),
+      hsl(153, 45%, 35%)
+    );
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -93,6 +102,6 @@
 
 @layer utilities {
   .font-cairo {
-    font-family: 'Cairo', sans-serif;
+    font-family: "Cairo", sans-serif;
   }
 }
