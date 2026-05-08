@@ -3,5 +3,5 @@ import type { StorySection } from "./StorySection";
 
 export type StoryChapters = {
   title: LangText;
-  segments: StorySection[];
+  sections: StorySection[];
 };

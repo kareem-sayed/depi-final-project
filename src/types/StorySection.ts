@@ -7,4 +7,8 @@ export type StorySection = {
     ref: LangText;
     audioUrl?: string;
   };
+  hadith?: {
+    text: string;
+    ref: LangText;
+  };
 };

@@ -4,8 +4,9 @@ import type { StoryChapters } from "./StoryChapters";
 export type ProphetStory = {
   name: LangText;
   title: LangText;
+  hero: LangText;
   era: LangText;
   location: LangText;
-  hero: LangText;
+  NumOfChapters: Number;
   chapters: StoryChapters[];
 };
