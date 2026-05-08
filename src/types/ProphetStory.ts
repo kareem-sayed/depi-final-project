@@ -1,5 +1,5 @@
 import type { LangText } from "../types/LangText";
-import type { StorySection } from "./StorySection";
+import type { StoryChapters } from "./StoryChapters";
 
 export type ProphetStory = {
   name: LangText;
@@ -7,5 +7,5 @@ export type ProphetStory = {
   era: LangText;
   location: LangText;
   hero: LangText;
-  sections: StorySection[];
+  chapters: StoryChapters[];
 };
