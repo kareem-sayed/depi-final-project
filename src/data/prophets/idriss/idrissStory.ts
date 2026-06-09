@@ -1,7 +1,7 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
 export const idrissStory: ProphetStory = {
-  name: { ar: "إدريس", en: "Idris" },
+  name: { ar: "سيدنا إدريس", en: "Prophet Idris" },
   title: {
     ar: "نبي الحكمة والعلم",
     en: "Prophet of Wisdom and Knowledge",
@@ -33,7 +33,7 @@ export const idrissStory: ProphetStory = {
           },
           ayah: {
             text: "وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ إِنَّهُ كَانَ صِدِّيقًا نَبِيًّا * وَرَفَعْنَاهُ مَكَانًا عَلِيًّا",
-            ref: { ar: "مريم: 56-57", en: "Maryam: 56-57" },
+            ref: { ar: "مريم: 56", en: "Maryam: 56" },
             audioUrl: "/audios/idriss/QuranMention.mp3",
           },
         },

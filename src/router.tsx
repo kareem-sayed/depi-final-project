@@ -1,15 +1,16 @@
-import MainLayout from "./layout/MainLayout";
-import Home from "./pages/Home";
-import Prophets from "./pages/Prophets";
-import ProphetStory from "./pages/ProphetStory";
-import Quiz from "./pages/Quiz";
-import Dashboard from "./pages/Dashboard";
-import About from "./pages/About";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
-import NotFound from "./pages/NotFound";
+const MainLayout = lazy(() => import("./layout/MainLayout"));
+const Home = lazy(() => import("./pages/Home"));
+const Prophets = lazy(() => import("./pages/Prophets"));
+const ProphetStory = lazy(() => import("./pages/ProphetStory"));
+const Quiz = lazy(() => import("./pages/Quiz"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const About = lazy(() => import("./pages/About"));
+const Login = lazy(() => import("./pages/Login"));
+const Signup = lazy(() => import("./pages/Signup"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 import "./index.css";
 import { createBrowserRouter } from "react-router-dom";
+import { lazy } from "react";
 
 export const router = createBrowserRouter([
   {

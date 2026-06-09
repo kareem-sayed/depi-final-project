@@ -24,7 +24,7 @@ export default function NotFound() {
       <main className="flex-1 flex items-center justify-center px-4 pt-24 pb-16">
         <div className="container max-w-3xl text-center">
 
-          <h1 className="font-amiri text-7xl md:text-9xl font-bold">
+          <h1 className="font-amirvci text-7xl md:text-9xl font-bold">
             {lang === "AR"
                 ? "٤٠٤"
                 : "404"
