@@ -13,8 +13,8 @@ import { salihStory } from "./prophets/salih/salihStory";
 import { shoaibStory } from "./prophets/shoaib/shoaibStory";
 import { yaqubStory } from "./prophets/yaqub/yaqubStory";
 import { ismailStory } from "./prophets/ismail/ismailStory";
-// import { yusufStory } from "./prophets/yusuf/yusufStory";
-// import { yunusStory } from "./prophets/yunus/yunusStory";
+import { yusufStory } from "./prophets/yusuf/yusufStory";
+import { yunusStory } from "./prophets/yunus/yunusStory";
 
 export const prophetStories: Record<string, ProphetStory> = {
   adam: adamStory,
@@ -31,8 +31,8 @@ export const prophetStories: Record<string, ProphetStory> = {
   salih: salihStory,
   shoaib: shoaibStory,
   yaqub: yaqubStory,
-  // yusuf: yusufStory,
-  // yunus: yunusStory,
+  yusuf: yusufStory,
+  yunus: yunusStory,
 };
 
 Object.values(prophetStories).forEach((ProphStory) => {
