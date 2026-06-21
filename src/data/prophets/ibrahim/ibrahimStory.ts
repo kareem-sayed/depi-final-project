@@ -1,24 +1,32 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
 export const ibrahimStory: ProphetStory = {
+  slug: "ibrahim",
+
   name: { ar: "سيدنا إبراهيم", en: "Prophet Ibrahim" },
+
   title: {
     ar: "أبو الأنبياء وخليل الرحمن",
     en: "The Father of the Prophets and the Close Friend of Allah",
   },
+
   era: {
     ar: "زمن النمرود وبعد نوح بقرون طويلة",
     en: "Centuries after Noah",
   },
+
   location: {
     ar: "العراق، الشام، مصر، مكة",
     en: "Iraq, Levant, Egypt, Makkah",
   },
+
   hero: {
     ar: "من أعظم الأنبياء، دعا إلى التوحيد، وحطم الأصنام، وابتُلي فصبر، وبنى الكعبة مع ابنه إسماعيل.",
     en: "One of the greatest prophets. He called to monotheism, broke the idols, endured great trials, and built the Kaaba with his son Ishmael.",
   },
+
   NumOfChapters: 0,
+
   chapters: [
     {
       title: { ar: "زمن النمرود", en: "The Time of Nimrod" },

@@ -1,32 +1,43 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
-export const idrissStory: ProphetStory = {
-  name: { ar: "سيدنا إدريس", en: "Prophet Idris" },
+export const IdrissStory: ProphetStory = {
+  slug: "Idriss",
+
+  name: { ar: "سيدنا إدريس", en: "Prophet Idriss" },
+
   title: {
     ar: "نبي الحكمة والعلم",
     en: "Prophet of Wisdom and Knowledge",
   },
+
   era: {
     ar: "من أوائل الأنبياء بعد آدم",
     en: "One of the earliest prophets after Adam",
   },
+
   location: {
     ar: "أرض بابل أو مصر القديمة (كما ورد في بعض الروايات)",
     en: "The land of Babylon or ancient Egypt (as mentioned in some narrations)",
   },
+
   hero: {
     ar: "كان إدريس نبيًا صادقًا، أول من خط بالقلم، ورفعه الله مكانًا عليًا.",
-    en: "Idris was a truthful prophet, the first to write with a pen, and Allah raised him to a high position.",
+    en: "Idriss was a truthful prophet, the first to write with a pen, and Allah raised him to a high position.",
   },
+
   NumOfChapters: 0,
+
   chapters: [
     {
-      title: { ar: "ذكر إدريس في القرآن", en: "Mention of Idris in the Quran" },
+      title: {
+        ar: "ذكر إدريس في القرآن",
+        en: "Mention of Idriss in the Quran",
+      },
       sections: [
         {
           text: {
             ar: "قال الله تعالى: واذكر في الكتاب إدريس إنه كان صديقًا نبيًا.",
-            en: "Allah said: And mention in the Book Idris; indeed, he was a man of truth and a prophet.",
+            en: "Allah said: And mention in the Book Idriss; indeed, he was a man of truth and a prophet.",
           },
           ayah: {
             text: "وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ إِنَّهُ كَانَ صِدِّيقًا نَبِيًّا",
@@ -74,7 +85,7 @@ export const idrissStory: ProphetStory = {
         {
           text: {
             ar: "قصة إدريس تعلمنا قيمة العلم والحكمة، وأهمية الصدق والصبر، وأن الله يرفع من يشاء بفضله.",
-            en: "The story of Idris teaches us the value of knowledge and wisdom, the importance of truthfulness and patience, and that Allah elevates whom He wills by His grace.",
+            en: "The story of Idriss teaches us the value of knowledge and wisdom, the importance of truthfulness and patience, and that Allah elevates whom He wills by His grace.",
           },
         },
       ],

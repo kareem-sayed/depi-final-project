@@ -2,6 +2,7 @@ import type { LangText } from "../types/LangText";
 import type { StoryChapters } from "./StoryChapters";
 
 export type ProphetStory = {
+  slug: string;
   name: LangText;
   title: LangText;
   hero: LangText;

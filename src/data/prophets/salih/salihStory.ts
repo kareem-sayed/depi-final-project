@@ -1,24 +1,30 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
 export const salihStory: ProphetStory = {
+  slug: "salih",
+
   name: { ar: "سيدنا صالح", en: "Prophet Salih" },
 
   title: {
     ar: "نبي ثمود ومعجزة الناقة",
     en: "Prophet of Thamud and the She-Camel Miracle",
   },
+
   era: {
     ar: "بعد عاد وقبل إبراهيم عليه السلام",
     en: "After ‘Aad and before Prophet Ibrahim",
   },
+
   location: {
     ar: "الحِجر (شمال غرب الجزيرة العربية)",
     en: "Al-Hijr (Northwestern Arabia)",
   },
+
   hero: {
     ar: "نبي أرسله الله إلى ثمود يدعوهم للتوحيد، فأظهر الله لهم الناقة كآية، فكذبوا فعاقبهم الله بالصيحة.",
     en: "A prophet sent to Thamud calling them to monotheism. Allah showed them the she-camel as a sign, but they rejected it and were punished by a mighty blast.",
   },
+
   NumOfChapters: 0,
 
   chapters: [

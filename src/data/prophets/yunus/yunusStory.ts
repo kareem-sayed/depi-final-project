@@ -1,19 +1,25 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
 export const yunusStory: ProphetStory = {
+  slug: "yunus",
+
   name: { ar: "سيدنا يونس", en: "Prophet Yunus" },
+
   title: {
     ar: "صاحب الحوت ونبي التوبة",
     en: "The Prophet of the Whale and Repentance",
   },
+
   era: {
     ar: "بعد موسى في فترة متأخرة",
     en: "Later period after Moses",
   },
+
   location: {
     ar: "نينوى (العراق)",
     en: "Nineveh (Iraq)",
   },
+
   hero: {
     ar: "نبي أرسله الله إلى قومه، فدعاهم طويلًا، ثم غادرهم غضبًا، فابتلاه الله في بطن الحوت، ثم نجّاه بتوبته ودعائه.",
     en: "A prophet sent to his people who called them for a long time. He left them in anger, so Allah tested him in the belly of the whale, then saved him through his repentance and supplication.",

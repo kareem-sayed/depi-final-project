@@ -1,23 +1,30 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
 export const yusufStory: ProphetStory = {
+  slug: "yusuf",
+
   name: { ar: "سيدنا يوسف", en: "Prophet Yusuf" },
+
   title: {
     ar: "الصديق وصاحب الرؤيا وعزيز مصر",
     en: "The Truthful One, Interpreter of Dreams, and Aziz of Egypt",
   },
+
   era: {
     ar: "بعد إبراهيم بقرون",
     en: "Centuries after Ibrahim",
   },
+
   location: {
     ar: "كنعان، مصر",
     en: "Canaan, Egypt",
   },
+
   hero: {
     ar: "نبي ابتلاه الله بالمحن منذ طفولته، فصبر على كيد إخوته وفتنة السجن، ثم رفعه الله ليصبح عزيز مصر.",
     en: "A prophet tested with hardships from childhood. He patiently endured his brothers’ betrayal and prison trials, until Allah raised him to become the Aziz of Egypt.",
   },
+
   NumOfChapters: 0,
 
   chapters: [

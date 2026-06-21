@@ -1,24 +1,32 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
 export const hudStory: ProphetStory = {
+  slug: "hud",
+
   name: { ar: "سيدنا هود", en: "Prophet Hud" },
+
   title: {
     ar: "نبي قوم عاد وداعية التوحيد",
     en: "Prophet of the People of ‘Aad and Caller to Monotheism",
   },
+
   era: {
     ar: "بعد نوح عليه السلام بزمن طويل",
     en: "A long time after Prophet Noah",
   },
+
   location: {
     ar: "الأحقاف (جنوب الجزيرة العربية)",
     en: "Al-Ahqaf (Southern Arabia)",
   },
+
   hero: {
     ar: "نبي دعا قوم عاد إلى عبادة الله وحده، فرفضوا واستكبروا فأهلكهم الله بريحٍ عاتية ونجّى هودًا والذين آمنوا معه.",
     en: "A prophet who called the people of ‘Aad to worship Allah alone. They rejected him, so Allah destroyed them with a fierce wind while saving Hud and the believers.",
   },
+
   NumOfChapters: 0,
+
   chapters: [
     {
       title: { ar: "قوم عاد وقوتهم", en: "The People of ‘Aad" },

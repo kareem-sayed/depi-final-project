@@ -299,8 +299,8 @@ export const prophets: Prophet[] = [
     ululAzm: true,
   },
   {
-    slug: "muhammad",
-    name: { ar: "سيدنا محمد", en: "Prophet Muhammad" },
+    slug: "mohamed",
+    name: { ar: "سيدنا محمد", en: "Prophet mohamed" },
     shortDesc: {
       ar: "خاتم الأنبياء والمرسلين",
       en: "Seal of the Prophets and Messengers",

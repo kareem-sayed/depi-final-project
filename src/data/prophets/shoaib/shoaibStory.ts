@@ -1,6 +1,8 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
 export const shoaibStory: ProphetStory = {
+  slug: "shoaib",
+
   name: { ar: "سيدنا شعيب", en: "Prophet Shuayb" },
 
   title: {

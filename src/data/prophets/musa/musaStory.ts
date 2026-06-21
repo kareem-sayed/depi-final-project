@@ -1,24 +1,32 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
 export const musaStory: ProphetStory = {
+  slug: "musa",
+
   name: { ar: "سيدنا موسى", en: "Prophet Moses" },
+
   title: {
     ar: "كليم الله ومنقذ بني إسرائيل",
     en: "The One Spoken to by Allah and the Deliverer of بني إسرائيل",
   },
+
   era: {
     ar: "بعد سيدنا يوسف بقرون",
     en: "Centuries after Joseph",
   },
+
   location: {
     ar: "مصر، مدين، سيناء",
     en: "Egypt, Madyan, Sinai",
   },
+
   hero: {
     ar: "من أعظم الأنبياء، أرسله الله إلى فرعون، وأيده بالمعجزات، وشق له البحر، وأنزل عليه التوراة.",
     en: "One of the greatest prophets. Allah sent him to Pharaoh, supported him with miracles, parted the sea for him, and revealed the Torah to him.",
   },
+
   NumOfChapters: 0,
+
   chapters: [
     {
       title: {
