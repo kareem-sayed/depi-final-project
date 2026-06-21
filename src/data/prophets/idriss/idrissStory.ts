@@ -21,20 +21,18 @@ export const idrissStory: ProphetStory = {
   NumOfChapters: 0,
   chapters: [
     {
-      title: {
-        ar: "ذكر إدريس في القرآن",
-        en: "Mention of Idris in the Quran",
-      },
+      title: { ar: "ذكر إدريس في القرآن", en: "Mention of Idris in the Quran" },
       sections: [
         {
           text: {
-            ar: "قال الله تعالى: (واذكر في الكتاب إدريس إنه كان صديقًا نبيًا ورفعناه مكانًا عليًا).",
-            en: "Allah said: 'And mention in the Book Idris; indeed, he was a man of truth and a prophet. And We raised him to a high position.'",
+            ar: "قال الله تعالى: واذكر في الكتاب إدريس إنه كان صديقًا نبيًا.",
+            en: "Allah said: And mention in the Book Idris; indeed, he was a man of truth and a prophet.",
           },
           ayah: {
-            text: "وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ إِنَّهُ كَانَ صِدِّيقًا نَبِيًّا * وَرَفَعْنَاهُ مَكَانًا عَلِيًّا",
+            text: "وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ إِنَّهُ كَانَ صِدِّيقًا نَبِيًّا",
             ref: { ar: "مريم: 56", en: "Maryam: 56" },
-            audioUrl: "/audios/idriss/QuranMention.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Abdul_Basit_Murattal_192kbps/019056.mp3",
           },
         },
       ],
@@ -60,6 +58,12 @@ export const idrissStory: ProphetStory = {
           text: {
             ar: "كرمه الله برفعه إلى مكانة عالية، قيل إنها في السماء الرابعة، تكريمًا له على صدقه وصبره.",
             en: "Allah honored him by raising him to a high position, said to be in the fourth heaven, as a reward for his truthfulness and patience.",
+          },
+          ayah: {
+            text: "وَرَفَعْنَاهُ مَكَانًا عَلِيًّا",
+            ref: { ar: "مريم: 57", en: "Maryam: 57" },
+            audioUrl:
+              "https://www.everyayah.com/data/Abdul_Basit_Murattal_192kbps/019057.mp3",
           },
         },
       ],

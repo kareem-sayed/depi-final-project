@@ -19,7 +19,7 @@ export const musaStory: ProphetStory = {
     en: "One of the greatest prophets. Allah sent him to Pharaoh, supported him with miracles, parted the sea for him, and revealed the Torah to him.",
   },
   NumOfChapters: 0,
-  chapters:[
+  chapters: [
     {
       title: {
         ar: "مولد موسى في زمن فرعون",
@@ -30,17 +30,18 @@ export const musaStory: ProphetStory = {
           text: {
             ar: "وُلِد موسى -عليه الصلاة والسلام- في سنةٍ يُقتَل فيها الذكور من بني إسرائيل بأَمرٍ من فرعون ملك مِصر؛ إذ كان يقتل المواليد من الذكور في سنةٍ، ويتركهم أحياء في سنةٍ أخرى، وكان موسى قد وُلِد ولم يعلم أحد بولادته.",
             en: "Musa (peace be upon him) was born in a year when the male children of the Children of Israel were being killed by the order of Pharaoh, the king of Egypt. Pharaoh used to kill newborn boys one year and spare them the next. Musa was born secretly, and no one knew about his birth.",
-          }, 
+          },
           ayah: {
-              text: "إِنَّ فِرْعَوْنَ عَلَا فِي الْأَرْضِ وَجَعَلَ أَهْلَهَا شِيَعًا يَسْتَضْعِفُ طَائِفَةً مِّنْهُمْ يُذَبِّحُ أَبْنَاءَهُمْ وَيَسْتَحْيِي نِسَاءَهُمْ ۚ إِنَّهُ كَانَ مِنَ الْمُفْسِدِينَ",
-              ref: {
-                ar: "القصص: 4",
-                en: "Al-Qasas: 4",
-              },
-              audioUrl: "/audios/musa/The Birth of Moses in Pharaoh's Time.mp3",
+            text: "إِنَّ فِرْعَوْنَ عَلَا فِي الْأَرْضِ وَجَعَلَ أَهْلَهَا شِيَعًا يَسْتَضْعِفُ طَائِفَةً مِّنْهُمْ يُذَبِّحُ أَبْنَاءَهُمْ وَيَسْتَحْيِي نِسَاءَهُمْ ۚ إِنَّهُ كَانَ مِنَ الْمُفْسِدِينَ",
+            ref: {
+              ar: "القصص: 4",
+              en: "Al-Qasas: 4",
             },
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028004.mp3",
+          },
+        },
+      ],
     },
     {
       title: {
@@ -52,17 +53,18 @@ export const musaStory: ProphetStory = {
           text: {
             ar: "أوحى الله إلى أم موسى أن تضعه في صندوق وتلقيه في النهر، ووعدها أن يرده إليها ويجعله من المرسلين.",
             en: "Allah inspired the mother of Moses to place him in a chest and cast it into the river, promising to return him to her and make him one of the messengers.",
-          }, 
+          },
           ayah: {
-              text: "وَأَوْحَيْنَا إِلَىٰ أُمِّ مُوسَىٰ أَنْ أَرْضِعِيهِ ۖ فَإِذَا خِفْتِ عَلَيْهِ فَأَلْقِيهِ فِي الْيَمِّ وَلَا تَخَافِي وَلَا تَحْزَنِي ۖ إِنَّا رَادُّوهُ إِلَيْكِ وَجَاعِلُوهُ مِنَ الْمُرْسَلِينَ",
-              ref: {
-                ar: "القصص: 7",
-                en: "Al-Qasas: 7",
-              },
-              audioUrl: "/audios/musa/The Chest in the River.mp3",
+            text: "وَأَوْحَيْنَا إِلَىٰ أُمِّ مُوسَىٰ أَنْ أَرْضِعِيهِ ۖ فَإِذَا خِفْتِ عَلَيْهِ فَأَلْقِيهِ فِي الْيَمِّ وَلَا تَخَافِي وَلَا تَحْزَنِي ۖ إِنَّا رَادُّوهُ إِلَيْكِ وَجَاعِلُوهُ مِنَ الْمُرْسَلِينَ",
+            ref: {
+              ar: "القصص: 7",
+              en: "Al-Qasas: 7",
             },
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028007.mp3",
+          },
+        },
+      ],
     },
     {
       title: {
@@ -74,17 +76,18 @@ export const musaStory: ProphetStory = {
           text: {
             ar: "وسار الماء بموسى -عليه السلام- إلى أن وصل إلى أيدي جواري قصر فرعون، فأخذنه إلى امرأة فرعون؛ آسية بنت مُزاحم التي طلبت من زوجها فرعون أن يُبقيَ عليه معها؛ ليتّخذوه ولداً لهم، فينفعهم حين كِبر سِنّهم، وكانت أمّه قد أرسلت أخته؛ لتتبُّع أمره، وأثره، وكان قد رفض المُرضعات جميعهم، فأرشدتهم أخته إلى أمّه؛ لتُرضعَه، وبذلك تحقّق وعد الله.",
             en: "The water carried Moses (peace be upon him) until he reached the hands of the maids of Pharaoh's palace. They took him to Pharaoh's wife, Asiya bint Muzahim, who asked her husband, Pharaoh, to keep him with her so they could adopt him as their son and he would benefit them in their old age. His mother had sent his sister to follow his trail, as he had refused all the wet nurses. His sister then directed them to his mother so she could nurse him, and thus God's promise was fulfilled.",
-          }, 
+          },
           ayah: {
             text: "وَقَالَتِ امْرَأَتُ فِرْعَوْنَ قُرَّتُ عَيْنٍ لِّي وَلَكَ ۖ لَا تَقْتُلُوهُ عَسَىٰ أَن يَنفَعَنَا أَوْ نَتَّخِذَهُ وَلَدًا وَهُمْ لَا يَشْعُرُونَ",
             ref: {
               ar: "القصص: 9",
               en: "Al-Qasas: 9",
             },
-              audioUrl: "/audios/musa/Raised in Pharaoh's Palace.mp3",
-            },
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028009.mp3",
+          },
+        },
+      ],
     },
     {
       title: {
@@ -104,7 +107,8 @@ export const musaStory: ProphetStory = {
               en: "Al-Qasas: 15",
             },
 
-            audioUrl: "/audios/musa/The killing of the Coptic man1.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028015.mp3",
           },
         },
         {
@@ -119,7 +123,8 @@ export const musaStory: ProphetStory = {
               en: "Al-Qasas: 16",
             },
 
-            audioUrl: "/audios/musa/The killing of the Coptic man2.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028016.mp3",
           },
         },
         {
@@ -134,7 +139,8 @@ export const musaStory: ProphetStory = {
               en: "Al-Qasas: 18",
             },
 
-            audioUrl: "/audios/musa/The killing of the Coptic man3.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028018.mp3",
           },
         },
         {
@@ -149,7 +155,8 @@ export const musaStory: ProphetStory = {
               en: "Al-Qasas: 20",
             },
 
-            audioUrl: "/audios/musa/The killing of the Coptic man4.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028020.mp3",
           },
         },
       ],
@@ -172,7 +179,8 @@ export const musaStory: ProphetStory = {
               en: "Al-Qasas: 21",
             },
 
-            audioUrl: "/audios/musa/Departure to Madyan.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028021.mp3",
           },
         },
       ],
@@ -194,7 +202,8 @@ export const musaStory: ProphetStory = {
               ar: "القصص: 24",
               en: "Al-Qasas: 24",
             },
-            audioUrl: "/audios/musa/Helping the Two Women1.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028024.mp3",
           },
         },
         {
@@ -208,7 +217,8 @@ export const musaStory: ProphetStory = {
               ar: "القصص: 25",
               en: "Al-Qasas: 25",
             },
-            audioUrl: "/audios/musa/Helping the Two Women2.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028025.mp3",
           },
         },
         {
@@ -222,7 +232,8 @@ export const musaStory: ProphetStory = {
               ar: "القصص: 26",
               en: "Al-Qasas: 26",
             },
-            audioUrl: "/audios/musa/Helping the Two Women3.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028026.mp3",
           },
         },
         {
@@ -236,7 +247,8 @@ export const musaStory: ProphetStory = {
               ar: "القصص: 27",
               en: "Al-Qasas: 27",
             },
-            audioUrl: "/audios/musa/Helping the Two Women4.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028027.mp3",
           },
         },
       ],
@@ -258,7 +270,8 @@ export const musaStory: ProphetStory = {
               ar: "القصص: 30",
               en: "Al-Qasas: 30",
             },
-            audioUrl: "/audios/musa/The Call at Mount Tur.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028030.mp3",
           },
         },
       ],
@@ -280,7 +293,8 @@ export const musaStory: ProphetStory = {
               ar: "القصص: 31",
               en: "Al-Qasas: 31",
             },
-            audioUrl: "/audios/musa/The Great Miracles.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028031.mp3",
           },
         },
       ],
@@ -291,66 +305,82 @@ export const musaStory: ProphetStory = {
         {
           text: {
             ar: "وصل موسى إلى أرض مصر، والتقى بأخيه هارون، ثم اتجها إلى قصر فرعون بعد أن أُذن لهما بالدخول.",
-            en: "Musa arrived in Egypt and met his brother Harun, then they headed to Pharaoh’s palace after being granted permission to enter."
-          }
+            en: "Musa arrived in Egypt and met his brother Harun, then they headed to Pharaoh’s palace after being granted permission to enter.",
+          },
         },
         {
           text: {
             ar: "بدأ موسى يدعو فرعون إلى عبادة الله وحده، وترك ظلم بني إسرائيل، والسماح لهم بالخروج معه.",
-            en: "Musa began calling Pharaoh to worship Allah alone, stop oppressing the Children of Israel, and allow them to leave with him."
+            en: "Musa began calling Pharaoh to worship Allah alone, stop oppressing the Children of Israel, and allow them to leave with him.",
           },
           ayah: {
             text: "اذْهَبَا إِلَىٰ فِرْعَوْنَ إِنَّهُ طَغَىٰ",
             ref: { ar: "طه: 43", en: "Taha: 43" },
-            audioUrl: "/audios/musa/Calling-Pharaoh.mp3"
-          }
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/020043.mp3",
+          },
         },
         {
           text: {
             ar: "رفض فرعون دعوة موسى، واستهزأ به، وذكّره بأنه تربى في قصره، واتهمه بقتل القبطي.",
-            en: "Pharaoh rejected Musa’s call, mocked him, reminded him that he was raised in the palace, and accused him of killing the Egyptian man."
-          }
+            en: "Pharaoh rejected Musa’s call, mocked him, reminded him that he was raised in the palace, and accused him of killing the Egyptian man.",
+          },
         },
         {
           text: {
             ar: "أوضح موسى أن ما حدث كان دون قصد، وأن الله أرسله رسولًا إليه مع أخيه هارون.",
-            en: "Musa explained that the killing was unintentional and that Allah had sent him as a messenger along with his brother Harun."
+            en: "Musa explained that the killing was unintentional and that Allah had sent him as a messenger along with his brother Harun.",
           },
           ayah: {
             text: "وَأَخِي هَارُونُ هُوَ أَفْصَحُ مِنِّي لِسَانًا فَأَرْسِلْهُ مَعِيَ رِدْءًا يُصَدِّقُنِي إِنِّي أَخَافُ أَن يُكَذِّبُونِ",
             ref: { ar: "القصص: 34", en: "Al-Qasas: 34" },
-            audioUrl: "/audios/musa/Harun-Support.mp3"
-          }
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/028034.mp3",
+          },
         },
         {
           text: {
             ar: "سأل فرعون موسى عن رب العالمين، فأجابه بأن الله هو خالق السماوات والأرض ومالك كل شيء.",
-            en: "Pharaoh asked Musa about the Lord of the worlds, and Musa answered that Allah is the Creator of the heavens and the earth and the Owner of everything."
+            en: "Pharaoh asked Musa about the Lord of the worlds, and Musa answered that Allah is the Creator of the heavens and the earth and the Owner of everything.",
           },
           ayah: {
             text: "قَالَ رَبُّ السَّمَاوَاتِ وَالْأَرْضِ وَمَا بَيْنَهُمَا إِن كُنتُم مُّوقِنِينَ",
             ref: { ar: "الشعراء: 24", en: "Ash-Shu'ara: 24" },
-            audioUrl: "/audios/musa/Lord-of-Worlds.mp3"
-          }
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/026024.mp3",
+          },
         },
         {
           text: {
             ar: "اتهم فرعون موسى بالجنون أمام قومه، لكن موسى استمر في دعوته وأظهر المعجزات التي أيّده الله بها.",
-            en: "Pharaoh accused Musa of madness before his people, but Musa continued his mission and showed the miracles Allah had granted him."
-          }
+            en: "Pharaoh accused Musa of madness before his people, but Musa continued his mission and showed the miracles Allah had granted him.",
+          },
         },
         {
           text: {
-            ar: "تعجب فرعون مما رأى، فاستشار قومه، فأخبروه أن موسى وهارون ساحران يريدان الاستيلاء على ملكه، ونصحوه بجمع السحرة لمواجهتهما.",
-            en: "Pharaoh was astonished by what he saw, so he consulted his people. They claimed Musa and Harun were magicians seeking to seize his kingdom and advised him to gather the magicians to confront them."
+            ar: "تعجب فرعون مما رأى، فاستشار قومه.",
+            en: "Pharaoh was astonished by what he saw, so he consulted his people.",
           },
           ayah: {
-            text: "قَالَ الْمَلَأُ مِن قَوْمِ فِرْعَوْنَ إِنَّ هَٰذَا لَسَاحِرٌ عَلِيمٌ يُرِيدُ أَن يُخْرِجَكُم مِّنْ أَرْضِكُمْ فَمَاذَا تَأْمُرُونَ",
-            ref: { ar: "الأعراف: 109-110", en: "Al-A'raf: 109-110" },
-            audioUrl: "/audios/musa/Pharaohs-Council.mp3"
-          }
-        }
-      ]
+            text: "قَالَ الْمَلَأُ مِن قَوْمِ فِرْعَوْنَ إِنَّ هَٰذَا لَسَاحِرٌ عَلِيمٌ",
+            ref: { ar: "الأعراف: 109", en: "Al-A'raf: 109" },
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/007109.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "أخبروه أن موسى وهارون ساحران يريدان إخراجهم من أرضهم، ونصحوه بجمع السحرة لمواجهتهما.",
+            en: "They claimed Musa and Harun were magicians seeking to expel them from their land, and advised him to gather magicians to confront them.",
+          },
+          ayah: {
+            text: "يُرِيدُ أَن يُخْرِجَكُم مِّنْ أَرْضِكُمْ فَمَاذَا تَأْمُرُونَ",
+            ref: { ar: "الأعراف: 110", en: "Al-A'raf: 110" },
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/007110.mp3",
+          },
+        },
+      ],
     },
     {
       title: {
@@ -365,14 +395,12 @@ export const musaStory: ProphetStory = {
             en: "Pharaoh gathered the magicians and told them about the miracles of Musa, asking them to confront him with their magic.",
           },
         },
-
         {
           text: {
             ar: "وعد فرعون السحرة بالمكافآت والقرب منه إن استطاعوا التغلب على موسى.",
             en: "Pharaoh promised the magicians rewards and closeness to him if they succeeded in defeating Musa.",
           },
         },
-
         {
           text: {
             ar: "ألقى السحرة حبالهم وعصيهم، ثم ألقى موسى عصاه فتحولت إلى حيّة عظيمة ابتلعت ما صنعوه.",
@@ -380,23 +408,21 @@ export const musaStory: ProphetStory = {
           },
 
           ayah: {
-            text: "فَأُلْقِيَ السَّحَرَةُ سُجَّدًا",
+            text: "فَأُلْقِيَ السَّحَرَةُ سُجَّدًا قَالُوا آمَنَّا بِرَبِّ هَارُونَ وَمُوسَىٰ",
             ref: {
               ar: "طه: 70",
               en: "Taha: 70",
             },
             audioUrl:
-              "/audios/musa/Confronting the Magicians.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/020070.mp3",
           },
         },
-
         {
           text: {
             ar: "أدرك السحرة أن ما جاء به موسى ليس سحرًا، فآمنوا برب موسى وهارون وسجدوا لله.",
             en: "The magicians realized that what Musa brought was not magic, so they believed in the Lord of Musa and Harun and prostrated to Allah.",
           },
         },
-
         {
           text: {
             ar: "غضب فرعون واتهم موسى بأنه علّم السحرة السحر، وهددهم بالعذاب والصلب.",
@@ -411,15 +437,16 @@ export const musaStory: ProphetStory = {
         {
           text: {
             ar: "استمر فرعون في تكذيب موسى، وأمر وزيره هامان أن يبني له صرحًا عاليًا ليتكبر ويزعم أنه سيطّلع إلى إله موسى.",
-            en: "Pharaoh continued denying Musa and ordered his minister Haman to build a towering structure so he could arrogantly claim to look upon the God of Musa."
+            en: "Pharaoh continued denying Musa and ordered his minister Haman to build a towering structure so he could arrogantly claim to look upon the God of Musa.",
           },
           ayah: {
             text: "وَقَالَ فِرْعَوْنُ يَا هَامَانُ ابْنِ لِي صَرْحًا لَّعَلِّي أَبْلُغُ الْأَسْبَابَ",
             ref: { ar: "غافر: 36", en: "Ghafir: 36" },
-            audioUrl: "/audios/musa/Haman-Build-Tower.mp3"
-          }
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/040036.mp3",
+          },
+        },
+      ],
     },
     {
       title: { ar: "إيمان بني إسرائيل", en: "Faith of the Israelites" },
@@ -427,63 +454,76 @@ export const musaStory: ProphetStory = {
         {
           text: {
             ar: "آمن بنو إسرائيل بموسى وهارون، فأمرهم الله أن يثبتوا على الإيمان ويقيموا الصلاة ويصبروا على الأذى.",
-            en: "The Children of Israel believed in Musa and Harun, and Allah commanded them to remain steadfast in faith, establish prayer, and be patient despite persecution."
+            en: "The Children of Israel believed in Musa and Harun, and Allah commanded them to remain steadfast in faith, establish prayer, and be patient despite persecution.",
           },
           ayah: {
             text: "وَأَوْحَيْنَا إِلَىٰ مُوسَىٰ وَأَخِيهِ أَنْ تَبَوَّآ لِقَوْمِكُمَا بِمِصْرَ بُيُوتًا وَاجْعَلُوا بُيُوتَكُمْ قِبْلَةً وَأَقِيمُوا الصَّلَاةَ وَبَشِّرِ الْمُؤْمِنِينَ",
             ref: { ar: "يونس: 87", en: "Yunus: 87" },
-            audioUrl: "/audios/musa/Israelites-Faith.mp3"
-          }
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/010087.mp3",
+          },
+        },
+      ],
     },
     {
-      title: { ar: "الرجل المؤمن من آل فرعون", en: "The Believing Man from Pharaoh’s Family" },
+      title: {
+        ar: "الرجل المؤمن من آل فرعون",
+        en: "The Believing Man from Pharaoh’s Family",
+      },
       sections: [
         {
           text: {
             ar: "همّ فرعون بقتل موسى، لكن رجلًا مؤمنًا من آل فرعون كان يخفي إيمانه دافع عنه وحذر قومه من تكذيب الحق.",
-            en: "Pharaoh intended to kill Musa, but a believing man from Pharaoh’s family, who concealed his faith, defended Musa and warned the people against rejecting the truth."
+            en: "Pharaoh intended to kill Musa, but a believing man from Pharaoh’s family, who concealed his faith, defended Musa and warned the people against rejecting the truth.",
           },
           ayah: {
             text: "وَقَالَ رَجُلٌ مُّؤْمِنٌ مِّنْ آلِ فِرْعَوْنَ يَكْتُمُ إِيمَانَهُ أَتَقْتُلُونَ رَجُلًا أَن يَقُولَ رَبِّيَ اللَّهُ وَقَدْ جَاءَكُم بِالْبَيِّنَاتِ مِن رَّبِّكُمْ ۖ وَإِن يَكُ كَاذِبًا فَعَلَيْهِ كَذِبُهُ ۖ وَإِن يَكُ صَادِقًا يُصِبْكُم بَعْضُ الَّذِي يَعِدُكُمْ ۖ إِنَّ اللَّهَ لَا يَهْدِي مَنْ هُوَ مُسْرِفٌ كَذَّابٌ",
             ref: { ar: "غافر: 28", en: "Ghafir: 28" },
-            audioUrl: "/audios/musa/Believing-Man.mp3"
-          }
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/040028.mp3",
+          },
+        },
+      ],
     },
     {
-      title: { ar: "دعاء موسى على فرعون", en: "Musa’s Supplication against Pharaoh" },
+      title: {
+        ar: "دعاء موسى على فرعون",
+        en: "Musa’s Supplication against Pharaoh",
+      },
       sections: [
         {
           text: {
             ar: "طلب موسى من قومه الصبر والثقة بالله، ودعا على فرعون وقومه بعدما ازدادوا ظلمًا وطغيانًا.",
-            en: "Musa asked his people to remain patient and trust Allah, and he prayed against Pharaoh and his people after they increased in oppression and tyranny."
+            en: "Musa asked his people to remain patient and trust Allah, and he prayed against Pharaoh and his people after they increased in oppression and tyranny.",
           },
           ayah: {
             text: "وَقَالَ مُوسَىٰ رَبَّنَا إِنَّكَ آتَيْتَ فِرْعَوْنَ وَمَلَأَهُ زِينَةً وَأَمْوَالًا فِي الْحَيَاةِ الدُّنْيَا رَبَّنَا لِيُضِلُّوا عَن سَبِيلِكَ ۖ رَبَّنَا اطْمِسْ عَلَىٰ أَمْوَالِهِمْ وَاشْدُدْ عَلَىٰ قُلُوبِهِمْ فَلَا يُؤْمِنُوا حَتَّىٰ يَرَوُا الْعَذَابَ الْأَلِيمَ",
             ref: { ar: "يونس: 88", en: "Yunus: 88" },
-            audioUrl: "/audios/musa/Musa-Prayer.mp3"
-          }
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/010088.mp3",
+          },
+        },
+      ],
     },
     {
-      title: { ar: "الآيات والعقوبات على فرعون", en: "The Signs and Punishments upon Pharaoh" },
+      title: {
+        ar: "الآيات والعقوبات على فرعون",
+        en: "The Signs and Punishments upon Pharaoh",
+      },
       sections: [
         {
           text: {
             ar: "ابتلى الله قوم فرعون بالسنين ونقص الثمرات، ثم أرسل عليهم الطوفان والجراد والقمل والضفادع والدم آياتٍ متتابعة.",
-            en: "Allah afflicted Pharaoh’s people with drought and shortage of crops, then sent upon them the flood, locusts, lice, frogs, and blood as consecutive signs."
+            en: "Allah afflicted Pharaoh’s people with drought and shortage of crops, then sent upon them the flood, locusts, lice, frogs, and blood as consecutive signs.",
           },
           ayah: {
             text: "فَأَرْسَلْنَا عَلَيْهِمُ الطُّوفَانَ وَالْجَرَادَ وَالْقُمَّلَ وَالضَّفَادِعَ وَالدَّمَ آيَاتٍ مُّفَصَّلَاتٍ فَاسْتَكْبَرُوا وَكَانُوا قَوْمًا مُّجْرِمِينَ",
             ref: { ar: "الأعراف: 133", en: "Al-A'raf: 133" },
-            audioUrl: "/audios/musa/Plagues.mp3"
-          }
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/007133.mp3",
+          },
+        },
+      ],
     },
     {
       title: {
@@ -503,7 +543,7 @@ export const musaStory: ProphetStory = {
               en: "Taha: 77",
             },
             audioUrl:
-              "/audios/musa/The Exodus and Parting of the Sea.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/020077.mp3",
           },
         },
       ],
@@ -526,7 +566,7 @@ export const musaStory: ProphetStory = {
               en: "Al-Isra: 103",
             },
             audioUrl:
-              "/audios/musa/The Destruction of Pharaoh.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/017103.mp3",
           },
         },
       ],
@@ -551,7 +591,7 @@ export const musaStory: ProphetStory = {
               en: "Al-A'raf: 138",
             },
             audioUrl:
-              "/audios/musa/Meeting Allah at Mount Tur.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/007138.mp3",
           },
         },
 
@@ -569,14 +609,13 @@ export const musaStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَلَمَّا جَاءَ مُوسَىٰ لِمِيقَاتِنَا وَكَلَّمَهُ رَبُّهُ قَالَ رَبِّ أَرِنِي أَنظُرْ إِلَيْكَ ۚ قَالَ لَن تَرَانِي وَلَٰكِنِ انظُرْ إِلَى الْجَبَلِ فَإِنِ اسْتَقَرَّ مَكَانَهُ فَسَوْفَ تَرَانِي ۚ فَلَمَّا تَجَلَّىٰ رَبُّهُ لِلْجَبَلِ جَعَلَهُ دَكًّا وَخَرَّ مُوسَىٰ صَعِقًا ۚ فَلَمَّا أَفَاقَ قَالَ سُبْحَانَكَ تُبْتُ إِلَيْكَ وَأَنَا أَوَّلُ الْمُؤْمِنِينَ",
+            text: "وَلَمَّا جَاءَ مُوسَىٰ لِمِيقَاتِنَا وَكَلَّمَهُ رَبُّهُ قَالَ رَبِّ أَرِنِي أَنظُرْ إِلَيْكَ ۚ قَالَ لَن تَرَانِي وَلَٰكِنِ انظُرْ إِلَى الْجَبَلِ فَإِنِ اسْتَقَرَّ مَكَانَهُ فَسَوْفَ تَرَانِي ۚ فَلَمَّا تَجَلَّىٰ رَبُّهُ لِلْجَبَلِ جَعَلَهُ دَكًّا وَخَرَّ مُوسَىٰ صَعِقًا ۚ فَلَمَّا أَفَاقَ قَالَ سُبْحَانَكَ تُبْتُ إِلَيْكَ وَأَنَا أَوَّلُ الْمُؤْمِنِينَ",
             ref: {
               ar: "الأعراف: 143",
               en: "Al-A'raf: 143",
             },
             audioUrl:
-              "/audios/musa/Seeing Allah Request.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/007143.mp3",
           },
         },
 
@@ -594,14 +633,13 @@ export const musaStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَكَتَبْنَا لَهُ فِي الْأَلْوَاحِ مِن كُلِّ شَيْءٍ مَّوْعِظَةً وَتَفْصِيلًا لِّكُلِّ شَيْءٍ فَخُذْهَا بِقُوَّةٍ وَأْمُرْ قَوْمَكَ يَأْخُذُوا بِأَحْسَنِهَا ۚ سَأُرِيكُمْ دَارَ الْفَاسِقِينَ",
+            text: "وَكَتَبْنَا لَهُ فِي الْأَلْوَاحِ مِن كُلِّ شَيْءٍ مَّوْعِظَةً وَتَفْصِيلًا لِّكُلِّ شَيْءٍ فَخُذْهَا بِقُوَّةٍ وَأْمُرْ قَوْمَكَ يَأْخُذُوا بِأَحْسَنِهَا ۚ سَأُرِيكُمْ دَارَ الْفَاسِقِينَ",
             ref: {
               ar: "الأعراف: 145",
               en: "Al-A'raf: 145",
             },
             audioUrl:
-              "/audios/musa/The Tablets of Torah.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/007145.mp3",
           },
         },
       ],
@@ -619,7 +657,6 @@ export const musaStory: ProphetStory = {
             en: "Musa was absent from his people for forty nights, and during his absence, Al-Samiri made a golden calf for the Children of Israel.",
           },
         },
-
         {
           text: {
             ar: "ادّعى السامري أن العجل إلههم، فافتتن كثير من القوم وعبدوه من دون الله.",
@@ -627,46 +664,40 @@ export const musaStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "فَأَخْرَجَ لَهُمْ عِجْلًا جَسَدًا لَّهُ خُوَارٌ فَقَالُوا هَٰذَا إِلَٰهُكُمْ وَإِلَٰهُ مُوسَىٰ فَنَسِيَ",
+            text: "فَأَخْرَجَ لَهُمْ عِجْلًا جَسَدًا لَّهُ خُوَارٌ فَقَالُوا هَٰذَا إِلَٰهُكُمْ وَإِلَٰهُ مُوسَىٰ فَنَسِيَ",
             ref: {
               ar: "طه: 88",
               en: "Taha: 88",
             },
             audioUrl:
-              "/audios/musa/The Golden Calf.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/020088.mp3",
           },
         },
-
         {
           text: {
             ar: "حاول هارون أن ينهاهم عن عبادة العجل ويدعوهم لعبادة الله وحده، لكنهم رفضوا الاستماع إليه.",
             en: "Harun tried to stop them from worshipping the calf and called them to worship Allah alone, but they refused to listen.",
           },
         },
-
         {
           text: {
             ar: "عاد موسى فغضب غضبًا شديدًا عندما رأى قومه يعبدون العجل، وعاتب أخاه هارون.",
             en: "Musa returned and became extremely angry when he saw his people worshipping the calf, and he questioned his brother Harun.",
           },
         },
-
         {
           text: {
             ar: "ذهب موسى إلى السامري وواجهه بفعلته، ثم أحرق العجل ونسف رماده في البحر.",
             en: "Musa confronted Al-Samiri about his actions, then burned the calf and scattered its ashes into the sea.",
           },
-
           ayah: {
-            text:
-              "قَالَ فَاذْهَبْ فَإِنَّ لَكَ فِي الْحَيَاةِ أَن تَقُولَ لَا مِسَاسَ ۖ وَإِنَّ لَكَ مَوْعِدًا لَّن تُخْلَفَهُ ۖ وَانظُرْ إِلَىٰ إِلَٰهِكَ الَّذِي ظَلْتَ عَلَيْهِ عَاكِفًا ۖ لَّنُحَرِّقَنَّهُ ثُمَّ لَنَنسِفَنَّهُ فِي الْيَمِّ نَسْفًا",
+            text: "قَالَ فَاذْهَبْ فَإِنَّ لَكَ فِي الْحَيَاةِ أَن تَقُولَ لَا مِسَاسَ ۖ وَإِنَّ لَكَ مَوْعِدًا لَّن تُخْلَفَهُ ۖ وَانظُرْ إِلَىٰ إِلَٰهِكَ الَّذِي ظَلْتَ عَلَيْهِ عَاكِفًا ۖ لَّنُحَرِّقَنَّهُ ثُمَّ لَنَنسِفَنَّهُ فِي الْيَمِّ نَسْفًا",
             ref: {
               ar: "طه: 97",
               en: "Taha: 97",
             },
             audioUrl:
-              "/audios/musa/Burning the Golden Calf.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/020097.mp3",
           },
         },
       ],
@@ -676,26 +707,22 @@ export const musaStory: ProphetStory = {
         ar: "غضب موسى وإلقاء الألواح",
         en: "Musa’s Anger and the Tablets",
       },
-
       sections: [
         {
           text: {
             ar: "اشتد غضب موسى بسبب شرك قومه وعبادتهم للعجل، فألقى الألواح من شدة حزنه وغضبه.",
             en: "Musa became deeply angered by his people’s idolatry and threw down the Tablets out of sorrow and anger.",
           },
-
           ayah: {
-            text:
-              "وَلَمَّا رَجَعَ مُوسَىٰ إِلَىٰ قَوْمِهِ غَضْبَانَ أَسِفًا قَالَ بِئْسَمَا خَلَفْتُمُونِي مِن بَعْدِي ۖ أَعَجِلْتُمْ أَمْرَ رَبِّكُمْ ۖ وَأَلْقَى الْأَلْوَاحَ وَأَخَذَ بِرَأْسِ أَخِيهِ يَجُرُّهُ إِلَيْهِ ۚ قَالَ ابْنَ أُمَّ إِنَّ الْقَوْمَ اسْتَضْعَفُونِي وَكَادُوا يَقْتُلُونَنِي فَلَا تُشْمِتْ بِيَ الْأَعْدَاءَ وَلَا تَجْعَلْنِي مَعَ الْقَوْمِ الظَّالِمِينَ",
+            text: "وَلَمَّا رَجَعَ مُوسَىٰ إِلَىٰ قَوْمِهِ غَضْبَانَ أَسِفًا قَالَ بِئْسَمَا خَلَفْتُمُونِي مِن بَعْدِي ۖ أَعَجِلْتُمْ أَمْرَ رَبِّكُمْ ۖ وَأَلْقَى الْأَلْوَاحَ وَأَخَذَ بِرَأْسِ أَخِيهِ يَجُرُّهُ إِلَيْهِ ۚ قَالَ ابْنَ أُمَّ إِنَّ الْقَوْمَ اسْتَضْعَفُونِي وَكَادُوا يَقْتُلُونَنِي فَلَا تُشْمِتْ بِيَ الْأَعْدَاءَ وَلَا تَجْعَلْنِي مَعَ الْقَوْمِ الظَّالِمِينَ",
             ref: {
               ar: "الأعراف: 150",
               en: "Al-A'raf: 150",
             },
             audioUrl:
-              "/audios/musa/Musas Anger and the Tablets.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/007150.mp3",
           },
         },
-
         {
           text: {
             ar: "ثم دعا موسى ربه أن يغفر له ولأخيه هارون ويرحمهما.",
@@ -709,48 +736,41 @@ export const musaStory: ProphetStory = {
         ar: "البقرة الصفراء",
         en: "The Yellow Cow",
       },
-
       sections: [
         {
           text: {
             ar: "قُتل رجل من بني إسرائيل، فاختلف الناس في قاتله، فأوحى الله إلى موسى أن يأمرهم بذبح بقرة.",
             en: "A man from the Children of Israel was murdered, and the people disputed over the killer, so Allah commanded Musa to instruct them to slaughter a cow.",
           },
-
           ayah: {
-            text:
-              "وَإِذْ قَالَ مُوسَىٰ لِقَوْمِهِ إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تَذْبَحُوا بَقَرَةً ۖ قَالُوا أَتَتَّخِذُنَا هُزُوًا ۖ قَالَ أَعُوذُ بِاللَّهِ أَنْ أَكُونَ مِنَ الْجَاهِلِينَ",
+            text: "وَإِذْ قَالَ مُوسَىٰ لِقَوْمِهِ إِنَّ اللَّهَ يَأْمُرُكُمْ أَن تَذْبَحُوا بَقَرَةً ۖ قَالُوا أَتَتَّخِذُنَا هُزُوًا ۖ قَالَ أَعُوذُ بِاللَّهِ أَنْ أَكُونَ مِنَ الْجَاهِلِينَ",
             ref: {
               ar: "البقرة: 67",
               en: "Al-Baqarah: 67",
             },
             audioUrl:
-              "/audios/musa/The Yellow Cow.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/002067.mp3",
           },
         },
-
         {
           text: {
             ar: "بدأ بنو إسرائيل يكثرون من الأسئلة عن صفات البقرة، فشدد الله عليهم بسبب تعنتهم.",
             en: "The Children of Israel kept asking many questions about the cow’s description, so Allah made the matter stricter upon them because of their stubbornness.",
           },
         },
-
         {
           text: {
             ar: "بعد أن ذبحوا البقرة، أمرهم الله أن يضربوا القتيل بجزء منها، فأحياه الله وأخبرهم باسم قاتله.",
             en: "After slaughtering the cow, Allah commanded them to strike the dead man with part of it, and Allah brought him back to life to reveal the identity of his killer.",
           },
-
           ayah: {
-            text:
-              "فَقُلْنَا اضْرِبُوهُ بِبَعْضِهَا ۚ كَذَٰلِكَ يُحْيِي اللَّهُ الْمَوْتَىٰ وَيُرِيكُمْ آيَاتِهِ لَعَلَّكُمْ تَعْقِلُونَ",
+            text: "فَقُلْنَا اضْرِبُوهُ بِبَعْضِهَا ۚ كَذَٰلِكَ يُحْيِي اللَّهُ الْمَوْتَىٰ وَيُرِيكُمْ آيَاتِهِ لَعَلَّكُمْ تَعْقِلُونَ",
             ref: {
               ar: "البقرة: 73",
               en: "Al-Baqarah: 73",
             },
             audioUrl:
-              "/audios/musa/Reviving the Dead Man.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/002073.mp3",
           },
         },
       ],
@@ -768,61 +788,52 @@ export const musaStory: ProphetStory = {
             en: "Allah informed Musa that there was a righteous servant who possessed knowledge Musa did not have, so Musa traveled to learn from him.",
           },
         },
-
         {
           text: {
             ar: "التقى موسى بالخضر عند مجمع البحرين، وطلب أن يرافقه ليتعلم منه.",
             en: "Musa met Al-Khidr at the junction of the two seas and asked to accompany him to learn from him.",
           },
-
           ayah: {
-            text:
-              "قَالَ لَهُ مُوسَىٰ هَلْ أَتَّبِعُكَ عَلَىٰ أَن تُعَلِّمَنِ مِمَّا عُلِّمْتَ رُشْدًا",
+            text: "قَالَ لَهُ مُوسَىٰ هَلْ أَتَّبِعُكَ عَلَىٰ أَن تُعَلِّمَنِ مِمَّا عُلِّمْتَ رُشْدًا",
             ref: {
               ar: "الكهف: 66",
               en: "Al-Kahf: 66",
             },
             audioUrl:
-              "/audios/musa/Musa and Al-Khidr.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/018066.mp3",
           },
         },
-
         {
           text: {
             ar: "اشترط الخضر على موسى ألّا يسأله عن شيء حتى يشرح له السبب بنفسه.",
             en: "Al-Khidr made Musa promise not to question anything until he himself explained it.",
           },
         },
-
         {
           text: {
             ar: "خرق الخضر السفينة ليحميها من ملك ظالم كان يأخذ السفن الصالحة غصبًا.",
             en: "Al-Khidr damaged the ship to protect it from a tyrant king who seized good ships by force.",
           },
         },
-
         {
           text: {
             ar: "قتل الخضر غلامًا لأن الله علم أنه سيجلب الكفر والشقاء لوالديه المؤمنين.",
             en: "Al-Khidr killed a boy because Allah knew he would bring disbelief and misery to his believing parents.",
           },
         },
-
         {
           text: {
             ar: "أقام الخضر جدارًا يخفي كنزًا لغلامين يتيمين حفظًا لحقهما حتى يبلغا.",
             en: "Al-Khidr repaired a wall hiding a treasure belonging to two orphan boys, preserving it for them until they matured.",
           },
-
           ayah: {
-            text:
-              "وَأَمَّا الْجِدَارُ فَكَانَ لِغُلَامَيْنِ يَتِيمَيْنِ فِي الْمَدِينَةِ وَكَانَ تَحْتَهُ كَنزٌ لَّهُمَا وَكَانَ أَبُوهُمَا صَالِحًا فَأَرَادَ رَبُّكَ أَن يَبْلُغَا أَشُدَّهُمَا وَيَسْتَخْرِجَا كَنزَهُمَا رَحْمَةً مِّن رَّبِّكَ ۚ وَمَا فَعَلْتُهُ عَنْ أَمْرِي ۚ ذَٰلِكَ تَأْوِيلُ مَا لَمْ تَسْطِع عَّلَيْهِ صَبْرًا",
+            text: "وَأَمَّا الْجِدَارُ فَكَانَ لِغُلَامَيْنِ يَتِيمَيْنِ فِي الْمَدِينَةِ وَكَانَ تَحْتَهُ كَنزٌ لَّهُمَا وَكَانَ أَبُوهُمَا صَالِحًا فَأَرَادَ رَبُّكَ أَن يَبْلُغَا أَشُدَّهُمَا وَيَسْتَخْرِجَا كَنزَهُمَا رَحْمَةً مِّن رَّبِّكَ ۚ وَمَا فَعَلْتُهُ عَنْ أَمْرِي ۚ ذَٰلِكَ تَأْوِيلُ مَا لَمْ تَسْطِع عَّلَيْهِ صَبْرًا",
             ref: {
               ar: "الكهف: 82",
               en: "Al-Kahf: 82",
             },
             audioUrl:
-              "/audios/musa/The Wisdom of Al-Khidr.mp3",
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/018082.mp3",
           },
         },
       ],
@@ -841,5 +852,5 @@ export const musaStory: ProphetStory = {
         },
       ],
     },
-  ]
+  ],
 };

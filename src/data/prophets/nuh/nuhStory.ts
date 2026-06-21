@@ -1,7 +1,7 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
 export const nuhStory: ProphetStory = {
-  name: { ar: "نوح", en: "Noah" },
+  name: { ar: "سيدنا نوح", en: "Prophet Noah" },
 
   title: {
     ar: "نبي الطوفان وأول أولي العزم",
@@ -47,9 +47,10 @@ export const nuhStory: ProphetStory = {
             en: "So Allah sent Noah to restore monotheism",
           },
           ayah: {
-            text: "إِنَّا أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِ",
+            text: "إِنَّا أَرْسَلْنَا نُوحًا إِلَىٰ قَوْمِهِ أَنْ أَنذِرْ قَوْمَكَ مِن قَبْلِ أَن يَأْتِيَهُمْ عَذَابٌ أَلِيمٌ",
             ref: { ar: "نوح: 1", en: "Nuh: 1" },
-            audioUrl: "/audios/nuh/The Mission of Noah.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/071001.mp3",
           },
         },
       ],
@@ -83,7 +84,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "قَالَ رَبِّ إِنِّي دَعَوْتُ قَوْمِي لَيْلًا وَنَهَارًا",
             ref: { ar: "نوح: 5", en: "Nuh: 5" },
-            audioUrl: "/audios/nuh/A Long Call.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/071005.mp3",
           },
         },
       ],
@@ -99,7 +101,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "فلم يزدهم دعائي الا فرارًا",
             ref: { ar: "نوح: 6", en: "Nuh: 6" },
-            audioUrl: "/audios/nuh/Response of His People1.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/071006.mp3",
           },
         },
         {
@@ -116,7 +119,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "وَإِنِّي كُلَّمَا دَعَوْتُهُمْ لِتَغْفِرَ لَهُمْ جَعَلُوا أَصَابِعَهُمْ فِي آذَانِهِمْ وَاسْتَغْشَوْا ثِيَابَهُمْ وَأَصَرُّوا وَاسْتَكْبَرُوا اسْتِكْبَارًا",
             ref: { ar: "نوح: 7", en: "Nuh: 7" },
-            audioUrl: "/audios/nuh/Response of His People2.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/071007.mp3",
           },
         },
         {
@@ -144,7 +148,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "وَقَالَ نُوحٌ رَّبِّ لَا تَذَرْ عَلَى الْأَرْضِ مِنَ الْكَافِرِينَ دَيَّارًا",
             ref: { ar: "نوح: 26", en: "Nuh: 26" },
-            audioUrl: "/audios/nuh/The Supplication.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/071026.mp3",
           },
         },
       ],
@@ -158,9 +163,10 @@ export const nuhStory: ProphetStory = {
             en: "Allah commanded Noah to build the Ark",
           },
           ayah: {
-            text: "وَاصْنَعِ الْفُلْكَ بِأَعْيُنِنَا",
+            text: "وَاصْنَعِ الْفُلْكَ بِأَعْيُنِنَا وَوَحْيِنَا وَلَا تُخَاطِبْنِي فِي الَّذِينَ ظَلَمُوا ۚ إِنَّهُم مُّغْرَقُونَ",
             ref: { ar: "هود: 37", en: "Hud: 37" },
-            audioUrl: "/audios/nuh/Building the Ark.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/011037.mp3",
           },
         },
         {
@@ -177,7 +183,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "وَيَصْنَعُ الْفُلْكَ وَكُلَّمَا مَرَّ عَلَيْهِ مَلَأٌ مِّن قَوْمِهِ سَخِرُوا مِنْهُ ۚ قَالَ إِن تَسْخَرُوا مِنَّا فَإِنَّا نَسْخَرُ مِنكُمْ كَمَا تَسْخَرُونَ",
             ref: { ar: "هود: 38", en: "Hud: 38" },
-            audioUrl: "/audios/nuh/People Mocked Nuh.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/011038.mp3",
           },
         },
       ],
@@ -193,7 +200,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "فَفَتَحْنَا أَبْوَابَ السَّمَاءِ بِمَاءٍ مُّنْهَمِرٍ",
             ref: { ar: "القمر: 11", en: "Al-Qamar: 11" },
-            audioUrl: "/audios/nuh/The Flood Begins1.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/054011.mp3",
           },
         },
         {
@@ -204,7 +212,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "وَفَجَّرْنَا الْأَرْضَ عُيُونًا فَالْتَقَى الْمَاءُ عَلَىٰ أَمْرٍ قَدْ قُدِرَ",
             ref: { ar: "القمر: 12", en: "Al-Qamar: 12" },
-            audioUrl: "/audios/nuh/The Flood Begins2.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/054012.mp3",
           },
         },
         {
@@ -232,7 +241,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "حَتَّىٰ إِذَا جَاءَ أَمْرُنَا وَفَارَ التَّنُّورُ قُلْنَا احْمِلْ فِيهَا مِن كُلٍّ زَوْجَيْنِ اثْنَيْنِ وَأَهْلَكَ إِلَّا مَن سَبَقَ عَلَيْهِ الْقَوْلُ وَمَنْ آمَنَ ۚ وَمَا آمَنَ مَعَهُ إِلَّا قَلِيلٌ",
             ref: { ar: "هود: 40", en: "Hud: 40" },
-            audioUrl: "/audios/nuh/Salvation.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/011040.mp3",
           },
         },
         {
@@ -243,7 +253,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "وَقَالَ ارْكَبُوا فِيهَا بِسْمِ اللَّهِ مَجْرَاهَا وَمُرْسَاهَا ۚ إِنَّ رَبِّي لَغَفُورٌ رَّحِيمٌ",
             ref: { ar: "هود: 41", en: "Hud: 41" },
-            audioUrl: "/audios/nuh/Ark Sailed.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/011041.mp3",
           },
         },
       ],
@@ -259,7 +270,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "وَهِيَ تَجْرِي بِهِمْ فِي مَوْجٍ كَالْجِبَالِ وَنَادَىٰ نُوحٌ ابْنَهُ وَكَانَ فِي مَعْزِلٍ يَا بُنَيَّ ارْكَب مَّعَنَا وَلَا تَكُن مَّعَ الْكَافِرِينَ",
             ref: { ar: "هود: 42", en: "Hud: 42" },
-            audioUrl: "/audios/nuh/Noah's Son1.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/011042.mp3",
           },
         },
         {
@@ -276,7 +288,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "قَالَ سَآوِي إِلَىٰ جَبَلٍ يَعْصِمُنِي مِنَ الْمَاءِ ۚ قَالَ لَا عَاصِمَ الْيَوْمَ مِنْ أَمْرِ اللَّهِ إِلَّا مَن رَّحِمَ ۚ وَحَالَ بَيْنَهُمَا الْمَوْجُ فَكَانَ مِنَ الْمُغْرَقِينَ",
             ref: { ar: "هود: 43", en: "Hud: 43" },
-            audioUrl: "/audios/nuh/Noah's Son2.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/011043.mp3",
           },
         },
       ],
@@ -304,7 +317,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "وقيل يَا أَرْضُ ابْلَعِي مَاءَكِ وَيَا سَمَاءُ أَقْلِعِي وَغِيضَ الْمَاءُ وَقُضِيَ الْأَمْرُ وَاسْتَوَتْ عَلَى الْجُودِيِّ وَقِيلَ بُعْدًا لِّلْقَوْمِ الظَّالِمِينَ",
             ref: { ar: "هود: 44", en: "Hud: 44" },
-            audioUrl: "/audios/nuh/End of the Flood.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/011044.mp3",
           },
         },
       ],
@@ -320,7 +334,8 @@ export const nuhStory: ProphetStory = {
           ayah: {
             text: "وَنَادَىٰ نُوحٌ رَّبَّهُ فَقَالَ رَبِّ إِنَّ ابْنِي مِنْ أَهْلِي وَإِنَّ وَعْدَكَ الْحَقُّ وَأَنتَ أَحْكَمُ الْحَاكِمِينَ",
             ref: { ar: "نوح: 28", en: "Nuh: 28" },
-            audioUrl: "/audios/nuh/After the Flood1.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/071028.mp3",
           },
         },
         {
@@ -330,9 +345,10 @@ export const nuhStory: ProphetStory = {
           },
           ayah: {
             text: "قَالَ يَا نُوحُ إِنَّهُ لَيْسَ مِنْ أَهْلِكَ ۖ إِنَّهُ عَمَلٌ غَيْرُ صَالِحٍ ۖ فَلَا تَسْأَلْنِ مَا لَيْسَ لَكَ بِهِ عِلْمٌ ۖ إِنِّي أَعِظُكَ أَن تَكُونَ مِنَ الْجَاهِلِينَ",
-            ref: {ar: "هود: 46", en: "Hud: 46"},
-            audioUrl: "/audios/nuh/After the Flood2.mp3",
-          }
+            ref: { ar: "هود: 46", en: "Hud: 46" },
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/011046.mp3",
+          },
         },
         {
           text: {
@@ -341,31 +357,20 @@ export const nuhStory: ProphetStory = {
           },
           ayah: {
             text: "قَالَ رَبِّ إِنِّي أَعُوذُ بِكَ أَنْ أَسْأَلَكَ مَا لَيْسَ لِي بِهِ عِلْمٌ ۖ وَإِلَّا تَغْفِرْ لِي وَتَرْحَمْنِي أَكُن مِّنَ الْخَاسِرِينَ",
-            ref: {ar: "هود: 47", en: "Hud: 47"},
-            audioUrl: "/audios/nuh/After the Flood3.mp3",
-          }
-        }
-        ],
+            ref: { ar: "هود: 47", en: "Hud: 47" },
+            audioUrl:
+              "https://www.everyayah.com/data/MaherAlMuaiqly128kbps/011047.mp3",
+          },
+        },
+      ],
     },
     {
       title: { ar: "الدروس والعبر", en: "Lessons" },
       sections: [
         {
           text: {
-            ar: "الصبر الطويل في الدعوة طريق الأنبياء",
-            en: "Long patience is the way of prophets",
-          },
-        },
-        {
-          text: {
-            ar: "النجاة تكون بالإيمان وليس بالنسب",
-            en: "Salvation comes through faith, not lineage",
-          },
-        },
-        {
-          text: {
-            ar: "الإخلاص لله سبب النجاة",
-            en: "Sincerity leads to success",
+            ar: "الصبر الطويل في الدعوة طريق الأنبياء، والنجاة تكون بالإيمان وليس بالنسب، والإخلاص لله سبب النجاة.",
+            en: "Long patience is the way of prophets, salvation comes through faith not lineage, and sincerity to Allah leads to success.",
           },
         },
       ],

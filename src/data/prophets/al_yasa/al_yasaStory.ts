@@ -40,13 +40,13 @@ export const al_yasaStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَإِسْمَاعِيلَ وَالْيَسَعَ وَيُونُسَ وَلُوطًا ۚ وَكُلًّا فَضَّلْنَا عَلَى الْعَالَمِينَ",
+            text: "وَإِسْمَاعِيلَ وَالْيَسَعَ وَيُونُسَ وَلُوطًا ۚ وَكُلًّا فَضَّلْنَا عَلَى الْعَالَمِينَ",
             ref: {
               ar: "الأنعام: 86",
               en: "Al-An'am: 86",
             },
-            audioUrl: "/audios/Al-Yasa/Al-Yasa in the Quran.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Nasser_Alqatami_128kbps/006086.mp3",
           },
         },
       ],
@@ -65,13 +65,13 @@ export const al_yasaStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَاذْكُرْ إِسْمَاعِيلَ وَالْيَسَعَ وَذَا الْكِفْلِ ۖ وَكُلٌّ مِّنَ الْأَخْيَارِ",
+            text: "وَاذْكُرْ إِسْمَاعِيلَ وَالْيَسَعَ وَذَا الْكِفْلِ ۖ وَكُلٌّ مِّنَ الْأَخْيَارِ",
             ref: {
               ar: "ص: 48",
               en: "Sad: 48",
             },
-            audioUrl: "/audios/Al-Yasa/Al-Yasa Among the Righteous.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Nasser_Alqatami_128kbps/038048.mp3",
           },
         },
       ],

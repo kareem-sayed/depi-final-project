@@ -46,7 +46,7 @@ export const ilyasStory: ProphetStory = {
               en: "As-Saffat: 123",
             },
             audioUrl:
-              "/audios/ilyas/Ilyas Among the Messengers.mp3",
+              "https://www.everyayah.com/data/Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net/037123.mp3",
           },
         },
       ],
@@ -71,7 +71,7 @@ export const ilyasStory: ProphetStory = {
               en: "As-Saffat: 124",
             },
             audioUrl:
-              "/audios/ilyas/Calling His People.mp3",
+              "https://www.everyayah.com/data/Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net/037124.mp3",
           },
         },
       ],
@@ -90,13 +90,13 @@ export const ilyasStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "أَتَدْعُونَ بَعْلًا وَتَذَرُونَ أَحْسَنَ الْخَالِقِينَ",
+            text: "أَتَدْعُونَ بَعْلًا وَتَذَرُونَ أَحْسَنَ الْخَالِقِينَ",
             ref: {
               ar: "الصافات: 125",
               en: "As-Saffat: 125",
             },
-            audioUrl: "/audios/ilyas/The Worship of Baal.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net/037125.mp3",
           },
         },
       ],
@@ -115,65 +115,71 @@ export const ilyasStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "اللَّهَ رَبَّكُمْ وَرَبَّ آبَائِكُمُ الْأَوَّلِينَ",
+            text: "اللَّهَ رَبَّكُمْ وَرَبَّ آبَائِكُمُ الْأَوَّلِينَ",
             ref: {
               ar: "الصافات: 126",
               en: "As-Saffat: 126",
             },
             audioUrl:
-              "/audios/ilyas/Ilyas Calling to Monotheism.mp3",
+              "https://www.everyayah.com/data/Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net/037126.mp3",
           },
         },
       ],
     },
     {
-      title: {
-        ar: "تكذيب قومه",
-        en: "His People's Denial",
-      },
-
+      title: { ar: "تكذيب قومه", en: "His People's Denial" },
       sections: [
         {
           text: {
-            ar: "كذب قوم إلياس دعوته وأصروا على الشرك، إلا عباد الله المؤمنين الذين ثبتوا على الحق.",
-            en: "The people of Ilyas denied his message and persisted in polytheism, except for Allah’s sincere believing servants.",
+            ar: "كذب قوم إلياس دعوته وأصروا على الشرك.",
+            en: "The people of Ilyas denied his message and persisted in polytheism.",
           },
-
           ayah: {
-            text:
-              "فَكَذَّبُوهُ فَإِنَّهُمْ لَمُحْضَرُونَ * إِلَّا عِبَادَ اللَّهِ الْمُخْلَصِينَ",
-            ref: {
-              ar: "الصافات: 127-128",
-              en: "As-Saffat: 127-128",
-            },
-            audioUrl: "/audios/ilyas/His Peoples Denial.mp3",
-          },
-        },
-      ],
-    },
-    {
-      title: {
-        ar: "ثناء الله على إلياس",
-        en: "Allah's Praise for Ilyas",
-      },
-
-      sections: [
-        {
-          text: {
-            ar: "أثنى الله على إلياس في القرآن، وخلّد ذكره بين الأنبياء الصالحين جزاءً لصبره ودعوته.",
-            en: "Allah praised Ilyas in the Quran and honored his remembrance among the righteous prophets for his patience and mission.",
-          },
-
-          ayah: {
-            text:
-              "سَلَامٌ عَلَىٰ إِلْ يَاسِينَ * إِنَّا كَذَٰلِكَ نَجْزِي الْمُحْسِنِينَ",
-            ref: {
-              ar: "الصافات: 130-131",
-              en: "As-Saffat: 130-131",
-            },
+            text: "فَكَذَّبُوهُ فَإِنَّهُمْ لَمُحْضَرُونَ",
+            ref: { ar: "الصافات: 127", en: "As-Saffat: 127" },
             audioUrl:
-              "/audios/ilyas/Allahs Praise for Ilyas.mp3",
+              "https://www.everyayah.com/data/Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net/037127.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "إلا عباد الله المؤمنين الذين ثبتوا على الحق.",
+            en: "Except for Allah’s sincere believing servants who remained steadfast on the truth.",
+          },
+          ayah: {
+            text: "إِلَّا عِبَادَ اللَّهِ الْمُخْلَصِينَ",
+            ref: { ar: "الصافات: 128", en: "As-Saffat: 128" },
+            audioUrl:
+              "https://www.everyayah.com/data/Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net/037128.mp3",
+          },
+        },
+      ],
+    },
+    {
+      title: { ar: "ثناء الله على إلياس", en: "Allah's Praise for Ilyas" },
+      sections: [
+        {
+          text: {
+            ar: "أثنى الله على إلياس وخلّد ذكره بين الأنبياء الصالحين.",
+            en: "Allah praised Ilyas and honored his remembrance among the righteous prophets.",
+          },
+          ayah: {
+            text: "سَلَامٌ عَلَىٰ إِلْ يَاسِينَ",
+            ref: { ar: "الصافات: 130", en: "As-Saffat: 130" },
+            audioUrl:
+              "https://www.everyayah.com/data/Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net/037130.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "وهذا جزاء المحسنين الذين صبروا وثبتوا على الحق.",
+            en: "This is the reward of the good doers who remained patient and steadfast on the truth.",
+          },
+          ayah: {
+            text: "إِنَّا كَذَٰلِكَ نَجْزِي الْمُحْسِنِينَ",
+            ref: { ar: "الصافات: 131", en: "As-Saffat: 131" },
+            audioUrl:
+              "https://www.everyayah.com/data/Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net/037131.mp3",
           },
         },
       ],

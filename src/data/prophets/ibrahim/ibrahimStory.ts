@@ -41,9 +41,9 @@ export const ibrahimStory: ProphetStory = {
           text: {
             ar: "وُلد إبراهيم في مدينة أور في العراق، ونشأ في بيئة مشركة، وكان قومه يعبدون الأصنام من دون الله ويعبدون الشمس والقمر والكواكب و كان أبوه ازر هو من يصنع الأصنام بنفسه ويبيعها.",
             en: "Ibrahim was born in the city of Ur in Iraq and grew up in a polytheistic environment, but he was searching for the truth from a young age.",
-          }
+          },
         },
-      ]
+      ],
     },
     {
       title: {
@@ -55,18 +55,27 @@ export const ibrahimStory: ProphetStory = {
           text: {
             ar: "بعد أن رفض أبوه عبادة الله وحده ولم يستجيب له ذهب ليبلغ قومه رسالة ربه وعلم أن قلوبهم قد تعلقت بالنجوم والكواكب والشمس.",
             en: "After his father refused to worship God alone and did not respond to him, he went to deliver his Lord's message to his people, knowing that their hearts were attached to the stars, planets, and the sun.",
-          }
+          },
         },
         {
           text: {
             ar: "كان يريد سيدنا إبراهيم أن يعرف من هو الإله الحقيقي الذي يستحق العبادة، فبدأ يبحث عن الحقيقة في الكون من حوله.",
             en: "He wanted to know which is the true God worthy of worship, so he began searching for the truth in the universe around him.",
-          }
+          },
         },
         {
           text: {
             ar: "أولًا تأمل في الكواكب، لكنه رأى أنها تغرب وتختفي، فاستنتج أنها لا تملك القدرة على الخلق ولا على البقاء.",
             en: "First, he reflected on the stars, but he saw them setting and disappearing, so he concluded they had no power of creation or permanence.",
+          },
+          ayah: {
+            text: "فَلَمَّا جَنَّ عَلَيْهِ اللَّيْلُ رَأَىٰ كَوْكَبًا ۖ قَالَ هَٰذَا رَبِّي ۖ فَلَمَّا أَفَلَ قَالَ لَا أُحِبُّ الْآفِلِينَ",
+            ref: {
+              ar: "الأنعام: 76",
+              en: "Al-An'am: 76",
+            },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/006076.mp3",
           },
         },
         {
@@ -75,12 +84,13 @@ export const ibrahimStory: ProphetStory = {
             en: "Then he reflected on the moon, seeing it rise and set, and concluded it had no power of creation or permanence.",
           },
           ayah: {
-            text: "فلما رأى القمر بازغًا قال هذا ربي فلما أفلت قال لا أحب الآفلين فلما رأى الشمس بازغة قال هذا ربي هذا أكبر فلما أفلت قال يا قوم إني بريء مما تشركون",
+            text: "فَلَمَّا رَأَى الْقَمَرَ بَازِغًا قَالَ هَٰذَا رَبِّي ۖ فَلَمَّا أَفَلَ قَالَ لَئِن لَّمْ يَهْدِنِي رَبِّي لَأَكُونَنَّ مِنَ الْقَوْمِ الضَّالِّينَ",
             ref: {
-              ar: "الأنعام: 79",
-              en: "Al-An'am: 79",
+              ar: "الأنعام: 77",
+              en: "Al-An'am: 77",
             },
-            audioUrl: "/audios/ibrahim/The Search for Truth.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/006077.mp3",
           },
         },
         {
@@ -88,36 +98,106 @@ export const ibrahimStory: ProphetStory = {
             ar: "ثم تأمل في الشمس، فرأى أنها تشرق وتغرب، فاستنتج أنها لا تملك القدرة على الخلق ولا على البقاء.",
             en: "Then he reflected on the sun, seeing it rise and set, and concluded it had no power of creation or permanence.",
           },
+          ayah: {
+            text: "فَلَمَّا رَأَى الشَّمْسَ بَازِغَةً قَالَ هَٰذَا رَبِّي هَٰذَا أَكْبَرُ ۖ فَلَمَّا أَفَلَتْ قَالَ يَا قَوْمِ إِنِّي بَرِيءٌ مِّمَّا تُشْرِكُونَ",
+            ref: {
+              ar: "الأنعام: 78",
+              en: "Al-An'am: 78",
+            },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/006078.mp3",
+          },
         },
         {
           text: {
             ar: "أخيرًا، تأمل في نفسه وروحه، فاستنتج أن الله هو الخالق الحقيقي الذي لا يموت ولا يغيب، وأنه هو الذي يستحق العبادة.",
             en: "Finally, he reflected on himself and his spirit, concluding that Allah is the true Creator who does not die or hide, and He is the one worthy of worship.",
           },
-        }
-      ]
+          ayah: {
+            text: "إِنِّي وَجَّهْتُ وَجْهِيَ لِلَّذِي فَطَرَ السَّمَاوَاتِ وَالْأَرْضَ حَنِيفًا ۖ وَمَا أَنَا مِنَ الْمُشْرِكِينَ",
+            ref: {
+              ar: "الأنعام: 79",
+              en: "Al-An'am: 79",
+            },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/006079.mp3",
+          },
+        },
+      ],
     },
     {
-      title: {
-        ar: "دعوة أبيه وقومه",
-        en: "Calling His Father and People",
-      },
-
+      title: { ar: "دعوة أبيه وقومه", en: "Calling His Father and People" },
       sections: [
         {
           text: {
-            ar: "بدأ إبراهيم بدعوة أبيه وقومه بالحكمة والرفق، ونهاهم عن عبادة الأصنام التي لا تسمع ولا تنفع.",
-            en: "Ibrahim began by calling his father and people with wisdom and gentleness, warning them against worshipping idols that neither hear nor benefit.",
+            ar: "بدأ إبراهيم بدعوة أبيه بالحكمة والرفق، ونهاه عن عبادة الأصنام التي لا تسمع ولا تنفع.",
+            en: "Ibrahim began by calling his father with wisdom and gentleness, warning him against worshipping idols that neither hear nor benefit.",
           },
-
           ayah: {
             text: "إِذْ قَالَ لِأَبِيهِ يَا أَبَتِ لِمَ تَعْبُدُ مَا لَا يَسْمَعُ وَلَا يُبْصِرُ وَلَا يُغْنِي عَنكَ شَيْئًا",
-            ref: {
-              ar: "مريم: 42",
-              en: "Maryam: 42",
-            },
+            ref: { ar: "مريم: 42", en: "Maryam: 42" },
             audioUrl:
-              "/audios/ibrahim/Calling His Father and People.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/019042.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "أخبره أن الله منحه علمًا لم يصل إليه، ودعاه أن يتبعه ليهديه إلى الطريق المستقيم.",
+            en: "He told him that Allah had given him knowledge his father did not have, and invited him to follow him to be guided to the straight path.",
+          },
+          ayah: {
+            text: "يَا أَبَتِ إِنِّي قَدْ جَاءَنِي مِنَ الْعِلْمِ مَا لَمْ يَأْتِكَ فَاتَّبِعْنِي أَهْدِكَ صِرَاطًا سَوِيًّا",
+            ref: { ar: "مريم: 43", en: "Maryam: 43" },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/019043.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "نهاه عن عبادة الشيطان، وبيّن أن الشيطان عاصٍ للرحمن.",
+            en: "He forbade him from worshipping Satan, explaining that Satan is disobedient to the Most Merciful.",
+          },
+          ayah: {
+            text: "يَا أَبَتِ لَا تَعْبُدِ الشَّيْطَانَ ۖ إِنَّ الشَّيْطَانَ كَانَ لِلرَّحْمَٰنِ عَصِيًّا",
+            ref: { ar: "مريم: 44", en: "Maryam: 44" },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/019044.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "أخبره أنه يخاف أن يصيبه عذاب من الرحمن فيكون من أتباع الشيطان.",
+            en: "He told him he feared that a punishment from the Most Merciful might afflict him, making him a companion of Satan.",
+          },
+          ayah: {
+            text: "يَا أَبَتِ إِنِّي أَخَافُ أَن يَمَسَّكَ عَذَابٌ مِّنَ الرَّحْمَٰنِ فَتَكُونَ لِلشَّيْطَانِ وَلِيًّا",
+            ref: { ar: "مريم: 45", en: "Maryam: 45" },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/019045.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "ردّ عليه أبوه بغضب، وهدده بالرجم إن لم يتوقف، وأمره أن يهجره زمنًا طويلًا.",
+            en: "His father replied angrily, threatening to stone him if he did not stop, and ordered him to leave him for a long time.",
+          },
+          ayah: {
+            text: "قَالَ أَرَاغِبٌ أَنتَ عَنْ آلِهَتِي يَا إِبْرَاهِيمُ ۖ لَئِن لَّمْ تَنتَهِ لَأَرْجُمَنَّكَ ۖ وَاهْجُرْنِي مَلِيًّا",
+            ref: { ar: "مريم: 46", en: "Maryam: 46" },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/019046.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "أجاب إبراهيم بأدب وسلام، ووعد أن يستغفر له ربه.",
+            en: "Ibrahim replied with peace and respect, promising to seek forgiveness for him from his Lord.",
+          },
+          ayah: {
+            text: "قَالَ سَلَامٌ عَلَيْكَ ۖ سَأَسْتَغْفِرُ لَكَ رَبِّي ۖ إِنَّهُ كَانَ بِي حَفِيًّا",
+            ref: { ar: "مريم: 47", en: "Maryam: 47" },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/019047.mp3",
           },
         },
       ],
@@ -142,7 +222,7 @@ export const ibrahimStory: ProphetStory = {
               en: "Al-Anbiya: 58",
             },
             audioUrl:
-              "/audios/ibrahim/Breaking the Idols.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/021058.mp3",
           },
         },
       ],
@@ -161,14 +241,13 @@ export const ibrahimStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "قُلْنَا يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ",
+            text: "قُلْنَا يَا نَارُ كُونِي بَرْدًا وَسَلَامًا عَلَىٰ إِبْرَاهِيمَ",
             ref: {
               ar: "الأنبياء: 69",
               en: "Al-Anbiya: 69",
             },
             audioUrl:
-              "/audios/ibrahim/Thrown into the Fire.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/021069.mp3",
           },
         },
       ],
@@ -192,7 +271,8 @@ export const ibrahimStory: ProphetStory = {
               ar: "البقرة: 258",
               en: "Al-Baqarah: 258",
             },
-            audioUrl: "/audios/ibrahim/The Debate with Nimrod.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/002258.mp3",
           },
         },
       ],
@@ -205,38 +285,65 @@ export const ibrahimStory: ProphetStory = {
       sections: [
         {
           text: {
-            ar: "جاءت الملائكة إلى إبراهيم في صورة رجال، فاستقبلهم وأكرمهم، وقدّم لهم الطعام.",
-            en: "Angels came to Ibrahim in the form of men. He welcomed them warmly and offered them food."
+            ar: "جاءت الملائكة إلى إبراهيم في صورة رجال مكرمين.",
+            en: "Angels came to Ibrahim in the form of honored guests.",
           },
           ayah: {
-            text: "هَلْ أَتَاكَ حَدِيثُ ضَيْفِ إِبْرَاهِيمَ الْمُكْرَمِينَ إِذْ دَخَلُوا عَلَيْهِ فَقَالُوا سَلَامًا قَالَ سَلَامٌ قَوْمٌ مُّنكَرُونَ فَرَاغَ إِلَى أَهْلِهِ فَجَاءَ بِعِجْلٍ سَمِينٍ",
-            ref: { ar: "الذاريات: 24-26", en: "Adh-Dhariyat: 24-26" },
-            audioUrl: "/audios/ibrahim/angel-guests-hospitality.mp3"
-          }
+            text: "هَلْ أَتَاكَ حَدِيثُ ضَيْفِ إِبْرَاهِيمَ الْمُكْرَمِينَ",
+            ref: { ar: "الذاريات: 24", en: "Adh-Dhariyat: 24" },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/051024.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "دخلوا عليه وقالوا سلامًا، فرد عليهم إبراهيم بالسلام لكنه استغربهم.",
+            en: "They entered upon him and said 'Peace.' Ibrahim replied 'Peace,' though he felt they were unfamiliar.",
+          },
+          ayah: {
+            text: "إِذْ دَخَلُوا عَلَيْهِ فَقَالُوا سَلَامًا قَالَ سَلَامٌ قَوْمٌ مُّنكَرُونَ",
+            ref: { ar: "الذاريات: 25", en: "Adh-Dhariyat: 25" },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/051025.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "ذهب سريعًا إلى أهله، فأحضر لهم عجلًا سمينًا ليكرمهم به.",
+            en: "He quickly went to his family and brought a fat calf to honor them.",
+          },
+          ayah: {
+            text: "فَرَاغَ إِلَى أَهْلِهِ فَجَاءَ بِعِجْلٍ سَمِينٍ",
+            ref: { ar: "الذاريات: 26", en: "Adh-Dhariyat: 26" },
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/051026.mp3",
+          },
         },
         {
           text: {
             ar: "لكن الملائكة لم يأكلوا، فخاف إبراهيم منهم، فطمأنوه وأخبروه أنهم رسل الله وأن مهمتهم إنزال العذاب على قوم لوط الذين كفروا وارتكبوا الفواحش.",
-            en: "But the angels did not eat, so Ibrahim felt uneasy. They reassured him and told him they were messengers of Allah and their mission was to bring punishment upon the people of Lot, who disbelieved and committed immorality."
+            en: "But the angels did not eat, so Ibrahim felt uneasy. They reassured him and told him they were messengers of Allah and their mission was to bring punishment upon the people of Lot, who disbelieved and committed immorality.",
           },
           ayah: {
             text: "فَلَمَّا رَأَىٰ أَيْدِيَهُمْ لَا تَصِلُ إِلَيْهِ نَكِرَهُمْ وَأَوْجَسَ مِنْهُمْ خِيفَةً قَالُوا لَا تَخَفْ إِنَّا أُرْسِلْنَا إِلَىٰ قَوْمِ لُوطٍ",
             ref: { ar: "هود: 70", en: "Hud: 70" },
-            audioUrl: "/audios/ibrahim/angel-guests-reassurance.mp3"
-          }
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/011070.mp3",
+          },
         },
         {
           text: {
             ar: "بشرت الملائكة إبراهيم وزوجته سارة بولادة إسحاق، رغم كبر سنهما، وكانت بشارة عظيمة.",
-            en: "The angels gave Ibrahim and his wife Sarah glad tidings of Isaac, despite their old age. It was a great blessing."
+            en: "The angels gave Ibrahim and his wife Sarah glad tidings of Isaac, despite their old age. It was a great blessing.",
           },
           ayah: {
             text: "وَامْرَأَتُهُ قَائِمَةٌ فَضَحِكَتْ فَبَشَّرْنَاهَا بِإِسْحَاقَ وَمِن وَرَاءِ إِسْحَاقَ يَعْقُوبَ",
             ref: { ar: "هود: 71", en: "Hud: 71" },
-            audioUrl: "/audios/ibrahim/angel-guests-glad-tidings.mp3"
-          }
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/011071.mp3",
+          },
         },
-      ]
+      ],
     },
     {
       title: {
@@ -257,7 +364,7 @@ export const ibrahimStory: ProphetStory = {
               en: "Al-Ankabut: 26",
             },
             audioUrl:
-              "/audios/ibrahim/Migration for Allah.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/029026.mp3",
           },
         },
       ],
@@ -282,7 +389,7 @@ export const ibrahimStory: ProphetStory = {
               en: "Ibrahim: 37",
             },
             audioUrl:
-              "/audios/ibrahim/Leaving Hajar and Ishmael in Makkah.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/014037.mp3",
           },
         },
       ],
@@ -296,15 +403,16 @@ export const ibrahimStory: ProphetStory = {
         {
           text: {
             ar: "لما ترك إبراهيم هاجر وابنها إسماعيل في الوادي، اشتد العطش على إسماعيل، فبدأت هاجر تركض بين جبلي الصفا والمروة سبع مرات تبحث عن الماء. وكان ذلك أصل شعيرة السعي في الحج والعمرة.",
-            en: "When Ibrahim left Hajar and her son Ishmael in the valley, Ishmael became thirsty. Hajar ran between the hills of Safa and Marwah seven times searching for water. This became the origin of the Sa'i ritual in Hajj and Umrah."
+            en: "When Ibrahim left Hajar and her son Ishmael in the valley, Ishmael became thirsty. Hajar ran between the hills of Safa and Marwah seven times searching for water. This became the origin of the Sa'i ritual in Hajj and Umrah.",
           },
           ayah: {
             text: "إِنَّ الصَّفَا وَالْمَرْوَةَ مِن شَعَائِرِ اللَّهِ فَمَنْ حَجَّ الْبَيْتَ أَوِ اعْتَمَرَ فَلَا جُنَاحَ عَلَيْهِ أَنْ يَطَّوَّفَ بِهِمَا وَمَنْ تَطَوَّعَ خَيْرًا فَإِنَّ اللَّهَ شَاكِرٌ عَلِيمٌ",
             ref: { ar: "البقرة: 158", en: "Al-Baqarah: 158" },
-            audioUrl: "/audios/ibrahim/Hajar-Sai.mp3"
-          }
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/002158.mp3",
+          },
+        },
+      ],
     },
     {
       title: {
@@ -335,14 +443,13 @@ export const ibrahimStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "الْحَمْدُ لِلَّهِ الَّذِي وَهَبَ لِي عَلَى الْكِبَرِ إِسْمَاعِيلَ وَإِسْحَاقَ",
+            text: "الْحَمْدُ لِلَّهِ الَّذِي وَهَبَ لِي عَلَى الْكِبَرِ إِسْمَاعِيلَ وَإِسْحَاقَ",
             ref: {
               ar: "إبراهيم: 39",
               en: "Ibrahim: 39",
             },
             audioUrl:
-              "/audios/ibrahim/Glad Tidings of a Son.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/014039.mp3",
           },
         },
       ],
@@ -361,14 +468,13 @@ export const ibrahimStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "فَلَمَّا بَلَغَ مَعَهُ السَّعْيَ قَالَ يَا بُنَيَّ إِنِّي أَرَىٰ فِي الْمَنَامِ أَنِّي أَذْبَحُكَ فَانظُرْ مَاذَا تَرَىٰ ۚ قَالَ يَا أَبَتِ افْعَلْ مَا تُؤْمَرُ ۖ سَتَجِدُنِي إِن شَاءَ اللَّهُ مِنَ الصَّابِرِينَ",
+            text: "فَلَمَّا بَلَغَ مَعَهُ السَّعْيَ قَالَ يَا بُنَيَّ إِنِّي أَرَىٰ فِي الْمَنَامِ أَنِّي أَذْبَحُكَ فَانظُرْ مَاذَا تَرَىٰ ۚ قَالَ يَا أَبَتِ افْعَلْ مَا تُؤْمَرُ ۖ سَتَجِدُنِي إِن شَاءَ اللَّهُ مِنَ الصَّابِرِينَ",
             ref: {
               ar: "الصافات: 102",
               en: "As-Saffat: 102",
             },
             audioUrl:
-              "/audios/ibrahim/The Vision of Sacrifice.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/037102.mp3",
           },
         },
       ],
@@ -393,7 +499,7 @@ export const ibrahimStory: ProphetStory = {
               en: "As-Saffat: 107",
             },
             audioUrl:
-              "/audios/ibrahim/The Great Ransom.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/037107.mp3",
           },
         },
       ],
@@ -412,14 +518,13 @@ export const ibrahimStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَإِذْ يَرْفَعُ إِبْرَاهِيمُ الْقَوَاعِدَ مِنَ الْبَيْتِ وَإِسْمَاعِيلُ رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ",
+            text: "وَإِذْ يَرْفَعُ إِبْرَاهِيمُ الْقَوَاعِدَ مِنَ الْبَيْتِ وَإِسْمَاعِيلُ رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنتَ السَّمِيعُ الْعَلِيمُ",
             ref: {
               ar: "البقرة: 127",
               en: "Al-Baqarah: 127",
             },
             audioUrl:
-              "/audios/ibrahim/Building the Kaaba.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/002127.mp3",
           },
         },
       ],
@@ -433,37 +538,40 @@ export const ibrahimStory: ProphetStory = {
         {
           text: {
             ar: "كان إبراهيم كثير الدعاء لذريته وللناس بالهداية والأمن وإقامة الصلاة، فدعا الله أن يجعل البلد آمنًا وأن يجنبه وأبناءه عبادة الأصنام.",
-            en: "Ibrahim frequently prayed for his descendants and for people to receive guidance, safety, and steadfast prayer. He asked Allah to make the land secure and to protect him and his children from idol worship."
+            en: "Ibrahim frequently prayed for his descendants and for people to receive guidance, safety, and steadfast prayer. He asked Allah to make the land secure and to protect him and his children from idol worship.",
           },
           ayah: {
             text: "وَإِذْ قَالَ إِبْرَاهِيمُ رَبِّ اجْعَلْ هَٰذَا الْبَلَدَ آمِنًا وَاجْنُبْنِي وَبَنِيَّ أَنْ نَعْبُدَ الْأَصْنَامَ",
             ref: { ar: "إبراهيم: 35", en: "Ibrahim: 35" },
-            audioUrl: "/audios/ibrahim/supplication-security.mp3"
-          }
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/014035.mp3",
+          },
         },
         {
           text: {
             ar: "دعا إبراهيم أن يقيم ذريته الصلاة، وأن يجعل الله قلوب الناس تهوي إليهم، وأن يرزقهم من الثمرات ليشكروا نعم الله.",
-            en: "Ibrahim prayed that his descendants establish prayer, that Allah make people's hearts incline toward them, and that He provide them with sustenance so they may be grateful."
+            en: "Ibrahim prayed that his descendants establish prayer, that Allah make people's hearts incline toward them, and that He provide them with sustenance so they may be grateful.",
           },
           ayah: {
             text: "رَبَّنَا إِنِّي أَسْكَنتُ مِن ذُرِّيَّتِي بِوَادٍ غَيْرِ ذِي زَرْعٍ عِندَ بَيْتِكَ الْمُحَرَّمِ رَبَّنَا لِيُقِيمُوا الصَّلَاةَ فَاجْعَلْ أَفْئِدَةً مِّنَ النَّاسِ تَهْوِي إِلَيْهِمْ وَارْزُقْهُم مِّنَ الثَّمَرَاتِ لَعَلَّهُمْ يَشْكُرُونَ",
             ref: { ar: "إبراهيم: 37", en: "Ibrahim: 37" },
-            audioUrl: "/audios/ibrahim/supplication-provision.mp3"
-          }
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/014037.mp3",
+          },
         },
         {
           text: {
             ar: "كما دعا إبراهيم أن يغفر الله له ولوالديه وللمؤمنين يوم يقوم الحساب.",
-            en: "Ibrahim also prayed that Allah forgive him, his parents, and the believers on the Day of Judgment."
+            en: "Ibrahim also prayed that Allah forgive him, his parents, and the believers on the Day of Judgment.",
           },
           ayah: {
             text: "رَبَّنَا اغْفِرْ لِي وَلِوَالِدَيَّ وَلِلْمُؤْمِنِينَ يَوْمَ يَقُومُ الْحِسَابُ",
             ref: { ar: "إبراهيم: 41", en: "Ibrahim: 41" },
-            audioUrl: "/audios/ibrahim/supplication-forgiveness.mp3"
-          }
-        }
-      ]
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/014041.mp3",
+          },
+        },
+      ],
     },
     {
       title: {
@@ -485,7 +593,7 @@ export const ibrahimStory: ProphetStory = {
               en: "Al-Hajj: 27",
             },
             audioUrl:
-              "/audios/ibrahim/The Call to Pilgrimage.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/022027.mp3",
           },
         },
       ],
@@ -509,7 +617,8 @@ export const ibrahimStory: ProphetStory = {
               ar: "النحل: 120",
               en: "An-Nahl: 120",
             },
-            audioUrl: "/audios/ibrahim/The Status of Ibrahim.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Alafasy_128kbps/016120.mp3",
           },
         },
       ],
@@ -529,5 +638,5 @@ export const ibrahimStory: ProphetStory = {
         },
       ],
     },
-  ]
+  ],
 };

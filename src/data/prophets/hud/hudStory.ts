@@ -45,7 +45,8 @@ export const hudStory: ProphetStory = {
               ar: "الأعراف: 65",
               en: "Al-A'raf: 65",
             },
-            audioUrl: "/audios/hud/Hud's Call to His People.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Fares_Abbad_64kbps/007065.mp3",
           },
         },
       ],
@@ -64,7 +65,8 @@ export const hudStory: ProphetStory = {
               ar: "الأعراف: 66",
               en: "Al-A'raf: 66",
             },
-            audioUrl: "/audios/hud/Rejection of His People.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Fares_Abbad_64kbps/007066.mp3",
           },
         },
       ],
@@ -83,7 +85,8 @@ export const hudStory: ProphetStory = {
               ar: "الشعراء: 127",
               en: "Ash-Shu'ara: 127",
             },
-            audioUrl: "/audios/hud/Persistence and Patience.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Fares_Abbad_64kbps/026164.mp3",
           },
         },
       ],
@@ -102,7 +105,8 @@ export const hudStory: ProphetStory = {
               ar: "الشعراء: 135",
               en: "Ash-Shu'ara: 135",
             },
-            audioUrl: "/audios/hud/Warning of Punishment.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Fares_Abbad_64kbps/026135.mp3",
           },
         },
       ],
@@ -121,18 +125,19 @@ export const hudStory: ProphetStory = {
               ar: "فصلت: 16",
               en: "Fussilat: 16",
             },
-            audioUrl: "/audios/hud/The Fierce Wind Punishment.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Fares_Abbad_64kbps/041016.mp3",
           },
         },
       ],
     },
     {
-      title: { ar: "النجاة والدروس", en: "Salvation and Lessons" },
+      title: { ar: "النجاة", en: "Salvation" },
       sections: [
         {
           text: {
-            ar: "نجّى الله هودًا والذين آمنوا معه، وكانت القصة عبرة في التوحيد وطاعة الله.",
-            en: "Allah saved Hud and the believers with him, and the story became a lesson in monotheism and obedience to Allah.",
+            ar: "نجّى الله هودًا والذين آمنوا معه.",
+            en: "Allah saved Hud and the believers with him.",
           },
           ayah: {
             text: "وَلَمَّا جَاءَ أَمْرُنَا نَجَّيْنَا هُودًا وَالَّذِينَ آمَنُوا مَعَهُ بِرَحْمَةٍ مِّنَّا وَنَجَّيْنَاهُم مِّنْ عَذَابٍ غَلِيظٍ",
@@ -140,7 +145,19 @@ export const hudStory: ProphetStory = {
               ar: "هود : 58",
               en: "Hud: 58",
             },
-            audioUrl: "/audios/hud/Salvation and Lessons.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Fares_Abbad_64kbps/011058.mp3",
+          },
+        },
+      ],
+    },
+    {
+      title: { ar: "الدروس والعبر", en: "Lessons" },
+      sections: [
+        {
+          text: {
+            ar: "التوحيد هو أساس النجاة، والاستكبار والظلم سبب الهلاك. الصبر في الدعوة والثبات على الحق من صفات الأنبياء، والرسول لا يطلب أجرًا إلا من الله. التحذير من عذاب الله رحمة، والنجاة تكون بالإيمان والاتباع، بينما الكفر يقود إلى الهلاك بالريح العاتية.",
+            en: "Monotheism is the foundation of salvation, while arrogance and injustice lead to destruction. Patience in calling to truth and steadfastness are traits of prophets, and the messenger seeks reward only from Allah. Warning of Allah’s punishment is mercy, and salvation comes through faith and following, while disbelief leads to destruction by the fierce wind.",
           },
         },
       ],

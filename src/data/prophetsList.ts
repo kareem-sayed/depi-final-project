@@ -141,8 +141,8 @@ export const prophets: Prophet[] = [
     ululAzm: false,
   },
   {
-    slug: "shuayb",
-    name: { ar: "سيدنا شعيب", en: "Prophet Shuayb" },
+    slug: "shoaib",
+    name: { ar: "سيدنا شعيب", en: "Prophet Shoaib" },
     shortDesc: { ar: "نبي قوم مدين", en: "Prophet of the people of Madin" },
     longDesc: {
       ar: "دعا قومه للعدل في الكيل والميزان، فكذبوه فأهلكهم الله.",
@@ -152,7 +152,7 @@ export const prophets: Prophet[] = [
     ululAzm: false,
   },
   {
-    slug: "ayyub",
+    slug: "ayoub",
     name: { ar: "سيدنا أيوب", en: "Prophet Job" },
     shortDesc: { ar: "نبي الصبر", en: "Prophet of patience" },
     longDesc: {
@@ -163,7 +163,7 @@ export const prophets: Prophet[] = [
     ululAzm: false,
   },
   {
-    slug: "dhul_kifl",
+    slug: "dhulKifl",
     name: { ar: "سيدنا ذو الكفل", en: "Prophet Dhu al-Kifl" },
     shortDesc: {
       ar: "نبي الصبر والالتزام",

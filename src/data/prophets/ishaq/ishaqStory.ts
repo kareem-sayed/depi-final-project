@@ -40,14 +40,13 @@ export const ishaqStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَبَشَّرْنَاهُ بِإِسْحَاقَ نَبِيًّا مِّنَ الصَّالِحِينَ",
+            text: "وَبَشَّرْنَاهُ بِإِسْحَاقَ نَبِيًّا مِّنَ الصَّالِحِينَ",
             ref: {
               ar: "الصافات: 112",
               en: "As-Saffat: 112",
             },
             audioUrl:
-              "/audios/ishaq/Glad Tidings of Ishaq.mp3",
+              "https://www.everyayah.com/data/Ali_Jaber_64kbps/037112.mp3",
           },
         },
       ],
@@ -66,14 +65,13 @@ export const ishaqStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "قَالَتْ يَا وَيْلَتَىٰ أَأَلِدُ وَأَنَا عَجُوزٌ",
+            text: "قَالَتْ يَا وَيْلَتَىٰ أَأَلِدُ وَأَنَا عَجُوزٌ",
             ref: {
               ar: "هود: 72",
               en: "Hud: 72",
             },
             audioUrl:
-              "/audios/ishaq/Sarahs Joyful Surprise.mp3",
+              "https://www.everyayah.com/data/Ali_Jaber_64kbps/011072.mp3",
           },
         },
       ],
@@ -92,14 +90,13 @@ export const ishaqStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَوَهَبْنَا لَهُ إِسْحَاقَ وَيَعْقُوبَ ۚ كُلًّا هَدَيْنَا ۚ وَنُوحًا هَدَيْنَا مِن قَبْلُ ۖ وَمِن ذُرِّيَّتِهِ دَاوُودَ وَسُلَيْمَانَ وَأَيُّوبَ وَيُوسُفَ وَمُوسَىٰ وَهَارُونَ ۚ وَكَذَٰلِكَ نَجْزِي الْمُحْسِنِينَ",
+            text: "وَوَهَبْنَا لَهُ إِسْحَاقَ وَيَعْقُوبَ ۚ كُلًّا هَدَيْنَا ۚ وَنُوحًا هَدَيْنَا مِن قَبْلُ ۖ وَمِن ذُرِّيَّتِهِ دَاوُودَ وَسُلَيْمَانَ وَأَيُّوبَ وَيُوسُفَ وَمُوسَىٰ وَهَارُونَ ۚ وَكَذَٰلِكَ نَجْزِي الْمُحْسِنِينَ",
             ref: {
               ar: "الأنعام: 84",
               en: "Al-An'am: 84",
             },
             audioUrl:
-              "/audios/ishaq/Ishaq Among the Prophets.mp3",
+              "https://www.everyayah.com/data/Ali_Jaber_64kbps/006084.mp3",
           },
         },
       ],
@@ -118,14 +115,13 @@ export const ishaqStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَبَارَكْنَا عَلَيْهِ وَعَلَىٰ إِسْحَاقَ ۚ وَمِن ذُرِّيَّتِهِمَا مُحْسِنٌ وَظَالِمٌ لِّنَفْسِهِ مُبِينٌ",
+            text: "وَبَارَكْنَا عَلَيْهِ وَعَلَىٰ إِسْحَاقَ ۚ وَمِن ذُرِّيَّتِهِمَا مُحْسِنٌ وَظَالِمٌ لِّنَفْسِهِ مُبِينٌ",
             ref: {
               ar: "الصافات: 113",
               en: "As-Saffat: 113",
             },
             audioUrl:
-              "/audios/ishaq/Allahs Blessings Upon Ishaq.mp3",
+              "https://www.everyayah.com/data/Ali_Jaber_64kbps/037113.mp3",
           },
         },
       ],
@@ -144,14 +140,13 @@ export const ishaqStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَامْرَأَتُهُ قَائِمَةٌ فَضَحِكَتْ فَبَشَّرْنَاهَا بِإِسْحَاقَ وَمِن وَرَاءِ إِسْحَاقَ يَعْقُوبَ",
+            text: "وَامْرَأَتُهُ قَائِمَةٌ فَضَحِكَتْ فَبَشَّرْنَاهَا بِإِسْحَاقَ وَمِن وَرَاءِ إِسْحَاقَ يَعْقُوبَ",
             ref: {
               ar: "هود: 71",
               en: "Hud: 71",
             },
             audioUrl:
-              "/audios/ishaq/Ishaq and Yaqub.mp3",
+              "https://www.everyayah.com/data/Ali_Jaber_64kbps/011071.mp3",
           },
         },
       ],
@@ -170,14 +165,13 @@ export const ishaqStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَاذْكُرْ عِبَادَنَا إِبْرَاهِيمَ وَإِسْحَاقَ وَيَعْقُوبَ أُولِي الْأَيْدِي وَالْأَبْصَارِ",
+            text: "وَاذْكُرْ عِبَادَنَا إِبْرَاهِيمَ وَإِسْحَاقَ وَيَعْقُوبَ أُولِي الْأَيْدِي وَالْأَبْصَارِ",
             ref: {
               ar: "ص: 45",
               en: "Sad: 45",
             },
             audioUrl:
-              "/audios/ishaq/The Status of Ishaq.mp3",
+              "https://www.everyayah.com/data/Ali_Jaber_64kbps/038045.mp3",
           },
         },
       ],

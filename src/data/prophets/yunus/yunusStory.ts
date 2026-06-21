@@ -33,7 +33,8 @@ export const yunusStory: ProphetStory = {
           ayah: {
             text: "وَإِنَّ يُونُسَ لَمِنَ الْمُرْسَلِينَ",
             ref: { ar: "الصافات: 139", en: "As-Saffat: 139" },
-            audioUrl: "/audios/yunus/Calling the People of Nineveh.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/037139.mp3",
           },
         },
       ],
@@ -60,7 +61,8 @@ export const yunusStory: ProphetStory = {
           ayah: {
             text: "وَذَا النُّونِ إِذ ذَّهَبَ مُغَاضِبًا فَظَنَّ أَن لَّن نَّقْدِرَ عَلَيْهِ",
             ref: { ar: "الأنبياء: 87", en: "Al-Anbiya: 87" },
-            audioUrl: "/audios/yunus/Leaving His People.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/021087.mp3",
           },
         },
       ],
@@ -76,7 +78,8 @@ export const yunusStory: ProphetStory = {
           ayah: {
             text: "فَسَاهَمَ فَكَانَ مِنَ الْمُدْحَضِينَ",
             ref: { ar: "الصافات: 141", en: "As-Saffat: 141" },
-            audioUrl: "/audios/yunus/Boarding the Ship.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/037141.mp3",
           },
         },
       ],
@@ -92,7 +95,8 @@ export const yunusStory: ProphetStory = {
           ayah: {
             text: "فَالْتَقَمَهُ الْحُوتُ وَهُوَ مُلِيمٌ",
             ref: { ar: "الصافات: 142", en: "As-Saffat: 142" },
-            audioUrl: "/audios/yunus/Swallowed by the Whale.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/037142.mp3",
           },
         },
       ],
@@ -108,7 +112,8 @@ export const yunusStory: ProphetStory = {
           ayah: {
             text: "فَنَادَىٰ فِي الظُّلُمَاتِ أَن لَّا إِلَٰهَ إِلَّا أَنتَ سُبْحَانَكَ إِنِّي كُنتُ مِنَ الظَّالِمِينَ",
             ref: { ar: "الأنبياء: 87", en: "Al-Anbiya: 87" },
-            audioUrl: "/audios/yunus/Yunus's Prayer in Darkness.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/021087.mp3",
           },
         },
       ],
@@ -122,20 +127,34 @@ export const yunusStory: ProphetStory = {
             en: "Allah answered his supplication, saved him from distress, and brought him out of the whale alive.",
           },
           ayah: {
-            text: "فَاسْتَجَبْنَا لَهُ وَنَجَّيْنَاهُ مِنَ الْغَمِّ",
+            text: "فَاسْتَجَبْنَا لَهُ وَنَجَّيْنَاهُ مِنَ الْغَمِّ ۚ وَكَذَٰلِكَ نُنجِي الْمُؤْمِنِينَ",
             ref: { ar: "الأنبياء: 88", en: "Al-Anbiya: 88" },
-            audioUrl: "/audios/yunus/Allah Response.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/021088.mp3",
           },
         },
         {
           text: {
-            ar: "لولا أن يونس كان من المسبحين لظل في بطن الحوت إلى يوم القيامة، لكن تسبيحه ودعاؤه كان سبب النجاة.",
-            en: "Had Jonah not been among those who glorify Allah, he would have remained in the whale’s belly until the Day of Resurrection. His glorification and supplication were the reason for his salvation.",
+            ar: "لولا أن يونس كان من المسبحين لظل في بطن الحوت.",
+            en: "Had Jonah not been among those who glorify Allah, he would have remained in the whale’s belly.",
           },
           ayah: {
-            text: "فَلَوْلَا أَنَّهُ كَانَ مِنَ الْمُسَبِّحِينَ ۝ لَلَبِثَ فِي بَطْنِهِ إِلَىٰ يَوْمِ يُبْعَثُونَ",
-            ref: { ar: "الصافات: 143-144", en: "As-Saffat: 143-144" },
-            audioUrl: "/audios/yunus/Glorification.mp3",
+            text: "فَلَوْلَا أَنَّهُ كَانَ مِنَ الْمُسَبِّحِينَ",
+            ref: { ar: "الصافات: 143", en: "As-Saffat: 143" },
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/037143.mp3",
+          },
+        },
+        {
+          text: {
+            ar: "لكن تسبيحه ودعاؤه كان سبب النجاة، وإلا للبث في بطنه إلى يوم يبعثون.",
+            en: "His glorification and supplication were the reason for his salvation, otherwise he would have remained until the Day of Resurrection.",
+          },
+          ayah: {
+            text: "لَلَبِثَ فِي بَطْنِهِ إِلَىٰ يَوْمِ يُبْعَثُونَ",
+            ref: { ar: "الصافات: 144", en: "As-Saffat: 144" },
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/037144.mp3",
           },
         },
       ],
@@ -154,7 +173,8 @@ export const yunusStory: ProphetStory = {
           ayah: {
             text: "فَلَوْلَا كَانَتْ قَرْيَةٌ آمَنَتْ فَنَفَعَهَا إِيمَانُهَا إِلَّا قَوْمَ يُونُسَ لَمَّا آمَنُوا كَشَفْنَا عَنْهُمْ عَذَابَ الْخِزْيِ فِي الْحَيَاةِ الدُّنْيَا وَمَتَّعْنَاهُمْ إِلَىٰ حِينٍ",
             ref: { ar: "يونس: 98", en: "Yunus: 98" },
-            audioUrl: "/audios/yunus/Repentance of His People.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/010098.mp3",
           },
         },
       ],
@@ -170,7 +190,8 @@ export const yunusStory: ProphetStory = {
           ayah: {
             text: "فَنَبَذْنَاهُ بِالْعَرَاءِ وَهُوَ سَقِيمٌ",
             ref: { ar: "الصافات: 145", en: "As-Saffat: 145" },
-            audioUrl: "/audios/yunus/Emergence Safely.mp3",
+            audioUrl:
+              "https://www.everyayah.com/data/Yasser_Ad-Dussary_128kbps/037145.mp3",
           },
         },
       ],

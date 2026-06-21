@@ -1,6 +1,6 @@
 import type { ProphetStory } from "../../../types/ProphetStory";
 
-export const dhul_KiflStory: ProphetStory = {
+export const dhulKiflStory: ProphetStory = {
   name: { ar: "سيدنا ذو الكفل", en: "Prophet Dhul-Kifl" },
 
   title: {
@@ -40,14 +40,13 @@ export const dhul_KiflStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَاذْكُرْ إِسْمَاعِيلَ وَالْيَسَعَ وَذَا الْكِفْلِ ۖ وَكُلٌّ مِّنَ الْأَخْيَارِ",
+            text: "وَاذْكُرْ إِسْمَاعِيلَ وَالْيَسَعَ وَذَا الْكِفْلِ ۖ وَكُلٌّ مِّنَ الْأَخْيَارِ",
             ref: {
               ar: "ص: 48",
               en: "Sad: 48",
             },
             audioUrl:
-              "/audios/dhulkifl/Mentioned in the Quran.mp3",
+              "https://www.everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/038048.mp3",
           },
         },
       ],
@@ -66,14 +65,13 @@ export const dhul_KiflStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَإِسْمَاعِيلَ وَإِدْرِيسَ وَذَا الْكِفْلِ ۖ كُلٌّ مِّنَ الصَّابِرِينَ",
+            text: "وَإِسْمَاعِيلَ وَإِدْرِيسَ وَذَا الْكِفْلِ ۖ كُلٌّ مِّنَ الصَّابِرِينَ",
             ref: {
               ar: "الأنبياء: 85",
               en: "Al-Anbiya: 85",
             },
             audioUrl:
-              "/audios/dhulkifl/Patience and Obedience.mp3",
+              "https://www.everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/021085.mp3",
           },
         },
 
@@ -84,14 +82,13 @@ export const dhul_KiflStory: ProphetStory = {
           },
 
           ayah: {
-            text:
-              "وَأَدْخَلْنَاهُمْ فِي رَحْمَتِنَا ۖ إِنَّهُم مِّنَ الصَّالِحِينَ",
+            text: "وَأَدْخَلْنَاهُمْ فِي رَحْمَتِنَا ۖ إِنَّهُم مِّنَ الصَّالِحِينَ",
             ref: {
               ar: "الأنبياء: 86",
               en: "Al-Anbiya: 86",
             },
             audioUrl:
-              "/audios/dhulkifl/Among the Righteous.mp3",
+              "https://www.everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/021086.mp3",
           },
         },
       ],

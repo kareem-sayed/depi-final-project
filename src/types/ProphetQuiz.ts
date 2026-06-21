@@ -1,8 +1,8 @@
 import type { LangText } from "./LangText";
 
-export type QuizQuestion = {
-  q: LangText;
+export type ProphetQuiz = {
+  question: LangText;
   options: LangText[];
-  answer: number; // index
+  correctAnswer: number; // index
   explanation: LangText;
 };
