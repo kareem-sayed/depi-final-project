@@ -1,11 +1,20 @@
-import HeadPage from "../components/HeadPage";
+import HeroSection from '../components/HeroSection';
+import ProphetsPreview from '../components/ProphetsPreview';
+import FeaturesSection from '../components/FeaturesSection';
+import AboutSection from '../components/AboutSection';
+import CTASection from '../components/CTASection';
 
 export default function Home() {
   return (
-    <>
-      <div className="text-center">
-        <HeadPage title="Here Will The Home" />
-      </div>
-    </>
+    <div className="min-h-screen bg-stone-50 text-slate-800 font-sans" dir="rtl">
+      <main>
+        <HeroSection />
+        <ProphetsPreview />
+        <FeaturesSection />
+        <AboutSection />
+        <CTASection />
+      </main>
+      
+    </div>
   );
 }
