@@ -46,20 +46,6 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
-          <div className="flex md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-foreground/80 hover:bg-muted focus:outline-none"
-            >
-              <i
-                className={`fa-solid ${
-                  isOpen ? "fa-xmark" : "fa-bars"
-                } text-xl`}
-              ></i>
-            </button>
-          </div>
-
           <Link to="/" className="text-right leading-tight">
             <span className="block font-serif text-2xl font-bold text-emerald-900">
               رحلة عبر
@@ -100,6 +86,20 @@ export default function Navbar() {
 
             <MainButton text="إنشاء حساب" to="/signup" />
           </div>
+
+          <div className="flex md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              className="inline-flex items-center justify-center rounded-md p-2 text-foreground/80 hover:bg-muted focus:outline-none"
+            >
+              <i
+                className={`fa-solid ${
+                  isOpen ? "fa-xmark" : "fa-bars"
+                } text-xl`}
+              ></i>
+            </button>
+          </div>
         </nav>
       </header>
 
@@ -111,19 +111,12 @@ export default function Navbar() {
       )}
 
       <div
-        className={`fixed inset-y-0 right-0 z-[100] w-full max-w-xs bg-background p-6 shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+        dir="rtl"
+        className={`fixed inset-y-0 left-0 z-[100] w-full max-w-xs bg-background p-6 shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="mb-8 flex items-center justify-between">
-          <button
-            type="button"
-            className="rounded-md p-2 text-foreground/80 hover:bg-muted focus:outline-none"
-            onClick={() => setIsOpen(false)}
-          >
-            <i className="fa-solid fa-xmark text-xl"></i>
-          </button>
-
           <div className="text-right leading-tight">
             <span className="block font-serif text-xl font-bold text-emerald-900">
               رحلة عبر
@@ -132,6 +125,14 @@ export default function Navbar() {
               قصص الأنبياء
             </span>
           </div>
+
+          <button
+            type="button"
+            className="rounded-md p-2 text-foreground/80 hover:bg-muted focus:outline-none"
+            onClick={() => setIsOpen(false)}
+          >
+            <i className="fa-solid fa-xmark text-xl"></i>
+          </button>
         </div>
 
         <div className="space-y-4 border-b border-border pb-6 text-right">
@@ -161,7 +162,7 @@ export default function Navbar() {
             تسجيل الدخول
           </Link>
 
-          <div className="flex w-full justify-center origin-center scale-105 pt-2">
+          <div className="flex w-full justify-center pt-2">
             <MainButton text="إنشاء حساب" to="/signup" />
           </div>
         </div>
