@@ -1,13 +1,23 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 
-export default function MainLayout() {
+interface MainLayoutProps {
+  lang?: "ar" | "en";
+  toggleLanguage?: () => void;
+}
+
+export default function MainLayout({
+  lang = "ar",
+  toggleLanguage,
+}: MainLayoutProps) {
   return (
     <>
-      <Navbar />
+      <Navbar
+        lang={lang}
+        toggleLanguage={toggleLanguage}
+      />
       <Outlet />
-      <Footer />
+      
     </>
   );
 }

@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 
-export default function useLanguageDirection(lang: "AR" | "EN") {
+export default function useLanguageDirection(lang: "ar" | "en") {
   useEffect(() => {
-      document.body.style.direction = lang === "AR" ? "rtl" : "ltr";
-    }, [lang]);
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = lang;
+  }, [lang]);
 }

@@ -7,16 +7,42 @@ interface NavItem {
   label: string;
 }
 
-const navItems: NavItem[] = [
-  { to: "/", label: "الرئيسية" },
-  { to: "/prophets", label: "الأنبياء" },
-  { to: "/dashboard", label: "لوحة التحكم" },
-  { to: "/about", label: "عن الموقع" },
-];
+const translations = {
+  ar: {
+    title: "رحلة عبر",
+    subtitle: "قصص الأنبياء",
+    home: "الرئيسية",
+    prophets: "الأنبياء",
+    dashboard: "لوحة التحكم",
+    about: "عن الموقع",
+    login: "تسجيل الدخول",
+    signup: "إنشاء حساب",
+    langBtn: "English",
+  },
+  en: {
+    title: "Journey Through",
+    subtitle: "Stories of Prophets",
+    home: "Home",
+    prophets: "Prophets",
+    dashboard: "Dashboard",
+    about: "About",
+    login: "Login",
+    signup: "Sign Up",
+    langBtn: "تحويل إلى العربية",
+  }
+};
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [lang, setLang] = useState<"ar" | "en">("ar");
+
+  const toggleLanguage = () => {
+    const nextLang = lang === "ar" ? "en" : "ar";
+    setLang(nextLang);
+    document.documentElement.dir = nextLang === "ar" ? "rtl" : "ltr";
+    document.documentElement.lang = nextLang;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,16 +55,24 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
-
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [isOpen]);
 
+  const t = translations[lang] || translations.ar;
+
+  const navItems: NavItem[] = [
+    { to: "/", label: t.home },
+    { to: "/prophets", label: t.prophets },
+    { to: "/dashboard", label: t.dashboard },
+    { to: "/about", label: t.about },
+  ];
+
   return (
     <>
       <header
-        dir="rtl"
+        dir={lang === "ar" ? "rtl" : "ltr"}
         className={`fixed top-0 left-0 right-0 z-[110] py-4 transition-all duration-300 ${
           isScrolled || isOpen
             ? "bg-background/95 shadow-sm backdrop-blur-md"
@@ -46,16 +80,29 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
-          <Link to="/" className="text-right leading-tight">
+          <div className={`flex md:hidden ${lang === "en" ? "order-1" : "order-3"}`}>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              className="inline-flex items-center justify-center rounded-md p-2 text-foreground/80 hover:bg-muted focus:outline-none"
+            >
+              <i className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"} text-xl`}></i>
+            </button>
+          </div>
+
+          <Link 
+            to="/" 
+            className={`leading-tight md:order-1 ${lang === "en" ? "order-3 text-left" : "order-1 text-right"}`}
+          >
             <span className="block font-serif text-2xl font-bold text-emerald-900">
-              رحلة عبر
+              {t.title}
             </span>
             <span className="block text-sm font-medium text-foreground/70">
-              قصص الأنبياء
+              {t.subtitle}
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-10 md:flex">
+          <ul className="hidden items-center gap-10 md:flex md:order-2">
             {navItems.map((item) => (
               <li key={item.to}>
                 <Link
@@ -68,64 +115,44 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="hidden items-center gap-6 md:flex md:order-3">
             <button
               type="button"
+              onClick={toggleLanguage}
               className="flex items-center gap-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
             >
               <i className="fa-solid fa-globe"></i>
-              Switch to English
+              {t.langBtn}
             </button>
 
             <Link
               to="/login"
               className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
             >
-              تسجيل الدخول
+              {t.login}
             </Link>
 
-            <MainButton text="إنشاء حساب" to="/signup" />
-          </div>
-
-          <div className="flex md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              type="button"
-              className="inline-flex items-center justify-center rounded-md p-2 text-foreground/80 hover:bg-muted focus:outline-none"
-            >
-              <i
-                className={`fa-solid ${
-                  isOpen ? "fa-xmark" : "fa-bars"
-                } text-xl`}
-              ></i>
-            </button>
+            <MainButton text={t.signup} to="/signup" />
           </div>
         </nav>
       </header>
 
       {isOpen && (
         <div
-          className="fixed inset-0 z-[90] bg-black/50 backdrop-blur-sm md:hidden"
+          className="fixed inset-0 z-[190] bg-black/50 backdrop-blur-sm md:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
 
       <div
-        dir="rtl"
-        className={`fixed inset-y-0 left-0 z-[100] w-full max-w-xs bg-background p-6 shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
+        dir={lang === "ar" ? "rtl" : "ltr"}
+        className={`fixed inset-y-0 z-[200] w-full max-w-xs bg-background p-6 shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
+          lang === "ar" ? "right-0" : "left-0"
+        } ${
+          isOpen ? "translate-x-0" : lang === "ar" ? "translate-x-full" : "-translate-x-full"
         }`}
       >
-        <div className="mb-8 flex items-center justify-between">
-          <div className="text-right leading-tight">
-            <span className="block font-serif text-xl font-bold text-emerald-900">
-              رحلة عبر
-            </span>
-            <span className="block text-xs font-medium text-foreground/70">
-              قصص الأنبياء
-            </span>
-          </div>
-
+        <div className="mb-8 flex items-center justify-between flex-row-reverse">
           <button
             type="button"
             className="rounded-md p-2 text-foreground/80 hover:bg-muted focus:outline-none"
@@ -133,6 +160,15 @@ export default function Navbar() {
           >
             <i className="fa-solid fa-xmark text-xl"></i>
           </button>
+
+          <div className="text-right leading-tight">
+            <span className="block font-serif text-xl font-bold text-emerald-900">
+              {t.title}
+            </span>
+            <span className="block text-xs font-medium text-foreground/70">
+              {t.subtitle}
+            </span>
+          </div>
         </div>
 
         <div className="space-y-4 border-b border-border pb-6 text-right">
@@ -149,9 +185,12 @@ export default function Navbar() {
         </div>
 
         <div className="mt-6 space-y-3">
-          <button className="flex w-full items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted">
+          <button 
+            onClick={() => { toggleLanguage(); setIsOpen(false); }}
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
+          >
             <i className="fa-solid fa-globe"></i>
-            Switch to English
+            {t.langBtn}
           </button>
 
           <Link
@@ -159,11 +198,11 @@ export default function Navbar() {
             onClick={() => setIsOpen(false)}
             className="flex w-full items-center justify-center rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
           >
-            تسجيل الدخول
+            {t.login}
           </Link>
 
           <div className="flex w-full justify-center pt-2">
-            <MainButton text="إنشاء حساب" to="/signup" />
+            <MainButton text={t.signup} to="/signup" />
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import ProphetsPreview from '../components/ProphetsPreview';
 import FeaturesSection from '../components/FeaturesSection';
 import AboutSection from '../components/AboutSection';
 import CTASection from '../components/CTASection';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <FeaturesSection />
         <AboutSection />
         <CTASection />
+        <Footer/>
       </main>
       
     </div>
