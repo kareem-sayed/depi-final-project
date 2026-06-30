@@ -1,80 +1,26 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import MainButton from "./MainButton";
+import heroBg from "../assets/hero-bg.jpg";
 
-interface NavItem {
-  to: string;
-  label: string;
-}
-
-const navItems: NavItem[] = [
-  { to: "/", label: "الرئيسية" },
-  { to: "/prophets", label: "الأنبياء" },
-  { to: "/dashboard", label: "لوحة التحكم" },
-  { to: "/about", label: "عن الموقع" },
-];
-
-export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export default function HeroSection() {
   return (
-    <header
+    <section
       dir="rtl"
-      className={`fixed top-0 left-0 right-0 z-50 py-6 transition-colors duration-300 ${
-        isScrolled ? "bg-background/90 shadow-sm backdrop-blur-md" : "bg-transparent"
-      }`}
+      className="relative flex h-[500px] items-center justify-center bg-cover bg-center md:h-[550px]"
+      style={{ backgroundImage: `url(${heroBg})` }}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
-        <Link to="/" className="text-right leading-tight">
-          <span className="block font-serif text-2xl font-bold text-emerald-900">
-            رحلة عبر
-          </span>
-          <span className="block text-sm font-medium text-foreground/70">
-            قصص الأنبياء
-          </span>
-        </Link>
+      <div className="absolute inset-0 bg-background/60" aria-hidden="true" />
 
-        <ul className="hidden items-center gap-10 md:flex">
-          {navItems.map((item) => (
-            <li key={item.to}>
-              <Link
-                to={item.to}
-                className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-              >
-                {item.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <div className="hidden items-center gap-6 md:flex">
-          <button
-            type="button"
-            className="flex items-center gap-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-          >
-            <i className="fa-solid fa-globe"></i>
-            EN
-          </button>
-
-          <Link
-            to="/login"
-            className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
-          >
-            تسجيل الدخول
-          </Link>
-
-          <MainButton text="إنشاء حساب" to="/signup" />
+      <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
+        <h1 className="font-serif text-4xl font-bold leading-tight text-emerald-900 sm:text-5xl md:text-6xl">
+          رحلة عبر قصص الأنبياء
+        </h1>
+        <p className="mx-auto mt-5 max-w-xl text-base text-foreground/80 sm:text-lg">
+          استكشف حياة الأنبياء بطريقة تفاعلية وجذابة
+        </p>
+        <div className="mt-8 flex justify-center">
+          <MainButton text="ابدأ الاستكشاف" to="/prophets" />
         </div>
-      </nav>
-    </header>
+      </div>
+    </section>
   );
 }
