@@ -28,7 +28,7 @@ const translations = {
     about: "About",
     login: "Login",
     signup: "Sign Up",
-    langBtn: "تحويل إلى العربية",
+    langBtn: "العربية",
   }
 };
 
