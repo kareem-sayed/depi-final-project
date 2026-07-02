@@ -1,13 +1,246 @@
-import { useParams } from "react-router-dom";
-import HeadPage from "../components/HeadPage";
+import { useState, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { prophetStories } from "../data/prophetsStories"; 
+const content = {
+  ar: {
+    home: "الرئيسية",
+    guide: "دليل الأنبياء",
+    era: "الزمان",
+    location: "المكان",
+    unspecified: "غير محدد",
+    stages: "مراحل القصة",
+    verse: "آية كريمة",
+    next: "المرحلة التالية",
+    prev: "المرحلة السابقة",
+    notFoundTitle: "هذه السيرة غير متوفرة حالياً",
+    notFoundBtn: "العودة لدليل الأنبياء",
+    langToggle: "EN"
+  },
+  en: {
+    home: "Home",
+    guide: "Prophets Guide",
+    era: "Era",
+    location: "Location",
+    unspecified: "Unspecified",
+    stages: "Story Stages",
+    verse: "Holy Verse",
+    next: "Next Stage",
+    prev: "Previous Stage",
+    notFoundTitle: "This biography is currently unavailable",
+    notFoundBtn: "Return to Prophets Guide",
+    langToggle: "AR"
+  }
+};
 
+type Lang = "ar" | "en";
 export default function ProphetStory() {
-  const { id } = useParams();
-  return (
-    <>
-      <div className="text-center">
-        <HeadPage title={`Here Will The Prophet Story ${id}`} />
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const story = id ? prophetStories[id] : undefined;
+  
+  const [lang, setLang] = useState<Lang>("ar");
+  const t = content[lang];
+
+  const [activeChapter, setActiveChapter] = useState(0);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [activeChapter]);
+
+  useEffect(() => {
+    if (id) {
+      const read = JSON.parse(localStorage.getItem("readProphets") || "[]");
+      if (!read.includes(id)) {
+        read.push(id);
+        localStorage.setItem("readProphets", JSON.stringify(read));
+      }
+    }
+  }, [id]);
+
+  if (!story) {
+    return (
+      <div dir={lang === "ar" ? "rtl" : "ltr"} className="min-h-[60vh] flex flex-col items-center justify-center font-cairo relative">
+        <button 
+          onClick={() => setLang(lang === "ar" ? "en" : "ar")}
+          className="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-card text-forest font-bold py-2 px-4 rounded-xl shadow-soft border border-border hover:bg-forest hover:text-white transition-colors z-10"
+        >
+          {t.langToggle}
+        </button>
+        <h2 className="text-3xl font-extrabold text-forest-dark mb-4">{t.notFoundTitle}</h2>
+        <button onClick={() => navigate("/prophets")} className="px-6 py-2.5 bg-forest-dark text-gold-light font-bold rounded-xl hover:bg-forest transition-colors shadow-md">
+          {t.notFoundBtn}
+        </button>
       </div>
-    </>
+    );
+  }
+
+  const chapters = story.chapters;
+  const currentChapter = chapters[activeChapter];
+  const totalChapters = chapters.length;
+
+  return (
+    <div dir={lang === "ar" ? "rtl" : "ltr"} className="container mx-auto px-4 py-8 md:py-12 max-w-6xl font-cairo relative">
+      
+      <button 
+        onClick={() => setLang(lang === "ar" ? "en" : "ar")}
+        className="absolute top-2 -left-12 rtl:left-auto rtl:-right-12 bg-card text-forest font-bold py-2 px-4 rounded-xl shadow-soft border border-border hover:bg-forest hover:text-white transition-colors z-50"
+      >
+        {t.langToggle}
+      </button>
+
+      <nav className="flex items-center text-sm text-muted-foreground font-bold mb-8 mt-4 md:mt-0">
+        <Link to="/" className="hover:text-forest transition-colors">{t.home}</Link>
+        <span className="mx-2">/</span>
+        <Link to="/prophets" className="hover:text-forest transition-colors">{t.guide}</Link>
+        <span className="mx-2">/</span>
+        <span className="text-forest-dark">{story.name[lang]}</span>
+      </nav>
+
+      {/* Story Header */}
+      <div className="bg-forest-dark text-gold-light rounded-card p-8 mb-10 shadow-soft relative overflow-hidden border border-forest">
+        <div className="absolute -left-10 -top-10 w-40 h-40 bg-gold/10 rounded-full blur-2xl"></div>
+        <div className="absolute right-0 bottom-0 w-32 h-32 bg-background/5 rounded-full blur-xl"></div>
+
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-start">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-extrabold font-amiri text-gold mb-3">
+              {lang === "ar" ? `سِيرَةُ ${story.name.ar}` : `Biography of ${story.name.en}`}
+            </h1>
+            <p className="text-lg opacity-90 font-medium">{story.title?.[lang]}</p>
+          </div>
+          
+          <div className="flex gap-4 text-sm font-bold bg-background/10 p-4 rounded-xl backdrop-blur-sm border border-gold/20">
+            <div className="flex flex-col items-center">
+              <span className="text-gold/70 text-xs mb-1">{t.era}</span>
+              <span>{story.era?.[lang] || t.unspecified}</span>
+            </div>
+            <div className="w-px bg-gold/20 flex-shrink-0" ></div>
+            <div className="flex flex-col items-center">
+              <span className="text-gold/70 text-xs mb-1">{t.location}</span>
+              <span>{story.location?.[lang] || t.unspecified}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+        
+        {/* Sidebar */}
+        <div className="lg:col-span-1 bg-card border border-border rounded-card p-5 sticky top-8 shadow-sm">
+          <h3 className="text-lg font-extrabold text-forest-dark mb-4 text-center border-b border-border pb-3">
+            {t.stages}
+          </h3>
+          <div className="flex flex-col gap-2">
+            {chapters.map((chapter, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveChapter(index)}
+                className={`flex items-center gap-3 p-3 rounded-xl transition-all text-start w-full ${
+                  activeChapter === index
+                    ? "bg-forest/10 border border-forest/20"
+                    : "bg-transparent hover:bg-slate-50 dark:hover:bg-slate-800"
+                }`}
+              >
+                <span
+                  className={`w-7 h-7 rounded-full flex items-center justify-center text-sm font-extrabold flex-shrink-0 transition-colors ${
+                    activeChapter === index
+                      ? "bg-forest text-white"
+                      : "bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400"
+                  }`}
+                >
+                  {index + 1}
+                </span>
+                <span
+                  className={`font-bold text-sm ${
+                    activeChapter === index
+                      ? "text-forest-dark"
+                      : "text-slate-600 dark:text-slate-400"
+                  }`}
+                >
+                  {chapter.title[lang]}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Main Content */}
+        <div className="lg:col-span-3">
+          <div className="bg-card rounded-card p-6 md:p-10 shadow-soft border border-border min-h-[400px]">
+            
+            <div className="border-b border-border pb-6 mb-8 flex items-center gap-4">
+              <span className="w-10 h-10 rounded-full bg-forest text-white flex items-center justify-center text-lg font-bold shadow-md flex-shrink-0">
+                {activeChapter + 1}
+              </span>
+              <h2 className="text-3xl font-extrabold font-amiri text-forest-dark">
+                {currentChapter.title[lang]}
+              </h2>
+            </div>
+
+            {/* sections and verses */}
+            <div className="space-y-8">
+              {currentChapter.sections.map((section, index) => (
+                <div key={index} className="leading-relaxed">
+                  <p className="text-slate-800 dark:text-slate-200 text-lg font-medium leading-loose mb-6 text-justify">
+                    {section.text[lang]}
+                  </p>
+
+                  {section.ayah && (
+                    <div className="my-8 relative bg-forest/5 dark:bg-forest/20 border-2 border-forest/20 rounded-2xl p-6 md:px-10 text-center shadow-sm">
+                      <span className="absolute -top-3.5 ltr:left-8 rtl:right-8 bg-card text-forest-dark dark:text-gold border border-forest/20 px-3 py-1 rounded-full text-xs font-extrabold">
+                        {t.verse}
+                      </span>
+                      <p dir="rtl" className="text-2xl md:text-3xl font-amiri text-forest-dark dark:text-gold-light leading-[2.5] mb-4">
+                        "{section.ayah.text}"
+                      </p>
+                      <p className="text-forest font-bold text-sm">
+                        [{section.ayah.ref[lang] || section.ayah.ref.ar}]
+                      </p>
+                      {section.ayah.audioUrl && (
+                        <audio controls className="mt-4 w-full max-w-xs mx-auto h-8">
+                          <source src={section.ayah.audioUrl} type="audio/mpeg" />
+                        </audio>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Chapter navigation buttons */}
+          <div className="flex items-center justify-between mt-8">
+            <button
+              onClick={() => setActiveChapter((prev) => prev + 1)}
+              disabled={activeChapter === totalChapters - 1}
+              className={`px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all ${
+                activeChapter === totalChapters - 1
+                  ? "opacity-50 cursor-not-allowed bg-muted text-muted-foreground"
+                  : "bg-forest-dark text-gold-light hover:bg-forest shadow-md hover:-translate-y-1"
+              }`}
+            >
+              <span className="rtl:hidden inline text-xl">&rarr;</span>
+              {t.next}
+              <span className="ltr:hidden inline text-xl">&larr;</span>
+            </button>
+
+            <button
+              onClick={() => setActiveChapter((prev) => prev - 1)}
+              disabled={activeChapter === 0}
+              className={`px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all border border-border ${
+                activeChapter === 0
+                  ? "opacity-50 cursor-not-allowed text-muted-foreground bg-background"
+                  : "text-forest-dark bg-card hover:bg-forest/5 shadow-sm hover:-translate-y-1"
+              }`}
+            >
+              <span className="ltr:hidden inline text-xl">&rarr;</span>
+              {t.prev}
+              <span className="rtl:hidden inline text-xl">&larr;</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
   );
 }
