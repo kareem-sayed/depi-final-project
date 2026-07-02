@@ -2,7 +2,7 @@ import app from './app.js';
 import { connectDB } from './config/db.js';
 import { env } from './config/env.js';
 
-const startServer = async () => {
+const startServer = async (): Promise<void> => {
   try {
     await connectDB();
 
@@ -10,7 +10,11 @@ const startServer = async () => {
       console.log(`Server running in ${env.nodeEnv} mode on port ${env.port}`);
     });
   } catch (error) {
-    console.error('Failed to start server:', error.message);
+    if (error instanceof Error) {
+      console.error('Failed to start server:', error.message);
+    } else {
+      console.error('Failed to start server:', error);
+    }
     process.exit(1);
   }
 };

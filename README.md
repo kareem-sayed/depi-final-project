@@ -1,6 +1,6 @@
 # DEPI Backend
 
-Node.js, Express, and MongoDB backend scaffold.
+TypeScript, Node.js, Express, and MongoDB backend scaffold.
 
 ## Getting Started
 
@@ -12,12 +12,19 @@ npm run dev
 
 The API starts on `http://localhost:5000` by default.
 
+Build and run the compiled API:
+
+```bash
+npm run build
+npm start
+```
+
 ## Structure
 
 ```text
 src/
-  app.js
-  server.js
+  app.ts
+  server.ts
   config/
   controllers/
   middleware/
