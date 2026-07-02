@@ -1,23 +1,16 @@
-import { useState } from "react";
 import Box from "../components/Box";
 import HeadPage from "../components/HeadPage";
 import HeadSection from "../components/HeadSection";
 import IconBox from "../components/IconBox";
 import MainButton from "../components/MainButton";
 import Sbox from "../components/SBox";
-import useLanguageDirection from "../hooks/useLanguageDirection";
+import { useLanguage } from "../context/LanguageContext";
 
 export default function About() {
-  const [lang, setLang] = useState<"AR" | "EN">("AR");
-
-  const toggleLang = () => {
-    setLang((prev) => (prev === "AR" ? "EN" : "AR"));
-  };
-
-  useLanguageDirection(lang);
+  const { lang } = useLanguage();
 
   const content = {
-    AR: {
+    ar: {
       pageTitle: "عن المشروع",
       description:
         '"رحلة عبر قصص الأنبياء" هو موقع تفاعلي يهدف إلى تقديم قصص الأنبياء بأسلوب حديث يجمع بين المعرفة والمتعة.',
@@ -30,17 +23,17 @@ export default function About() {
         {
           title: "الهدف من المشروع",
           text: "تقديم قصص الأنبياء بطريقة حديثة وتفاعلية",
-          icon:"fa-solid fa-bullseye"
+          icon: "fa-solid fa-bullseye",
         },
         {
           title: "الفائدة من الموقع",
           text: "تسهيل الفهم والتذكر",
-          icon:"fa-solid fa-lightbulb"
+          icon: "fa-solid fa-lightbulb",
         },
         {
           title: "التميز بالمشروع",
           text: "التجربة البصرية والتفاعلية",
-          icon:"fa-solid fa-cube"
+          icon: "fa-solid fa-cube",
         },
       ],
       teamTitle: "فريق العمل",
@@ -76,7 +69,7 @@ export default function About() {
       startText: "استكشف قصص الأنبياء واختبر معلوماتك الآن",
       button: "ابدأ الاستكشاف",
     },
-    EN: {
+    en: {
       pageTitle: "About The Project",
       description:
         "A Journey Through the Stories of Prophets is an interactive platform designed to present stories in a modern and engaging way.",
@@ -84,22 +77,22 @@ export default function About() {
       ideaText:
         "The idea started from the need to present religious content in a way that fits the digital age.",
       features: ["Organized Stories", "Timeline", "Quran Verses", "Quizzes"],
-      whyTitle: "Why did we build this?",
+      whyTitle: "?Why did we build this",
       boxes: [
         {
           title: "Project Goal",
           text: "Presenting prophetic stories in a modern interactive way",
-          icon:"fa-solid fa-bullseye"
+          icon: "fa-solid fa-bullseye",
         },
         {
           title: "Benefit",
           text: "Making understanding and memorization easier",
-          icon:"fa-solid fa-lightbulb"
+          icon: "fa-solid fa-lightbulb",
         },
         {
           title: "Uniqueness",
           text: "Visual and interactive experience",
-          icon:"fa-solid fa-cube"
+          icon: "fa-solid fa-cube",
         },
       ],
       teamTitle: "Our Team",
@@ -131,7 +124,7 @@ export default function About() {
           icon: "Ahmed Ala'a.jpg",
         },
       ],
-      startTitle: "Ready to start?",
+      startTitle: "?Ready to start the journey",
       startText: "Explore and test your knowledge now",
       button: "Start Exploring",
     },
@@ -141,13 +134,6 @@ export default function About() {
 
   return (
     <>
-      <button
-        onClick={toggleLang}
-        className="inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-semibold"
-      >
-        {lang === "AR" ? "EN" : "AR"}
-      </button>
-
       <main className="flex-1 pt-28 pb-16 px-4">
         <div className="container mx-auto max-w-5xl">
           {/* Header */}
@@ -176,11 +162,7 @@ export default function About() {
             <HeadSection title={cont.whyTitle} position="text-center" />
             <span className="grid md:grid-cols-3 gap-5">
               {cont.boxes.map((box) => (
-                <Box
-                  icon={box.icon}
-                  HeadLine={box.title}
-                  text={box.text}
-                />
+                <Box icon={box.icon} HeadLine={box.title} text={box.text} />
               ))}
             </span>
           </section>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import MainButton from "./MainButton";
+import { useLanguage } from "../context/LanguageContext";
 
 interface NavItem {
   to: string;
@@ -29,20 +30,13 @@ const translations = {
     login: "Login",
     signup: "Sign Up",
     langBtn: "العربية",
-  }
+  },
 };
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [lang, setLang] = useState<"ar" | "en">("ar");
-
-  const toggleLanguage = () => {
-    const nextLang = lang === "ar" ? "en" : "ar";
-    setLang(nextLang);
-    document.documentElement.dir = nextLang === "ar" ? "rtl" : "ltr";
-    document.documentElement.lang = nextLang;
-  };
+  const { lang, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,18 +74,22 @@ export default function Navbar() {
         }`}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
-          <div className={`flex md:hidden ${lang === "en" ? "order-1" : "order-3"}`}>
+          <div
+            className={`flex md:hidden ${lang === "en" ? "order-1" : "order-3"}`}
+          >
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
               className="inline-flex items-center justify-center rounded-md p-2 text-foreground/80 hover:bg-muted focus:outline-none"
             >
-              <i className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"} text-xl`}></i>
+              <i
+                className={`fa-solid ${isOpen ? "fa-xmark" : "fa-bars"} text-xl`}
+              ></i>
             </button>
           </div>
 
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className={`leading-tight md:order-1 ${lang === "en" ? "order-3 text-left" : "order-1 text-right"}`}
           >
             <span className="block font-serif text-2xl font-bold text-emerald-900">
@@ -107,7 +105,7 @@ export default function Navbar() {
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+                  className="text-foreground/80 hover:text-primary transition-colors font-semibold flex items-center gap-1.5"
                 >
                   {item.label}
                 </Link>
@@ -119,7 +117,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={toggleLanguage}
-              className="flex items-center gap-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+              className="flex items-center gap-1.5 font-semibold text-foreground/80 transition-colors hover:text-primary"
             >
               <i className="fa-solid fa-globe"></i>
               {t.langBtn}
@@ -127,7 +125,7 @@ export default function Navbar() {
 
             <Link
               to="/login"
-              className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+              className="text-foreground/80 hover:text-primary transition-colors font-semibold flex items-center gap-1.5"
             >
               {t.login}
             </Link>
@@ -149,7 +147,11 @@ export default function Navbar() {
         className={`fixed inset-y-0 z-[200] w-full max-w-xs bg-background p-6 shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
           lang === "ar" ? "right-0" : "left-0"
         } ${
-          isOpen ? "translate-x-0" : lang === "ar" ? "translate-x-full" : "-translate-x-full"
+          isOpen
+            ? "translate-x-0"
+            : lang === "ar"
+              ? "translate-x-full"
+              : "-translate-x-full"
         }`}
       >
         <div className="mb-8 flex items-center justify-between flex-row-reverse">
@@ -185,9 +187,12 @@ export default function Navbar() {
         </div>
 
         <div className="mt-6 space-y-3">
-          <button 
-            onClick={() => { toggleLanguage(); setIsOpen(false); }}
-            className="flex w-full items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
+          <button
+            onClick={() => {
+              toggleLanguage();
+              setIsOpen(false);
+            }}
+            className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
           >
             <i className="fa-solid fa-globe"></i>
             {t.langBtn}
