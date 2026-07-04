@@ -15,7 +15,8 @@ const content = {
     prev: "المرحلة السابقة",
     notFoundTitle: "هذه السيرة غير متوفرة حالياً",
     notFoundBtn: "العودة لدليل الأنبياء",
-    langToggle: "EN"
+    langToggle: "EN",
+    quizBtn:"اختبر معلوماتك"
   },
   en: {
     home: "Home",
@@ -29,7 +30,8 @@ const content = {
     prev: "Previous Stage",
     notFoundTitle: "This biography is currently unavailable",
     notFoundBtn: "Return to Prophets Guide",
-    langToggle: "AR"
+    langToggle: "AR",
+    quizBtn:"Test Your Knowledge"
   }
 };
 
@@ -221,22 +223,28 @@ export default function ProphetStory() {
             </div>
           </div>
 
-          {/* Chapter navigation buttons */}
+            {/* Chapter navigation buttons */}
           <div className="flex items-center justify-between mt-8 gap-4">
-            <button
-              onClick={() => setActiveChapter((prev) => prev + 1)}
-              disabled={activeChapter === totalChapters - 1}
-              className={`flex-1 sm:flex-none justify-center px-4 md:px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all text-sm md:text-base ${
-                activeChapter === totalChapters - 1
-                  ? "opacity-50 cursor-not-allowed bg-muted text-muted-foreground"
-                  : "bg-forest-dark text-gold-light hover:bg-forest shadow-md hover:-translate-y-1"
-              }`}
-            >
-              <span className="rtl:hidden inline text-lg md:text-xl">&rarr;</span>
-              {t.next}
-              <span className="ltr:hidden inline text-lg md:text-xl">&larr;</span>
-            </button>
-
+            
+            {activeChapter === totalChapters - 1 ? (
+              <button
+                onClick={() => navigate(`/quiz/${id}`)}
+                className="flex-1 sm:flex-none justify-center px-6 py-3.5 rounded-xl font-extrabold flex items-center gap-2 transition-all bg-gold text-forest-dark hover:bg-gold-light shadow-md hover:-translate-y-1 text-sm md:text-base border border-gold-dark/20"
+              >
+                {t.quizBtn}
+                <span className="rtl:hidden inline text-lg md:text-xl">&rarr;</span>
+                <span className="ltr:hidden inline text-lg md:text-xl">&larr;</span>
+              </button>
+            ) : (
+              <button
+                onClick={() => setActiveChapter((prev) => prev + 1)}
+                className="flex-1 sm:flex-none justify-center px-4 md:px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all text-sm md:text-base bg-forest-dark text-gold-light hover:bg-forest shadow-md hover:-translate-y-1"
+              >
+                <span className="rtl:hidden inline text-lg md:text-xl">&rarr;</span>
+                {t.next}
+                <span className="ltr:hidden inline text-lg md:text-xl">&larr;</span>
+              </button>
+            )}
             <button
               onClick={() => setActiveChapter((prev) => prev - 1)}
               disabled={activeChapter === 0}
