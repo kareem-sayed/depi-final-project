@@ -1,41 +1,77 @@
-import mongoose from "mongoose";
-export interface IQuizResult {
-  userId: mongoose.Schema.Types.ObjectId;
-  prophetSlug: string;
-  score: number;
-  totalQuestions: number;
-  submittedAt: Date;
+import mongoose, { Schema, Document, Types } from 'mongoose';
+
+export interface IAnswerDetail {
+  questionIndex: number;
+  selectedAnswer: number;
+  correctAnswer: number;
+  isCorrect: boolean;
 }
 
-const quizResultSchema = new mongoose.Schema<IQuizResult>(
+export interface IQuizResult extends Document {
+  userId: Types.ObjectId;
+  quizId: Types.ObjectId;
+  score: number;          // percentage 0–100
+  totalQuestions: number;
+  correctAnswers: number;
+  passed: boolean;
+  answers: IAnswerDetail[];
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const answerDetailSchema = new Schema<IAnswerDetail>(
+  {
+    questionIndex: { type: Number, required: true },
+    selectedAnswer: { type: Number, required: true },
+    correctAnswer:  { type: Number, required: true },
+    isCorrect:      { type: Boolean, required: true },
+  },
+  { _id: false }
+);
+
+const quizResultSchema = new Schema<IQuizResult>(
   {
     userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      type: Schema.Types.ObjectId,
+      ref: 'User',
       required: true,
+      index: true,
     },
-    prophetSlug: {
-      type: String,
+    quizId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Quiz',
       required: true,
+      index: true,
     },
     score: {
       type: Number,
       required: true,
+      min: 0,
+      max: 100,
     },
     totalQuestions: {
       type: Number,
       required: true,
+      min: 1,
     },
-    submittedAt: {
-      type: Date,
-      default: Date.now,
+    correctAnswers: {
+      type: Number,
+      required: true,
+      min: 0,
+    },
+    passed: {
+      type: Boolean,
+      required: true,
+    },
+    answers: {
+      type: [answerDetailSchema],
+      default: [],
     },
   },
   {
     timestamps: true,
+    versionKey: false,
   }
 );
 
-const QuizResult = mongoose.model<IQuizResult>("QuizResult", quizResultSchema);
-
-export default QuizResult;
+export const QuizResult = mongoose.model<IQuizResult>('QuizResult', quizResultSchema);
