@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { prophetStories } from "../data/prophetsStories"; 
+
 const content = {
   ar: {
     home: "الرئيسية",
@@ -33,6 +34,7 @@ const content = {
 };
 
 type Lang = "ar" | "en";
+
 export default function ProphetStory() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -83,41 +85,50 @@ export default function ProphetStory() {
       
       <button 
         onClick={() => setLang(lang === "ar" ? "en" : "ar")}
-        className="absolute top-2 -left-12 rtl:left-auto rtl:-right-12 bg-card text-forest font-bold py-2 px-4 rounded-xl shadow-soft border border-border hover:bg-forest hover:text-white transition-colors z-50"
+        className="absolute top-2 -left-12 rtl:left-auto rtl:-right-12 bg-card text-forest font-bold py-2 px-4 rounded-xl shadow-soft border border-border hover:bg-forest hover:text-white transition-colors z-50 hidden xl:block"
       >
         {t.langToggle}
       </button>
 
-      <nav className="flex items-center text-sm text-muted-foreground font-bold mb-8 mt-4 md:mt-0">
-        <Link to="/" className="hover:text-forest transition-colors">{t.home}</Link>
-        <span className="mx-2">/</span>
-        <Link to="/prophets" className="hover:text-forest transition-colors">{t.guide}</Link>
-        <span className="mx-2">/</span>
-        <span className="text-forest-dark">{story.name[lang]}</span>
+      <nav className="flex items-center justify-between text-sm text-muted-foreground font-bold mb-8 mt-4 md:mt-0">
+        <div className="flex items-center flex-wrap gap-1">
+          <Link to="/" className="hover:text-forest transition-colors">{t.home}</Link>
+          <span className="mx-2">/</span>
+          <Link to="/prophets" className="hover:text-forest transition-colors">{t.guide}</Link>
+          <span className="mx-2">/</span>
+          <span className="text-forest-dark">{story.name[lang]}</span>
+        </div>
+
+        <button 
+          onClick={() => setLang(lang === "ar" ? "en" : "ar")}
+          className="xl:hidden bg-card text-forest font-bold py-1.5 px-3 rounded-lg shadow-soft border border-border text-xs hover:bg-forest hover:text-white transition-colors"
+        >
+          {t.langToggle}
+        </button>
       </nav>
 
       {/* Story Header */}
-      <div className="bg-forest-dark text-gold-light rounded-card p-8 mb-10 shadow-soft relative overflow-hidden border border-forest">
+      <div className="bg-forest-dark text-gold-light rounded-card p-6 md:p-8 mb-10 shadow-soft relative overflow-hidden border border-forest">
         <div className="absolute -left-10 -top-10 w-40 h-40 bg-gold/10 rounded-full blur-2xl"></div>
         <div className="absolute right-0 bottom-0 w-32 h-32 bg-background/5 rounded-full blur-xl"></div>
 
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-start">
           <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold font-amiri text-gold mb-3">
+            <h1 className="text-3xl md:text-5xl font-extrabold font-amiri text-gold mb-3">
               {lang === "ar" ? `سِيرَةُ ${story.name.ar}` : `Biography of ${story.name.en}`}
             </h1>
-            <p className="text-lg opacity-90 font-medium">{story.title?.[lang]}</p>
+            <p className="text-base md:text-lg opacity-90 font-medium">{story.title?.[lang]}</p>
           </div>
           
-          <div className="flex gap-4 text-sm font-bold bg-background/10 p-4 rounded-xl backdrop-blur-sm border border-gold/20">
+          <div className="flex gap-4 text-sm font-bold bg-background/10 p-4 rounded-xl backdrop-blur-sm border border-gold/20 w-full md:w-auto justify-center">
             <div className="flex flex-col items-center">
               <span className="text-gold/70 text-xs mb-1">{t.era}</span>
-              <span>{story.era?.[lang] || t.unspecified}</span>
+              <span className="text-center">{story.era?.[lang] || t.unspecified}</span>
             </div>
-            <div className="w-px bg-gold/20 flex-shrink-0" ></div>
+            <div className="w-px bg-gold/20 flex-shrink-0"></div>
             <div className="flex flex-col items-center">
               <span className="text-gold/70 text-xs mb-1">{t.location}</span>
-              <span>{story.location?.[lang] || t.unspecified}</span>
+              <span className="text-center">{story.location?.[lang] || t.unspecified}</span>
             </div>
           </div>
         </div>
@@ -126,11 +137,11 @@ export default function ProphetStory() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
         
         {/* Sidebar */}
-        <div className="lg:col-span-1 bg-card border border-border rounded-card p-5 sticky top-8 shadow-sm">
+        <div className="lg:col-span-1 bg-card border border-border rounded-card p-5 lg:sticky lg:top-8 shadow-sm">
           <h3 className="text-lg font-extrabold text-forest-dark mb-4 text-center border-b border-border pb-3">
             {t.stages}
           </h3>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 max-h-[280px] lg:max-h-none overflow-y-auto pr-1">
             {chapters.map((chapter, index) => (
               <button
                 key={index}
@@ -164,15 +175,14 @@ export default function ProphetStory() {
           </div>
         </div>
 
-        {/* Main Content */}
-        <div className="lg:col-span-3">
-          <div className="bg-card rounded-card p-6 md:p-10 shadow-soft border border-border min-h-[400px]">
+        <div className="lg:col-span-3 w-full overflow-hidden">
+          <div className="bg-card rounded-card p-5 md:p-10 shadow-soft border border-border h-fit">
             
             <div className="border-b border-border pb-6 mb-8 flex items-center gap-4">
               <span className="w-10 h-10 rounded-full bg-forest text-white flex items-center justify-center text-lg font-bold shadow-md flex-shrink-0">
                 {activeChapter + 1}
               </span>
-              <h2 className="text-3xl font-extrabold font-amiri text-forest-dark">
+              <h2 className="text-2xl md:text-3xl font-extrabold font-amiri text-forest-dark leading-snug">
                 {currentChapter.title[lang]}
               </h2>
             </div>
@@ -181,26 +191,29 @@ export default function ProphetStory() {
             <div className="space-y-8">
               {currentChapter.sections.map((section, index) => (
                 <div key={index} className="leading-relaxed">
-                  <p className="text-slate-800 dark:text-slate-200 text-lg font-medium leading-loose mb-6 text-justify">
+                  <p className="text-slate-800 dark:text-slate-200 text-base md:text-lg font-medium leading-loose mb-6 text-justify">
                     {section.text[lang]}
                   </p>
 
                   {section.ayah && (
-                    <div className="my-8 relative bg-forest/5 dark:bg-forest/20 border-2 border-forest/20 rounded-2xl p-6 md:px-10 text-center shadow-sm">
-                      <span className="absolute -top-3.5 ltr:left-8 rtl:right-8 bg-card text-forest-dark dark:text-gold border border-forest/20 px-3 py-1 rounded-full text-xs font-extrabold">
+                    <div className="mt-12 mb-10 relative bg-forest/5 dark:bg-forest/20 border-2 border-forest/20 rounded-2xl p-6 py-8 md:p-10 text-center shadow-sm ">
+                      <span className="absolute -top-3.5 ltr:left-6 rtl:right-6 bg-card text-forest-dark dark:text-gold border border-forest/20 px-3 py-1 rounded-full text-xs font-extrabold z-10 shadow-sm">
                         {t.verse}
                       </span>
-                      <p dir="rtl" className="text-2xl md:text-3xl font-amiri text-forest-dark dark:text-gold-light leading-[2.5] mb-4">
-                        "{section.ayah.text}"
+                      <p dir="rtl" className="text-xl md:text-3xl font-amiri text-forest-dark dark:text-gold-light leading-[3] md:leading-[2.8] mb-4 pt-2">
+                        ﴿{section.ayah.text}﴾
                       </p>
                       <p className="text-forest font-bold text-sm">
                         [{section.ayah.ref[lang] || section.ayah.ref.ar}]
                       </p>
                       {section.ayah.audioUrl && (
-                        <audio controls className="mt-4 w-full max-w-xs mx-auto h-8">
-                          <source src={section.ayah.audioUrl} type="audio/mpeg" />
-                        </audio>
-                      )}
+                        <audio 
+                          key={section.ayah.audioUrl}
+                          controls 
+                          src={section.ayah.audioUrl}
+                          className="mt-6 w-full max-w-xs mx-auto h-8"
+                        />
+                      )}  
                     </div>
                   )}
                 </div>
@@ -209,33 +222,33 @@ export default function ProphetStory() {
           </div>
 
           {/* Chapter navigation buttons */}
-          <div className="flex items-center justify-between mt-8">
+          <div className="flex items-center justify-between mt-8 gap-4">
             <button
               onClick={() => setActiveChapter((prev) => prev + 1)}
               disabled={activeChapter === totalChapters - 1}
-              className={`px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all ${
+              className={`flex-1 sm:flex-none justify-center px-4 md:px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all text-sm md:text-base ${
                 activeChapter === totalChapters - 1
                   ? "opacity-50 cursor-not-allowed bg-muted text-muted-foreground"
                   : "bg-forest-dark text-gold-light hover:bg-forest shadow-md hover:-translate-y-1"
               }`}
             >
-              <span className="rtl:hidden inline text-xl">&rarr;</span>
+              <span className="rtl:hidden inline text-lg md:text-xl">&rarr;</span>
               {t.next}
-              <span className="ltr:hidden inline text-xl">&larr;</span>
+              <span className="ltr:hidden inline text-lg md:text-xl">&larr;</span>
             </button>
 
             <button
               onClick={() => setActiveChapter((prev) => prev - 1)}
               disabled={activeChapter === 0}
-              className={`px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all border border-border ${
+              className={`flex-1 sm:flex-none justify-center px-4 md:px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all border border-border text-sm md:text-base ${
                 activeChapter === 0
                   ? "opacity-50 cursor-not-allowed text-muted-foreground bg-background"
                   : "text-forest-dark bg-card hover:bg-forest/5 shadow-sm hover:-translate-y-1"
               }`}
             >
-              <span className="ltr:hidden inline text-xl">&rarr;</span>
+              <span className="ltr:hidden inline text-lg md:text-xl">&rarr;</span>
               {t.prev}
-              <span className="rtl:hidden inline text-xl">&larr;</span>
+              <span className="rtl:hidden inline text-lg md:text-xl">&larr;</span>
             </button>
           </div>
         </div>
