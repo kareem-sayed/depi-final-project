@@ -1,7 +1,7 @@
 import type { ProphetStory } from "../types/ProphetStory";
 import { adamStory } from "./prophets/adam/adamStory";
 import { nuhStory } from "./prophets/nuh/nuhStory";
-import { idrissStory } from "./prophets/idriss/idrissStory";
+import { IdrissStory } from "./prophets/idriss/idrissStory";
 import { ibrahimStory } from "./prophets/ibrahim/ibrahimStory";
 import { musaStory } from "./prophets/musa/musaStory";
 import { dhulKiflStory } from "./prophets/dhulKifl/dhulKiflStory";
@@ -27,7 +27,7 @@ import { mohamedStory } from "./prophets/mohamed/mohamedStory";
 
 export const prophetStories: Record<string, ProphetStory> = {
   adam: adamStory,
-  idriss: idrissStory,
+  idriss: IdrissStory,
   nuh: nuhStory,
   hud: hudStory,
   salih: salihStory,
