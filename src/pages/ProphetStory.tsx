@@ -51,6 +51,26 @@ export default function ProphetStory() {
 
   const [activeChapter, setActiveChapter] = useState(0);
 
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const toggleBookmark = () => {
+    if (!id) return;
+
+    const bookmarks: string[] = JSON.parse(
+      localStorage.getItem("bookmarkedProphets") || "[]"
+    );
+
+    if (bookmarks.includes(id)) {
+      const updated = bookmarks.filter((item) => item !== id);
+      localStorage.setItem("bookmarkedProphets", JSON.stringify(updated));
+      setIsBookmarked(false);
+    } else {
+      bookmarks.push(id);
+      localStorage.setItem("bookmarkedProphets", JSON.stringify(bookmarks));
+      setIsBookmarked(true);
+    }
+  };
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [activeChapter]);
@@ -90,6 +110,16 @@ export default function ProphetStory() {
     };
     
     fetchStory();
+  }, [id]);
+
+  useEffect(() => {
+    if (!id) return;
+
+    const bookmarks: string[] = JSON.parse(
+      localStorage.getItem("bookmarkedProphets") || "[]"
+    );
+
+    setIsBookmarked(bookmarks.includes(id));
   }, [id]);
   
   if (loading) {
@@ -135,10 +165,29 @@ export default function ProphetStory() {
 
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-start">
           <div>
-            <h1 className="text-3xl md:text-5xl font-extrabold font-amiri text-gold mb-3">
-              {lang === "ar" ? `سِيرَةُ ${story.name.ar}` : `Biography of ${story.name.en}`}
-            </h1>
-            <p className="text-base md:text-lg opacity-90 font-medium">{story.title?.[lang]}</p>
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h1 className="text-3xl md:text-5xl font-extrabold font-amiri text-gold mb-3">
+                  {lang === "ar"
+                    ? `سِيرَةُ ${story.name.ar}`
+                    : `Biography of ${story.name.en}`}
+                </h1>
+
+                <p className="text-base md:text-lg opacity-90 font-medium">
+                  {story.title?.[lang]}
+                </p>
+              </div>
+
+              <button className="w-11 h-11 rounded-full border border-gold/30 bg-background/10 hover:bg-gold/20 transition" onClick={toggleBookmark}>
+              <i
+                className={`${
+                  isBookmarked
+                    ? "fa-solid fa-bookmark text-gold"
+                    : "fa-regular fa-bookmark"
+                }`}
+              />
+            </button>
+            </div>
           </div>
           
           <div className="flex gap-4 text-sm font-bold bg-background/10 p-4 rounded-xl backdrop-blur-sm border border-gold/20 w-full md:w-auto justify-center">

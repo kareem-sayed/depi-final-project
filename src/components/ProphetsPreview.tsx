@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import HeadSection from "./HeadSection";
 import IconBox from "./IconBox";
 import { useLanguage } from "../context/LanguageContext";
-import { prophets } from "../data/prophetsList";
+import { useEffect, useState } from "react";
+import type { Prophet } from "../types/Prophet";
 
 const translations = {
   ar: {
@@ -17,14 +18,33 @@ const translations = {
 
 const previewIds = ["adam", "nuh", "ibrahim", "musa", "yusuf", "mohamed"];
 
-const previewProphets = prophets.filter((prophet) =>
-  previewIds.includes(prophet.slug),
-);
-
 export default function ProphetsPreview() {
   const { lang } = useLanguage();
 
   const t = translations[lang];
+
+  const [prophets, setProphets] = useState<Prophet[]>([]);
+  useEffect(() => {
+    const fetchProphets = async () => {
+      try {
+        const res = await fetch(
+          "https://backenddepi-production.up.railway.app/api/prophets"
+        );
+
+        const data = await res.json();
+        
+        setProphets(data.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchProphets();
+  }, []);
+
+  const previewProphets = prophets.filter((prophet) =>
+    previewIds.includes(prophet.slug),
+  );
 
   return (
     <section
