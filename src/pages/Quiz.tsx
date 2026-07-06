@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { prophetQuizes } from "../data/prophetsQuizes";
-import { prophets } from "../data/prophetsList";
 import { useLanguage } from "../context/LanguageContext";
+import type { Prophet } from "../types/Prophet";
+import type { ProphetQuiz } from "../types/ProphetQuiz";
 
-const arabicLetters = ["أ", "ب", "ج", "د", "هـ", "و"];
+const arabicLetters = {
+  ar: ["أ", "ب", "ج", "د"],
+  en: ["A", "B", "C", "D"],
+}
 
 const content = {
   ar: {
@@ -46,16 +49,76 @@ export default function Quiz() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const quiz = id ? prophetQuizes[id] : undefined;
-  const prophet = prophets.find((p: any) => p.slug === id);
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   
+  const [prophets, setProphets] = useState<Prophet[]>([]);
+  const [quiz, setQuiz] = useState<ProphetQuiz[]>([]);
+  const [loadingProphets, setLoadingProphets] = useState(true);
+  const [loadingQuiz, setLoadingQuiz] = useState(true);
+
+  useEffect(() => {
+    const fetchProphets = async () => {
+      try {
+        const res = await fetch(
+          "https://backenddepi-production.up.railway.app/api/prophets"
+        );
+
+        const data = await res.json();
+
+        setProphets(data.data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoadingProphets(false);
+      }
+    };
+
+    fetchProphets();
+  }, []);
+
+  useEffect(() => {
+    if (!id) return;
+
+    const fetchQuizes = async () => {
+      try {
+        const res = await fetch(
+          `https://backenddepi-production.up.railway.app/api/Quizzes/${id}`
+        );
+
+        const data = await res.json();
+
+        setQuiz(data.data.questions);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoadingQuiz(false);
+      }
+    };
+
+    fetchQuizes();
+  }, []);
+
+  const prophet = prophets.find((p) => p.slug === id);
+
   const { lang } = useLanguage();
   const t = content[lang];
 
-  if (!quiz || !prophet) {
+  if (loadingProphets || loadingQuiz) {
+    return (
+      <div dir={lang === "ar" ? "rtl" : "ltr"} className="min-h-[70vh] flex flex-col items-center justify-center gap-5" >
+        <div className="w-14 h-14 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+
+        <p className="text-muted-foreground text-lg font-medium animate-pulse">
+          {lang === "ar"
+            ? "جاري تحميل الإختبار..."
+            : "Loading Quiz..."}
+        </p>
+      </div>
+    );
+  }
+
+  if (quiz.length === 0 || !prophet) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
         <i className="fa-solid fa-circle-exclamation text-4xl text-muted-foreground/50"></i>
@@ -132,7 +195,7 @@ export default function Quiz() {
 
           {/* Options */}
           <div className="space-y-3 mb-8">
-            {question.options.map((option, index) => {
+            {question.options.map((option: { ar: string; en: string }, index: number) => {
               const isSelected = selectedOption === index;
               return (
                 <button
@@ -152,9 +215,9 @@ export default function Quiz() {
                         : "bg-muted/40 text-muted-foreground"
                       }`}
                   >
-                    {arabicLetters[index]}
+                    {lang === "ar" ? arabicLetters.ar[index] : arabicLetters.en[index]}
                   </span>
-                  <span className="font-semibold text-sm md:text-base flex-1">{lang === "ar" ? option.ar : option.en}</span>
+                  <span className="font-semibold text-sm md:text-base flex-1"><p className="w-fit">{lang === "ar" ? option.ar : option.en}</p></span>
                 </button>
               );
             })}

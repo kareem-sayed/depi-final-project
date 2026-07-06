@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { prophetStories } from "../data/prophetsStories"; 
 import { useLanguage } from "../context/LanguageContext";
+import type { StorySection } from "../types/StorySection";
+import type { StoryChapters } from "../types/StoryChapters";
+import type { ProphetStory } from "../types/ProphetStory";
 
 const content = {
   ar: {
@@ -39,7 +41,10 @@ const content = {
 export default function ProphetStory() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const story = id ? prophetStories[id] : undefined;
+
+  const [story, setStory] = useState<ProphetStory | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   
   const { lang } = useLanguage();
   const t = content[lang];
@@ -59,8 +64,43 @@ export default function ProphetStory() {
       }
     }
   }, [id]);
+  
+  useEffect(() => {
+    if (!id) return;
+    
+    const fetchStory = async () => {
+      try {
+        setLoading(true);
 
-  if (!story) {
+        const response = await fetch(
+          `https://backenddepi-production.up.railway.app/api/stories/${id}`
+        );
+        
+        if (!response.ok) throw new Error("Failed");
+        
+        const data = await response.json();
+        
+        setStory(data.data);
+      } catch (err) {
+        console.error(err);
+        setError(true);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchStory();
+  }, [id]);
+  
+  if (loading) {
+    return (
+      <div className="min-h-[70vh] flex items-center justify-center">
+        <div className="w-14 h-14 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+  
+  if (error || !story) {
     return (
       <div dir={lang === "ar" ? "rtl" : "ltr"} className="min-h-[60vh] p-10 mt-20 flex flex-col items-center justify-center font-cairo relative">
         <h2 className="text-3xl font-extrabold text-forest-dark mb-4">{t.notFoundTitle}</h2>
@@ -123,7 +163,7 @@ export default function ProphetStory() {
             {t.stages}
           </h3>
           <div className="flex flex-col gap-2 max-h-[280px] lg:max-h-none overflow-y-auto pr-1">
-            {chapters.map((chapter, index) => (
+            {chapters.map((chapter: StoryChapters, index: number) => (
               <button
                 key={index}
                 onClick={() => setActiveChapter(index)}
@@ -170,7 +210,7 @@ export default function ProphetStory() {
 
             {/* sections and verses */}
             <div className="space-y-8">
-              {currentChapter.sections.map((section, index) => (
+              {currentChapter.sections.map((section: StorySection, index: number) => (
                 <div key={index} className="leading-relaxed">
                   <p className="text-slate-800 dark:text-slate-200 text-base md:text-lg font-medium leading-loose mb-6 text-justify">
                     {section.text[lang]}

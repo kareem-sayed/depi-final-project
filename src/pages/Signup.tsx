@@ -87,11 +87,17 @@ export default function Signup() {
           <span>{t.welcome}</span>
         </div>
         
-        <h1 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight">
+        <h1
+          className={`text-4xl md:text-5xl font-extrabold text-foreground leading-tight ${
+            lang === "ar" ? "text-right" : "text-left"
+          }`}
+        >
           {t.subtitle}
         </h1>
         
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-lg">
+        <p className={`text-muted-foreground text-base md:text-lg leading-relaxed max-w-lg ${
+          lang === "ar" ? "text-right" : "text-left"
+        }`}>
           {t.description}
         </p>
         

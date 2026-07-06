@@ -1,8 +1,7 @@
-import { useState, useMemo } from "react"; 
 import { Link } from "react-router-dom"; 
-import { prophets } from "../data/prophetsList"; 
 import type { Prophet } from "../types/Prophet"; 
 import { useLanguage } from "../context/LanguageContext";
+import { useEffect, useMemo, useState } from "react";
 
 const content = { 
   ar: { 
@@ -34,24 +33,58 @@ const content = {
 export default function Prophets() { 
   const [searchQuery, setSearchQuery] = useState(""); 
   const [onlyUlulAzm, setOnlyUlulAzm] = useState(false); 
-  
   const { lang } = useLanguage();
+  const [prophets, setProphets] = useState<Prophet[]>([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const fetchProphets = async () => {
+      try {
+        const res = await fetch(
+          "https://backenddepi-production.up.railway.app/api/prophets"
+        );
+
+        const data = await res.json();
+
+        setProphets(data.data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProphets();
+  }, []);
 
   const t = content[lang]; 
 
-  const filteredProphets = useMemo(() => { 
-    return prophets.filter((prophet) => { 
-      const matchesSearch = 
-        prophet.name.ar.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        prophet.name.en.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        prophet.shortDesc.ar.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        prophet.shortDesc.en.toLowerCase().includes(searchQuery.toLowerCase()); 
+  const filteredProphets = useMemo(() => {
+    return prophets.filter((prophet) => {
+      const matchesSearch =
+        prophet.name.ar.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        prophet.name.en.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        prophet.shortDesc.ar.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        prophet.shortDesc.en.toLowerCase().includes(searchQuery.toLowerCase());
 
-      const matchesUlulAzm = onlyUlulAzm ? prophet.ululAzm === true : true; 
+      const matchesUlulAzm = onlyUlulAzm ? prophet.ululAzm : true;
 
-      return matchesSearch && matchesUlulAzm; 
-    }); 
-  }, [searchQuery, onlyUlulAzm]); 
+      return matchesSearch && matchesUlulAzm;
+    });
+  }, [prophets, searchQuery, onlyUlulAzm]);
+
+  if (loading) {
+    return (
+      <div dir={lang === "ar" ? "rtl" : "ltr"} className="min-h-[70vh] flex flex-col items-center justify-center gap-5" >
+        <div className="w-14 h-14 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+
+        <p className="text-muted-foreground text-lg font-medium animate-pulse">
+          {lang === "ar"
+            ? "جاري تحميل قصص الأنبياء..."
+            : "Loading Prophets..."}
+        </p>
+      </div>
+    );
+  }
 
   return ( 
     <div dir={lang === "ar" ? "rtl" : "ltr"} className="container mx-auto px-4 py-10 mt-20 font-cairo relative"> 
