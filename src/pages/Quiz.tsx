@@ -1,27 +1,67 @@
 import { useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { prophetQuizzes } from "../data/prophetQuizzes";
-import { prophets } from "../data/prophets";
+import { prophetQuizes } from "../data/prophetsQuizes";
+import { prophets } from "../data/prophetsList";
+import { useLanguage } from "../context/LanguageContext";
 
 const arabicLetters = ["أ", "ب", "ج", "د", "هـ", "و"];
+
+const content = {
+  ar: {
+    noQuiz: "لا يوجد اختبار متاح لهذا النبي حالياً",
+    backToProphets: "العودة لصفحة الأنبياء",
+
+    prophets: "الأنبياء",
+    quiz: "الاختبار",
+
+    quizTitle: "اختبار قصة",
+    quizSubtitle: "اختبر فهمك للقصة بأسئلة بسيطة",
+
+    question: "سؤال",
+    of: "من",
+
+    finishQuiz: "إنهاء الاختبار",
+    nextQuestion: "السؤال التالي",
+  },
+
+  en: {
+    noQuiz: "No quiz is currently available for this prophet.",
+    backToProphets: "Back to Prophets",
+
+    prophets: "Prophets",
+    quiz: "Quiz",
+
+    quizTitle: "Quiz of",
+    quizSubtitle: "Test your understanding of the story with a few simple questions.",
+
+    question: "Question",
+    of: "of",
+
+    finishQuiz: "Finish Quiz",
+    nextQuestion: "Next Question",
+  },
+};
 
 export default function Quiz() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const quiz = id ? prophetQuizzes[id] : undefined;
-  const prophet = prophets.find((p) => p.slug === id);
+  const quiz = id ? prophetQuizes[id] : undefined;
+  const prophet = prophets.find((p: any) => p.slug === id);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  
+  const { lang } = useLanguage();
+  const t = content[lang];
 
   if (!quiz || !prophet) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
         <i className="fa-solid fa-circle-exclamation text-4xl text-muted-foreground/50"></i>
-        <p className="text-lg text-muted-foreground">لا يوجد اختبار متاح لهذا النبي حالياً</p>
+        <p className="text-lg text-muted-foreground">{t.noQuiz}</p>
         <Link to="/prophets" className="text-primary font-semibold hover:underline text-sm">
-          ← العودة لصفحة الأنبياء
+          ← {t.backToProphets}
         </Link>
       </div>
     );
@@ -43,16 +83,16 @@ export default function Quiz() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full" dir={lang === "ar" ? "rtl" : "ltr"}>
       {/* Breadcrumb */}
       <div className="bg-muted/30 border-b border-border/40">
-        <div className="max-w-4xl mx-auto px-6 py-3">
+        <div className="max-w-4xl mx-auto px-6 py-10 mt-20">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link to="/prophets" className="hover:text-primary transition-colors">الأنبياء</Link>
+            <Link to="/prophets" className="hover:text-primary transition-colors">{t.prophets}</Link>
             <span>/</span>
-            <Link to={`/prophetstory/${id}`} className="hover:text-primary transition-colors">{prophet.name.ar}</Link>
+            <Link to={`/prophetstory/${id}`} className="hover:text-primary transition-colors">{lang === "ar" ? prophet.name.ar : prophet.name.en}</Link>
             <span>/</span>
-            <span className="text-foreground font-semibold">الاختبار</span>
+            <span className="text-foreground font-semibold">{t.quiz}</span>
           </nav>
         </div>
       </div>
@@ -60,10 +100,10 @@ export default function Quiz() {
       {/* Page Header */}
       <div className="text-center pt-10 pb-6 px-6">
         <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-          اختبار قصة {prophet.name.ar}
+          {t.quizTitle} {lang === "ar" ? prophet.name.ar : prophet.name.en}
         </h1>
         <p className="text-muted-foreground text-sm">
-          اختبر فهمك للقصة بأسئلة بسيطة
+          {t.quizSubtitle}
         </p>
       </div>
 
@@ -75,7 +115,7 @@ export default function Quiz() {
           <div className="flex items-center justify-between mb-3">
             <span className="text-xs text-muted-foreground font-medium">{progressPercent}%</span>
             <span className="text-sm font-semibold text-foreground">
-              سؤال {currentQuestion + 1} من {totalQuestions}
+              {lang === "ar" ? `سؤال ${currentQuestion + 1} من ${totalQuestions}` : `Question ${currentQuestion + 1} of ${totalQuestions}`}
             </span>
           </div>
           <div className="w-full h-2 bg-muted/50 rounded-full mb-8 overflow-hidden" dir="ltr">
@@ -87,7 +127,7 @@ export default function Quiz() {
 
           {/* Question */}
           <h2 className="text-xl md:text-2xl font-bold text-foreground text-center mb-8">
-            {question.q.ar}
+            {lang === "ar" ? question.question.ar : question.question.en}
           </h2>
 
           {/* Options */}
@@ -114,7 +154,7 @@ export default function Quiz() {
                   >
                     {arabicLetters[index]}
                   </span>
-                  <span className="font-semibold text-sm md:text-base flex-1">{option.ar}</span>
+                  <span className="font-semibold text-sm md:text-base flex-1">{lang === "ar" ? option.ar : option.en}</span>
                 </button>
               );
             })}
@@ -131,7 +171,7 @@ export default function Quiz() {
                 : "bg-muted text-muted-foreground cursor-not-allowed"
               }`}
           >
-            {isLastQuestion ? "إنهاء الاختبار" : "السؤال التالي"}
+            {isLastQuestion ? (lang === "ar" ? "إنهاء الاختبار" : "Finish Quiz") : (lang === "ar" ? "السؤال التالي" : "Next Question")}
           </button>
         </div>
       </div>

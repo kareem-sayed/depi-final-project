@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { prophetStories } from "../data/prophetsStories"; 
+import { useLanguage } from "../context/LanguageContext";
 
 const content = {
   ar: {
@@ -35,14 +36,12 @@ const content = {
   }
 };
 
-type Lang = "ar" | "en";
-
 export default function ProphetStory() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const story = id ? prophetStories[id] : undefined;
   
-  const [lang, setLang] = useState<Lang>("ar");
+  const { lang } = useLanguage();
   const t = content[lang];
 
   const [activeChapter, setActiveChapter] = useState(0);
@@ -63,13 +62,7 @@ export default function ProphetStory() {
 
   if (!story) {
     return (
-      <div dir={lang === "ar" ? "rtl" : "ltr"} className="min-h-[60vh] flex flex-col items-center justify-center font-cairo relative">
-        <button 
-          onClick={() => setLang(lang === "ar" ? "en" : "ar")}
-          className="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-card text-forest font-bold py-2 px-4 rounded-xl shadow-soft border border-border hover:bg-forest hover:text-white transition-colors z-10"
-        >
-          {t.langToggle}
-        </button>
+      <div dir={lang === "ar" ? "rtl" : "ltr"} className="min-h-[60vh] p-10 mt-20 flex flex-col items-center justify-center font-cairo relative">
         <h2 className="text-3xl font-extrabold text-forest-dark mb-4">{t.notFoundTitle}</h2>
         <button onClick={() => navigate("/prophets")} className="px-6 py-2.5 bg-forest-dark text-gold-light font-bold rounded-xl hover:bg-forest transition-colors shadow-md">
           {t.notFoundBtn}
@@ -83,14 +76,7 @@ export default function ProphetStory() {
   const totalChapters = chapters.length;
 
   return (
-    <div dir={lang === "ar" ? "rtl" : "ltr"} className="container mx-auto px-4 py-8 md:py-12 max-w-6xl font-cairo relative">
-      
-      <button 
-        onClick={() => setLang(lang === "ar" ? "en" : "ar")}
-        className="absolute top-2 -left-12 rtl:left-auto rtl:-right-12 bg-card text-forest font-bold py-2 px-4 rounded-xl shadow-soft border border-border hover:bg-forest hover:text-white transition-colors z-50 hidden xl:block"
-      >
-        {t.langToggle}
-      </button>
+    <div dir={lang === "ar" ? "rtl" : "ltr"} className="container mx-auto px-4 p-10 mt-20 md:py-12 max-w-6xl font-cairo relative">
 
       <nav className="flex items-center justify-between text-sm text-muted-foreground font-bold mb-8 mt-4 md:mt-0">
         <div className="flex items-center flex-wrap gap-1">
@@ -100,13 +86,6 @@ export default function ProphetStory() {
           <span className="mx-2">/</span>
           <span className="text-forest-dark">{story.name[lang]}</span>
         </div>
-
-        <button 
-          onClick={() => setLang(lang === "ar" ? "en" : "ar")}
-          className="xl:hidden bg-card text-forest font-bold py-1.5 px-3 rounded-lg shadow-soft border border-border text-xs hover:bg-forest hover:text-white transition-colors"
-        >
-          {t.langToggle}
-        </button>
       </nav>
 
       {/* Story Header */}

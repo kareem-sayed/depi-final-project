@@ -41,7 +41,7 @@ export default function About() {
       teamMempers: [
         {
           Name: "محمد أحمد حسبو",
-          Jop: "مطور Front-End",
+          Jop: "مطور Back-End",
           icon: "Mohamed Hasabo.jpeg",
         },
         {
@@ -62,7 +62,7 @@ export default function About() {
         {
           Name: "أحمد علاء عبد الوهاب",
           Jop: "مطور Front-End",
-          icon: "Ahmed Ala'a.jpg",
+          icon: "Ahmed Alaa.jpeg",
         },
       ],
       startTitle: "جاهز تبدأ الرحلة؟",
@@ -77,7 +77,7 @@ export default function About() {
       ideaText:
         "The idea started from the need to present religious content in a way that fits the digital age.",
       features: ["Organized Stories", "Timeline", "Quran Verses", "Quizzes"],
-      whyTitle: "?Why did we build this",
+      whyTitle: "Why did we build this?",
       boxes: [
         {
           title: "Project Goal",
@@ -100,7 +100,7 @@ export default function About() {
       teamMempers: [
         {
           Name: "Mohamed Ahmed Hasabo",
-          Jop: "Front-End Developer",
+          Jop: "Back-End Developer",
           icon: "Mohamed Hasabo.jpeg",
         },
         {
@@ -121,10 +121,10 @@ export default function About() {
         {
           Name: "Ahmed Alaa Abdelwahab",
           Jop: "Front-End Developer",
-          icon: "Ahmed Ala'a.jpg",
+          icon: "Ahmed Alaa.jpeg",
         },
       ],
-      startTitle: "?Ready to start the journey",
+      startTitle: "Ready to start the journey?",
       startText: "Explore and test your knowledge now",
       button: "Start Exploring",
     },
@@ -134,7 +134,7 @@ export default function About() {
 
   return (
     <>
-      <main className="flex-1 pt-28 pb-16 px-4">
+      <main className="flex-1 pt-10 mt-20 pb-16 px-4" dir={lang === "ar" ? "rtl" : "ltr"}>
         <div className="container mx-auto max-w-5xl">
           {/* Header */}
           <header className="text-center mb-16">

@@ -246,7 +246,7 @@ export const adamStory: ProphetStory = {
             text: "فَأَكَلَا مِنْهَا فَبَدَتْ لَهُمَا سَوْآتُهُمَا وَطَفِقَا يَخْصِفَانِ عَلَيْهِمَا مِن وَرَقِ الْجَنَّةِ ۚ وَعَصَىٰ آدَمُ رَبَّهُ فَغَوَىٰ",
             ref: { ar: "طه: 121", en: "Taha: 121" },
             audioUrl:
-              "/https://www.everyayah.com/data/Alafasy_128kbps/020121.mp3",
+              "https://www.everyayah.com/data/Alafasy_128kbps/020121.mp3",
           },
         },
       ],

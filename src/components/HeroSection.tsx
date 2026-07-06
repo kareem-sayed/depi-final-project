@@ -24,7 +24,7 @@ export default function HeroSection() {
   return (
     <section
       style={{ backgroundImage: `url(${heroBg})` }}
-      className="relative flex min-h-screen flex-col items-center justify-center px-6 pt-32 text-center lg:px-8 bg-cover bg-center"
+      className="relative flex min-h-screen flex-col items-center justify-center px-5 pt-10 text-center lg:px-8 bg-cover bg-center"
     >
       <div
         className="absolute inset-0"

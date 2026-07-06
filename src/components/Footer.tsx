@@ -41,30 +41,38 @@ export default function Footer() {
 
         <div className="flex items-center gap-5 text-base md:order-2 w-full md:w-auto justify-center text-white/90">
           <a
-            href="#"
+            href="https://www.facebook.com/profile.php?id=61591840615493"
             className="hover:text-white transition-colors"
             aria-label="Facebook"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="fa-brands fa-facebook"></i>
           </a>
           <a
-            href="#"
+            href="https://x.com/Stories_Pr3cnj"
             className="hover:text-white transition-colors"
             aria-label="Twitter"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="fa-brands fa-twitter"></i>
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/stories_of_prophetss/"
             className="hover:text-white transition-colors"
             aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="fa-brands fa-instagram"></i>
           </a>
           <a
-            href="#"
+            href="https://www.youtube.com/channel/UCJmGO0Nm3pf3AlNIi47penA"
             className="hover:text-white transition-colors"
             aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <i className="fa-brands fa-youtube"></i>
           </a>

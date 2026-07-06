@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { prophets } from "../data/prophetsList";
+import { useLanguage } from "../context/LanguageContext";
 
 const content = {
   ar: {
@@ -54,12 +54,10 @@ const mockData = {
   ]
 };
 
-type Lang = "ar" | "en";
-
 export default function Dashboard() {
   const [readStories, setReadStories] = useState<string[]>([]);
   
-  const [lang, setLang] = useState<Lang>("ar");
+  const { lang } = useLanguage();
   const t = content[lang];
   const progressData = mockData[lang];
 
@@ -71,14 +69,7 @@ export default function Dashboard() {
   const progressPercentage = Math.round((readStories.length / 25) * 100);
 
   return (
-    <div dir={lang === "ar" ? "rtl" : "ltr"} className="container mx-auto px-4 py-10 font-cairo max-w-7xl relative">
-      
-      <button 
-        onClick={() => setLang(lang === "ar" ? "en" : "ar")}
-        className="absolute top-2 -left-12 rtl:left-auto rtl:-right-12 bg-card text-forest font-bold py-2 px-4 rounded-xl shadow-soft border border-border hover:bg-forest hover:text-white transition-colors z-50 "
-      >
-        {t.langToggle}
-      </button>
+    <div dir={lang === "ar" ? "rtl" : "ltr"} className="container mx-auto px-4 py-10 mt-20 font-cairo max-w-7xl relative">
 
       {/*Hero Section */}
       <div className="bg-forest text-white rounded-[2rem] p-8 md:p-12 mb-8 flex flex-col md:flex-row items-center justify-between relative overflow-hidden shadow-card-hover mt-12 md:mt-0">

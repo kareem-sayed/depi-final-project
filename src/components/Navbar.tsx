@@ -130,7 +130,11 @@ export default function Navbar() {
               {t.login}
             </Link>
 
-            <MainButton text={t.signup} to="/signup" />
+            <MainButton
+              text={t.signup}
+              to="/signup"
+              onClick={() => setIsOpen(false)}
+            />
           </div>
         </nav>
       </header>
@@ -207,7 +211,11 @@ export default function Navbar() {
           </Link>
 
           <div className="flex w-full justify-center pt-2">
-            <MainButton text={t.signup} to="/signup" />
+            <MainButton
+              text={t.signup}
+              to="/signup"
+              onClick={() => setIsOpen(false)}
+            />
           </div>
         </div>
       </div>

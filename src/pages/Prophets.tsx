@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { Link } from "react-router-dom"; 
 import { prophets } from "../data/prophetsList"; 
 import type { Prophet } from "../types/Prophet"; 
+import { useLanguage } from "../context/LanguageContext";
 
 const content = { 
   ar: { 
@@ -30,13 +31,11 @@ const content = {
   } 
 }; 
 
-type Lang = "ar" | "en"; 
-
 export default function Prophets() { 
   const [searchQuery, setSearchQuery] = useState(""); 
   const [onlyUlulAzm, setOnlyUlulAzm] = useState(false); 
   
-  const [lang, setLang] = useState<Lang>("ar"); 
+  const { lang } = useLanguage();
 
   const t = content[lang]; 
 
@@ -55,18 +54,11 @@ export default function Prophets() {
   }, [searchQuery, onlyUlulAzm]); 
 
   return ( 
-    <div dir={lang === "ar" ? "rtl" : "ltr"} className="container mx-auto px-4 py-12 font-cairo relative"> 
-      
-      <button  
-        onClick={() => setLang(lang === "ar" ? "en" : "ar")} 
-        className="absolute top-4 left-4 rtl:left-auto rtl:right-4 bg-card text-forest dark:text-gold-light font-bold py-2 px-4 rounded-xl shadow-soft border border-border hover:bg-forest hover:text-white transition-colors z-10" 
-      > 
-        {t.langToggle} 
-      </button> 
+    <div dir={lang === "ar" ? "rtl" : "ltr"} className="container mx-auto px-4 py-10 mt-20 font-cairo relative"> 
 
       {/* Header Section */} 
       <div className="text-center max-w-3xl mx-auto mb-14"> 
-        <h1 className="text-4xl md:text-6xl font-extrabold font-amiri text-forest-dark dark:text-gold mb-5 tracking-wide"> 
+        <h1 className="text-4xl md:text-6xl font-extrabold font-amiri text-forest-dark dark:text-gold mt-8 mb-5 tracking-wide"> 
           {t.title} 
         </h1> 
         <p className="text-lg text-forest dark:text-slate-300 font-semibold"> 
