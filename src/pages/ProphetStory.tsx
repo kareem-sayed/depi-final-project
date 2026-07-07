@@ -124,8 +124,13 @@ export default function ProphetStory() {
   
   if (loading) {
     return (
-      <div className="min-h-[70vh] flex items-center justify-center">
+      <div dir={lang === "ar" ? "rtl" : "ltr"} className="min-h-[70vh] flex flex-col items-center justify-center gap-5" >
         <div className="w-14 h-14 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+        <p className="text-muted-foreground text-lg font-medium animate-pulse">
+          {lang === "ar"
+            ? "جاري تحميل السيرة..."
+            : "Loading Story..."}
+        </p>
       </div>
     );
   }

@@ -152,7 +152,7 @@ export default function Login() {
                   lang === "ar" ? "left-4" : "right-4"
                 } flex items-center text-muted-foreground/80 hover:text-primary transition-colors focus:outline-none`}                >
                 
-                <i className={`fa-regular ${showPassword ? 'fa-eye-slash' : 'fa-eye'} text-base`}></i>
+                <i className={`fa-regular ${showPassword ? 'fa-eye' : 'fa-eye-slash'} text-base`}></i>
               </button>
             </div>
           </div>
