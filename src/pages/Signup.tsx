@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import { register } from "../fetchApi/services/authApi";
 
 const content = {
   ar: {
@@ -28,6 +29,8 @@ const content = {
     alreadyHaveAccount: "هل لديك حساب بالفعل؟",
     login: "تسجيل الدخول",
     passwordRequirement: "استخدم 8 أحرف على الأقل",
+    passwordMismatch: "كلمة المرور غير متطابقة",
+    loading: "جاري إنشاء الحساب...",
   },
   en: {
     welcome: "Create New Account",
@@ -54,6 +57,8 @@ const content = {
     alreadyHaveAccount: "Already have an account?",
     login: "Login",
     passwordRequirement: "Use at least 8 characters",
+    passwordMismatch: "Passwords do not match",
+    loading: "Creating account...",
   },
 };
 
@@ -67,13 +72,31 @@ export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const { lang } = useLanguage();
   const t = content[lang];
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle signup logic here
-    console.log({ fullName, email, password, confirmPassword, agreeToTerms });
+    setError("");
+
+    if (password !== confirmPassword) {
+      setError(t.passwordMismatch);
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await register({ name: fullName, email, password });
+      navigate("/");
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -337,12 +360,20 @@ export default function Signup() {
               </label>
             </div>
 
+            {/* Error Message */}
+            {error && (
+              <div className="bg-destructive/10 border border-destructive/30 text-destructive text-sm font-semibold rounded-lg px-4 py-3 text-center">
+                {error}
+              </div>
+            )}
+
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3.5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/95 transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 text-base mt-4 shadow-sm cursor-pointer"
+              disabled={loading}
+              className="w-full py-3.5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/95 transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 text-base mt-4 shadow-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              {t.signup}
+              {loading ? t.loading : t.signup}
             </button>
           </form>
           

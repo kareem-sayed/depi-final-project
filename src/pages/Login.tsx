@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import { login as loginApi } from "../fetchApi/services/authApi";
 
 const content = {
   ar: {
@@ -16,6 +17,7 @@ const content = {
     noAccount: "ليس لديك حساب؟",
     createAccount: "أنشئ حساباً جديداً",
     backHome: "العودة للصفحة الرئيسية",
+    loading: "جاري تسجيل الدخول...",
   },
   en: {
     welcome: "Welcome Back",
@@ -30,6 +32,7 @@ const content = {
     noAccount: "Don't have an account?",
     createAccount: "Create one",
     backHome: "Back to Home",
+    loading: "Logging in...",
   },
 };
 
@@ -39,13 +42,25 @@ export default function Login() {
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const { lang } = useLanguage();
   const t = content[lang];
-  
-  const handleSubmit = (e: React.FormEvent) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log({ email, password, rememberMe });
+    setError("");
+    setLoading(true);
+    try {
+      await loginApi({ email, password });
+      navigate("/");
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -171,12 +186,20 @@ export default function Login() {
             />
           </div>
 
+          {/* Error Message */}
+          {error && (
+            <div className="bg-destructive/10 border border-destructive/30 text-destructive text-sm font-semibold rounded-lg px-4 py-3 text-center">
+              {error}
+            </div>
+          )}
+
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-3.5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 text-base mt-2 cursor-pointer"
+            disabled={loading}
+            className="w-full py-3.5 bg-primary text-primary-foreground font-bold rounded-xl hover:bg-primary/90 transition-all focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 text-base mt-2 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {t.login}
+            {loading ? t.loading : t.login}
           </button>
         </form>
 
