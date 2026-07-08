@@ -54,8 +54,11 @@ export default function Login() {
     setError("");
     setLoading(true);
     try {
-      await loginApi({ email, password });
+      const response = await loginApi({ email, password });
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userName", response.data.user.name);
       navigate("/");
+      window.location.reload();
     } catch (err: any) {
       setError(err.message || "Something went wrong");
     } finally {
