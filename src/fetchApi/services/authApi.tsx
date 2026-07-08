@@ -23,7 +23,7 @@ export const login = async (credentials: {
     const response = await mainClient.post("/auth/login", credentials);
 
     // Save the token to localStorage on successful login
-    const token = response.data?.token;
+    const token = response.data?.data?.token;
     if (token) {
       localStorage.setItem("auth_token", token);
     }

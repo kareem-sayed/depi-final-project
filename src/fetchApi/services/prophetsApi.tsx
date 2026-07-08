@@ -21,3 +21,19 @@ export const getProphetBySlug = async (slug: string) => {
     throw new Error(message);
   }
 };
+export const getStoryChapter = async (
+  slug: string,
+  chapterNumber: number
+) => {
+  try {
+    const response = await mainClient.get(
+      `/stories/${slug}/chapter/${chapterNumber}`
+    );
+
+    return response.data;
+  } catch (error: any) {
+    const message =
+      error.response?.data?.message || "حدث خطأ أثناء جلب الفصل";
+    throw new Error(message);
+  }
+};

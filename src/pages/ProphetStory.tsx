@@ -19,7 +19,7 @@ const content = {
     notFoundTitle: "هذه السيرة غير متوفرة حالياً",
     notFoundBtn: "العودة لدليل الأنبياء",
     langToggle: "EN",
-    quizBtn:"اختبر معلوماتك"
+    quizBtn: "اختبر معلوماتك"
   },
   en: {
     home: "Home",
@@ -34,7 +34,7 @@ const content = {
     notFoundTitle: "This biography is currently unavailable",
     notFoundBtn: "Return to Prophets Guide",
     langToggle: "AR",
-    quizBtn:"Test Your Knowledge"
+    quizBtn: "Test Your Knowledge"
   }
 };
 
@@ -47,27 +47,44 @@ export default function ProphetStory() {
   const [error, setError] = useState(false);
   
   const { lang } = useLanguage();
-  const t = content[lang];
+  const t = content[lang as keyof typeof content];
 
   const [activeChapter, setActiveChapter] = useState(0);
 
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const [isBookmarkLoading, setIsBookmarkLoading] = useState(false);
 
-  const toggleBookmark = () => {
-    if (!id) return;
+  const toggleBookmark = async () => {
+    if (!story) return;
+    
+    const token = localStorage.getItem("token") || localStorage.getItem("auth_token");
+    if (!token) {
+      alert(lang === "ar" ? "يجب تسجيل الدخول أولاً لحفظ القصة" : "You must login to bookmark");
+      return;
+    }
 
-    const bookmarks: string[] = JSON.parse(
-      localStorage.getItem("bookmarkedProphets") || "[]"
-    );
+    const storyId = (story as any)._id || (story as any).id || id;
 
-    if (bookmarks.includes(id)) {
-      const updated = bookmarks.filter((item) => item !== id);
-      localStorage.setItem("bookmarkedProphets", JSON.stringify(updated));
-      setIsBookmarked(false);
-    } else {
-      bookmarks.push(id);
-      localStorage.setItem("bookmarkedProphets", JSON.stringify(bookmarks));
-      setIsBookmarked(true);
+    setIsBookmarkLoading(true);
+
+    try {
+      const method = isBookmarked ? "DELETE" : "POST";
+      const response = await fetch(`https://backenddepi-production.up.railway.app/api/bookmarks/${storyId}`, {
+        method: method,
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setIsBookmarked(!isBookmarked);
+      }
+    } catch (err) {
+      console.error("خطأ في تعديل المفضلة:", err);
+    } finally {
+      setIsBookmarkLoading(false);
     }
   };
 
@@ -113,14 +130,63 @@ export default function ProphetStory() {
   }, [id]);
 
   useEffect(() => {
-    if (!id) return;
+    const checkBookmarkStatus = async () => {
+      if (!story) return;
+      const token = localStorage.getItem("token") || localStorage.getItem("auth_token");
+      if (!token) return;
 
-    const bookmarks: string[] = JSON.parse(
-      localStorage.getItem("bookmarkedProphets") || "[]"
-    );
+      const storyId = (story as any)._id || (story as any).id || id;
 
-    setIsBookmarked(bookmarks.includes(id));
-  }, [id]);
+      try {
+        const response = await fetch(`https://backenddepi-production.up.railway.app/api/bookmarks/${storyId}/check`, {
+          headers: {
+            "Authorization": `Bearer ${token}`
+          }
+        });
+        const data = await response.json();
+        if (data.success) {
+          setIsBookmarked(data.data.bookmarked);
+        }
+      } catch (err) {
+        console.error("خطأ في فحص حالة المفضلة:", err);
+      }
+    };
+
+    checkBookmarkStatus();
+  }, [story, id]);
+
+  useEffect(() => {
+    const updateServerProgress = async () => {
+      if (!id || !story) return;
+      
+      const token = localStorage.getItem("token") || localStorage.getItem("auth_token");
+      if (!token) return; 
+
+      const readList = JSON.parse(localStorage.getItem("readProphets") || "[]");
+      const alreadyRead = readList.includes(id);
+
+      const isCompleted = (activeChapter === story.chapters.length - 1) || alreadyRead;
+
+      try {
+        await fetch("https://backenddepi-production.up.railway.app/api/progress/save", {
+          method: "POST", 
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({
+            prophetSlug: id,
+            currentChapter: activeChapter + 1, 
+            completed: isCompleted
+          })
+        });
+      } catch (err) {
+        console.error("خطأ في حفظ التقدم في السيرفر:", err);
+      }
+    };
+
+    updateServerProgress();
+  }, [activeChapter, id, story]);
   
   if (loading) {
     return (
@@ -183,15 +249,23 @@ export default function ProphetStory() {
                 </p>
               </div>
 
-              <button className="w-11 h-11 rounded-full border border-gold/30 bg-background/10 hover:bg-gold/20 transition" onClick={toggleBookmark}>
-              <i
-                className={`${
-                  isBookmarked
-                    ? "fa-solid fa-bookmark text-gold"
-                    : "fa-regular fa-bookmark"
-                }`}
-              />
-            </button>
+              <button 
+                disabled={isBookmarkLoading} 
+                className={`w-11 h-11 rounded-full border border-gold/30 transition flex items-center justify-center ${isBookmarked ? 'bg-gold/20' : 'bg-background/10 hover:bg-gold/20'}`} 
+                onClick={toggleBookmark}
+              >
+                {isBookmarkLoading ? (
+                  <div className="w-4 h-4 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
+                ) : (
+                  <i
+                    className={`${
+                      isBookmarked
+                        ? "fa-solid fa-bookmark text-gold"
+                        : "fa-regular fa-bookmark text-gold"
+                    }`}
+                  />
+                )}
+              </button>
             </div>
           </div>
           
@@ -296,7 +370,7 @@ export default function ProphetStory() {
             </div>
           </div>
 
-            {/* Chapter navigation buttons */}
+          {/* Chapter navigation buttons */}
           <div className="flex items-center justify-between mt-8 gap-4">
             
             {activeChapter === totalChapters - 1 ? (
