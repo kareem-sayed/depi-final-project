@@ -7,7 +7,15 @@ export const register = async (userData: {
 }) => {
   try {
     const response = await mainClient.post("/auth/register", userData);
-    return response.data;
+
+    const data = response.data.data;
+
+    localStorage.setItem("auth_token", data.token);
+    localStorage.setItem("userId", data.user._id);
+    localStorage.setItem(`userName_${data.user._id}`, data.user.name);
+    window.dispatchEvent(new Event("authChange"));
+
+    return data;
   } catch (error: any) {
     const message =
       error.response?.data?.message || "حدث خطأ أثناء إنشاء الحساب";
@@ -22,13 +30,14 @@ export const login = async (credentials: {
   try {
     const response = await mainClient.post("/auth/login", credentials);
 
-    // Save the token to localStorage on successful login
-    const token = response.data?.data?.token;
-    if (token) {
-      localStorage.setItem("auth_token", token);
-    }
+    const data = response.data.data;
 
-    return response.data;
+    localStorage.setItem("auth_token", data.token);
+    localStorage.setItem("userId", data.user._id);
+    localStorage.setItem(`userName_${data.user._id}`, data.user.name);
+    window.dispatchEvent(new Event("authChange"));
+
+    return data;
   } catch (error: any) {
     const message =
       error.response?.data?.message || "حدث خطأ أثناء تسجيل الدخول";

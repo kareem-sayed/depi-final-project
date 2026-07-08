@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import MainButton from "./MainButton";
+import { Link, useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
+import mainClient from "../fetchApi/clients/mainClient";
 
 interface NavItem {
   to: string;
   label: string;
+}
+
+interface UserData {
+  username: string;
+  role: "admin" | "user";
 }
 
 const translations = {
@@ -18,6 +23,7 @@ const translations = {
     about: "عن الموقع",
     login: "تسجيل الدخول",
     signup: "إنشاء حساب",
+    logout: "تسجيل الخروج",
     langBtn: "English",
   },
   en: {
@@ -29,44 +35,106 @@ const translations = {
     about: "About",
     login: "Login",
     signup: "Sign Up",
-    langBtn: "العربية",
+    logout: "Logout",
+    langBtn: "تحويل إلى العربية",
   },
 };
 
 export default function Navbar() {
+  const { lang, toggleLanguage } = useLanguage();
+  const navigate = useNavigate();
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const { lang, toggleLanguage } = useLanguage();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const [userLoading, setUserLoading] = useState(false);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    () => !!localStorage.getItem("auth_token"),
+  );
+  const [user, setUser] = useState<UserData | null>(null);
+
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      const token = localStorage.getItem("auth_token");
+      if (!token) return;
+
+      setUserLoading(true);
+
+      try {
+        const response = await mainClient.get("/auth/me");
+
+        const profileData = response.data.data;
+
+        setUser({
+          username: profileData.name,
+          role: profileData.role,
+        });
+      } catch {
+        localStorage.removeItem("auth_token");
+        setIsLoggedIn(false);
+        setUser(null);
+      } finally {
+        setUserLoading(false);
+      }
+    };
+
+    if (isLoggedIn) {
+      fetchUserProfile();
+    }
+  }, [isLoggedIn]);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
+    const handleAuthChange = () => {
+      const tokenExists = !!localStorage.getItem("auth_token");
+      setIsLoggedIn(tokenExists);
+      if (!tokenExists) {
+        setUser(null);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("authChange", handleAuthChange);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("authChange", handleAuthChange);
+    };
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto";
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [isOpen]);
+  const handleLogoutClick = () => {
+    localStorage.removeItem("auth_token");
+    setIsLoggedIn(false);
+    setUser(null);
+    setIsOpen(false);
+    setDropdownOpen(false);
+    window.dispatchEvent(new Event("authChange"));
+    navigate("/");
+  };
 
-  const t = translations[lang] || translations.ar;
+  const currentLang = lang === "ar" || lang === "en" ? lang : "ar";
+  const t = translations[currentLang];
 
   const navItems: NavItem[] = [
     { to: "/", label: t.home },
     { to: "/prophets", label: t.prophets },
-    { to: "/dashboard", label: t.dashboard },
-    { to: "/about", label: t.about },
   ];
+
+  if (isLoggedIn) {
+    navItems.push({ to: "/dashboard", label: t.dashboard });
+  }
+
+  navItems.push({ to: "/about", label: t.about });
 
   return (
     <>
       <header
-        dir={lang === "ar" ? "rtl" : "ltr"}
+        dir={currentLang === "ar" ? "rtl" : "ltr"}
         className={`fixed top-0 left-0 right-0 z-[110] py-4 transition-all duration-300 ${
           isScrolled || isOpen
             ? "bg-background/95 shadow-sm backdrop-blur-md"
@@ -75,7 +143,7 @@ export default function Navbar() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
           <div
-            className={`flex md:hidden ${lang === "en" ? "order-1" : "order-3"}`}
+            className={`flex md:hidden ${currentLang === "en" ? "order-1" : "order-3"}`}
           >
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -90,7 +158,7 @@ export default function Navbar() {
 
           <Link
             to="/"
-            className={`leading-tight md:order-1 ${lang === "en" ? "order-3 text-left" : "order-1 text-right"}`}
+            className={`leading-tight md:order-none ${currentLang === "en" ? "order-3 text-left" : "order-1 text-right"}`}
           >
             <span className="block font-serif text-2xl font-bold text-emerald-900">
               {t.title}
@@ -100,12 +168,12 @@ export default function Navbar() {
             </span>
           </Link>
 
-          <ul className="hidden items-center gap-10 md:flex md:order-2">
+          <ul className="hidden items-center gap-10 md:flex md:order-none">
             {navItems.map((item) => (
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="text-foreground/80 hover:text-primary transition-colors font-semibold flex items-center gap-1.5"
+                  className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
                 >
                   {item.label}
                 </Link>
@@ -113,28 +181,77 @@ export default function Navbar() {
             ))}
           </ul>
 
-          <div className="hidden items-center gap-6 md:flex md:order-3">
+          <div className="hidden items-center gap-6 md:flex md:order-none">
             <button
               type="button"
               onClick={toggleLanguage}
-              className="flex items-center gap-1.5 font-semibold text-foreground/80 transition-colors hover:text-primary"
+              className="flex items-center gap-2 text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
             >
               <i className="fa-solid fa-globe"></i>
               {t.langBtn}
             </button>
 
-            <Link
-              to="/login"
-              className="text-foreground/80 hover:text-primary transition-colors font-semibold flex items-center gap-1.5"
-            >
-              {t.login}
-            </Link>
+            {!isLoggedIn ? (
+              <>
+                <Link
+                  to="/login"
+                  className="text-sm font-medium text-foreground/80 transition-colors hover:text-primary"
+                >
+                  {t.login}
+                </Link>
+                <Link
+                  to="/signup"
+                  className="rounded-xl bg-emerald-800 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-emerald-700"
+                >
+                  {t.signup}
+                </Link>
+              </>
+            ) : (
+              <div className="relative">
+                <button
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  className="flex items-center gap-2 focus:outline-none"
+                >
+                  <span className="text-sm font-medium text-foreground/90">
+                    {userLoading ? (
+                      <i className="fa-solid fa-spinner fa-spin" />
+                    ) : (
+                      user?.username
+                    )}
+                  </span>
+                  <i
+                    className={`fa-solid fa-chevron-down text-xs transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
+                  ></i>
+                </button>
 
-            <MainButton
-              text={t.signup}
-              to="/signup"
-              onClick={() => setIsOpen(false)}
-            />
+                {dropdownOpen && (
+                  <>
+                    <div
+                      className="fixed inset-0 z-10"
+                      onClick={() => setDropdownOpen(false)}
+                    />
+                    <div
+                      className={`absolute mt-2 w-40 rounded-xl bg-background p-2 shadow-xl ring-1 ring-black/5 z-20 ${currentLang === "ar" ? "left-0 origin-top-left" : "right-0 origin-top-right"}`}
+                    >
+                      <Link
+                        to="/dashboard"
+                        onClick={() => setDropdownOpen(false)}
+                        className="flex w-full items-center px-4 py-2 text-sm text-foreground/80 rounded-lg hover:bg-muted"
+                      >
+                        {t.dashboard}
+                      </Link>
+                      <hr className="my-1 border-border" />
+                      <button
+                        onClick={handleLogoutClick}
+                        className="flex w-full items-center px-4 py-2 text-sm text-destructive font-medium rounded-lg hover:bg-destructive/10"
+                      >
+                        {t.logout}
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
           </div>
         </nav>
       </header>
@@ -147,13 +264,13 @@ export default function Navbar() {
       )}
 
       <div
-        dir={lang === "ar" ? "rtl" : "ltr"}
+        dir={currentLang === "ar" ? "rtl" : "ltr"}
         className={`fixed inset-y-0 z-[200] w-full max-w-xs bg-background p-6 shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${
-          lang === "ar" ? "right-0" : "left-0"
+          currentLang === "ar" ? "right-0" : "left-0"
         } ${
           isOpen
             ? "translate-x-0"
-            : lang === "ar"
+            : currentLang === "ar"
               ? "translate-x-full"
               : "-translate-x-full"
         }`}
@@ -177,7 +294,20 @@ export default function Navbar() {
           </div>
         </div>
 
-        <div className="space-y-4 border-b border-border pb-6 text-right">
+        {isLoggedIn && (
+          <div className="mb-6 p-3 rounded-xl bg-muted/50">
+            <span className="block text-sm font-semibold text-foreground">
+              {user?.username || "..."}
+            </span>
+            <span className="block text-xs text-foreground/60 capitalize">
+              {user?.role || "..."}
+            </span>
+          </div>
+        )}
+
+        <div
+          className={`space-y-4 border-b border-border pb-6 ${currentLang === "ar" ? "text-right" : "text-left"}`}
+        >
           {navItems.map((item) => (
             <Link
               key={item.to}
@@ -196,27 +326,37 @@ export default function Navbar() {
               toggleLanguage();
               setIsOpen(false);
             }}
-            className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
+            className="flex w-full items-center justify-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
           >
             <i className="fa-solid fa-globe"></i>
             {t.langBtn}
           </button>
 
-          <Link
-            to="/login"
-            onClick={() => setIsOpen(false)}
-            className="flex w-full items-center justify-center rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
-          >
-            {t.login}
-          </Link>
-
-          <div className="flex w-full justify-center pt-2">
-            <MainButton
-              text={t.signup}
-              to="/signup"
-              onClick={() => setIsOpen(false)}
-            />
-          </div>
+          {!isLoggedIn ? (
+            <>
+              <Link
+                to="/login"
+                onClick={() => setIsOpen(false)}
+                className="flex w-full items-center justify-center rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground/80 transition-colors hover:bg-muted"
+              >
+                {t.login}
+              </Link>
+              <Link
+                to="/signup"
+                onClick={() => setIsOpen(false)}
+                className="flex w-full items-center justify-center rounded-xl bg-emerald-800 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-emerald-700"
+              >
+                {t.signup}
+              </Link>
+            </>
+          ) : (
+            <button
+              onClick={handleLogoutClick}
+              className="flex w-full items-center justify-center rounded-xl border border-destructive/20 bg-destructive/10 px-4 py-2.5 text-sm font-medium text-destructive transition-colors hover:bg-destructive/20"
+            >
+              {t.logout}
+            </button>
+          )}
         </div>
       </div>
     </>

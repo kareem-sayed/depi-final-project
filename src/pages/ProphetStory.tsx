@@ -19,7 +19,7 @@ const content = {
     notFoundTitle: "هذه السيرة غير متوفرة حالياً",
     notFoundBtn: "العودة لدليل الأنبياء",
     langToggle: "EN",
-    quizBtn: "اختبر معلوماتك"
+    quizBtn: "اختبر معلوماتك",
   },
   en: {
     home: "Home",
@@ -34,8 +34,8 @@ const content = {
     notFoundTitle: "This biography is currently unavailable",
     notFoundBtn: "Return to Prophets Guide",
     langToggle: "AR",
-    quizBtn: "Test Your Knowledge"
-  }
+    quizBtn: "Test Your Knowledge",
+  },
 };
 
 export default function ProphetStory() {
@@ -45,46 +45,40 @@ export default function ProphetStory() {
   const [story, setStory] = useState<ProphetStory | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  
+
   const { lang } = useLanguage();
   const t = content[lang as keyof typeof content];
 
   const [activeChapter, setActiveChapter] = useState(0);
 
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [isBookmarkLoading, setIsBookmarkLoading] = useState(false);
 
-  const toggleBookmark = async () => {
-    if (!story) return;
-    
-    const token = localStorage.getItem("token") || localStorage.getItem("auth_token");
-    if (!token) {
-      alert(lang === "ar" ? "يجب تسجيل الدخول أولاً لحفظ القصة" : "You must login to bookmark");
-      return;
-    }
+  const userId = localStorage.getItem("userId");
 
-    const storyId = (story as any)._id || (story as any).id || id;
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
-    setIsBookmarkLoading(true);
+  const toggleBookmark = () => {
+    if (!id || !story) return;
 
-    try {
-      const method = isBookmarked ? "DELETE" : "POST";
-      const response = await fetch(`https://backenddepi-production.up.railway.app/api/bookmarks/${storyId}`, {
-        method: method,
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
+    const bookmarks = JSON.parse(
+      localStorage.getItem(`bookmarks_${userId}`) || "[]",
+    );
+
+    const exists = bookmarks.some((item: any) => item.id === id);
+
+    if (exists) {
+      const updated = bookmarks.filter((item: any) => item.id !== id);
+      localStorage.setItem(`bookmarks_${userId}`, JSON.stringify(updated));
+
+      setIsBookmarked(false);
+    } else {
+      bookmarks.push({
+        id,
+        name: story.name,
       });
 
-      const data = await response.json();
-      
-      if (data.success) {
-        setIsBookmarked(!isBookmarked);
-      }
-    } catch (err) {
-      console.error("خطأ في تعديل المفضلة:", err);
-    } finally {
-      setIsBookmarkLoading(false);
+      localStorage.setItem(`bookmarks_${userId}`, JSON.stringify(bookmarks));
+      setIsBookmarked(true);
     }
   };
 
@@ -94,30 +88,39 @@ export default function ProphetStory() {
 
   useEffect(() => {
     if (id) {
-      const read = JSON.parse(localStorage.getItem("readProphets") || "[]");
+      const read = JSON.parse(
+        localStorage.getItem(`readProphets_${userId}`) || "[]",
+      );
       if (!read.includes(id)) {
         read.push(id);
-        localStorage.setItem("readProphets", JSON.stringify(read));
+        localStorage.setItem(`readProphets_${userId}`, JSON.stringify(read));
       }
     }
   }, [id]);
-  
+
   useEffect(() => {
     if (!id) return;
-    
+
     const fetchStory = async () => {
       try {
         setLoading(true);
 
         const response = await fetch(
-          `https://backenddepi-production.up.railway.app/api/stories/${id}`
+          `https://backenddepi-production.up.railway.app/api/stories/${id}`,
         );
-        
+
         if (!response.ok) throw new Error("Failed");
-        
+
         const data = await response.json();
-        
+
         setStory(data.data);
+        const savedProgress = JSON.parse(
+          localStorage.getItem(`storyProgress_${userId}`) || "{}",
+        );
+
+        if (savedProgress[id]) {
+          setActiveChapter(savedProgress[id].currentChapter - 1);
+        }
       } catch (err) {
         console.error(err);
         setError(true);
@@ -125,87 +128,64 @@ export default function ProphetStory() {
         setLoading(false);
       }
     };
-    
+
     fetchStory();
   }, [id]);
 
   useEffect(() => {
-    const checkBookmarkStatus = async () => {
-      if (!story) return;
-      const token = localStorage.getItem("token") || localStorage.getItem("auth_token");
-      if (!token) return;
+    if (!id) return;
 
-      const storyId = (story as any)._id || (story as any).id || id;
+    const bookmarks = JSON.parse(
+      localStorage.getItem(`bookmarks_${userId}`) || "[]",
+    );
 
-      try {
-        const response = await fetch(`https://backenddepi-production.up.railway.app/api/bookmarks/${storyId}/check`, {
-          headers: {
-            "Authorization": `Bearer ${token}`
-          }
-        });
-        const data = await response.json();
-        if (data.success) {
-          setIsBookmarked(data.data.bookmarked);
-        }
-      } catch (err) {
-        console.error("خطأ في فحص حالة المفضلة:", err);
-      }
-    };
-
-    checkBookmarkStatus();
-  }, [story, id]);
+    setIsBookmarked(bookmarks.some((item: any) => item.id === id));
+  }, [id]);
 
   useEffect(() => {
-    const updateServerProgress = async () => {
-      if (!id || !story) return;
-      
-      const token = localStorage.getItem("token") || localStorage.getItem("auth_token");
-      if (!token) return; 
+    if (!id || !story) return;
 
-      const readList = JSON.parse(localStorage.getItem("readProphets") || "[]");
-      const alreadyRead = readList.includes(id);
+    const progress = JSON.parse(
+      localStorage.getItem(`storyProgress_${userId}`) || "{}",
+    );
 
-      const isCompleted = (activeChapter === story.chapters.length - 1) || alreadyRead;
-
-      try {
-        await fetch("https://backenddepi-production.up.railway.app/api/progress/save", {
-          method: "POST", 
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-          },
-          body: JSON.stringify({
-            prophetSlug: id,
-            currentChapter: activeChapter + 1, 
-            completed: isCompleted
-          })
-        });
-      } catch (err) {
-        console.error("خطأ في حفظ التقدم في السيرفر:", err);
-      }
+    progress[id] = {
+      name: story.name,
+      currentChapter: activeChapter + 1,
+      totalChapters: story.chapters.length,
+      completed: activeChapter === story.chapters.length - 1,
     };
 
-    updateServerProgress();
-  }, [activeChapter, id, story]);
-  
+    localStorage.setItem(`storyProgress_${userId}`, JSON.stringify(progress));
+  }, [activeChapter, id, story, userId]);
+
   if (loading) {
     return (
-      <div dir={lang === "ar" ? "rtl" : "ltr"} className="min-h-[70vh] flex flex-col items-center justify-center gap-5" >
+      <div
+        dir={lang === "ar" ? "rtl" : "ltr"}
+        className="min-h-[70vh] flex flex-col items-center justify-center gap-5"
+      >
         <div className="w-14 h-14 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
         <p className="text-muted-foreground text-lg font-medium animate-pulse">
-          {lang === "ar"
-            ? "جاري تحميل السيرة..."
-            : "Loading Story..."}
+          {lang === "ar" ? "جاري تحميل السيرة..." : "Loading Story..."}
         </p>
       </div>
     );
   }
-  
+
   if (error || !story) {
     return (
-      <div dir={lang === "ar" ? "rtl" : "ltr"} className="min-h-[60vh] p-10 mt-20 flex flex-col items-center justify-center font-cairo relative">
-        <h2 className="text-3xl font-extrabold text-forest-dark mb-4">{t.notFoundTitle}</h2>
-        <button onClick={() => navigate("/prophets")} className="px-6 py-2.5 bg-forest-dark text-gold-light font-bold rounded-xl hover:bg-forest transition-colors shadow-md">
+      <div
+        dir={lang === "ar" ? "rtl" : "ltr"}
+        className="min-h-[60vh] p-10 mt-20 flex flex-col items-center justify-center font-cairo relative"
+      >
+        <h2 className="text-3xl font-extrabold text-forest-dark mb-4">
+          {t.notFoundTitle}
+        </h2>
+        <button
+          onClick={() => navigate("/prophets")}
+          className="px-6 py-2.5 bg-forest-dark text-gold-light font-bold rounded-xl hover:bg-forest transition-colors shadow-md"
+        >
           {t.notFoundBtn}
         </button>
       </div>
@@ -217,13 +197,19 @@ export default function ProphetStory() {
   const totalChapters = chapters.length;
 
   return (
-    <div dir={lang === "ar" ? "rtl" : "ltr"} className="container mx-auto px-4 p-10 mt-20 md:py-12 max-w-6xl font-cairo relative">
-
+    <div
+      dir={lang === "ar" ? "rtl" : "ltr"}
+      className="container mx-auto px-4 p-10 mt-20 md:py-12 max-w-6xl font-cairo relative"
+    >
       <nav className="flex items-center justify-between text-sm text-muted-foreground font-bold mb-8 mt-4 md:mt-0">
         <div className="flex items-center flex-wrap gap-1">
-          <Link to="/" className="hover:text-forest transition-colors">{t.home}</Link>
+          <Link to="/" className="hover:text-forest transition-colors">
+            {t.home}
+          </Link>
           <span className="mx-2">/</span>
-          <Link to="/prophets" className="hover:text-forest transition-colors">{t.guide}</Link>
+          <Link to="/prophets" className="hover:text-forest transition-colors">
+            {t.guide}
+          </Link>
           <span className="mx-2">/</span>
           <span className="text-forest-dark">{story.name[lang]}</span>
         </div>
@@ -249,42 +235,46 @@ export default function ProphetStory() {
                 </p>
               </div>
 
-              <button 
-                disabled={isBookmarkLoading} 
-                className={`w-11 h-11 rounded-full border border-gold/30 transition flex items-center justify-center ${isBookmarked ? 'bg-gold/20' : 'bg-background/10 hover:bg-gold/20'}`} 
-                onClick={toggleBookmark}
-              >
-                {isBookmarkLoading ? (
-                  <div className="w-4 h-4 border-2 border-gold/30 border-t-gold rounded-full animate-spin"></div>
-                ) : (
+              {localStorage.getItem("auth_token") && (
+                <button
+                  onClick={toggleBookmark}
+                  className={`w-11 h-11 rounded-full border border-gold/30 transition flex items-center justify-center ${
+                    isBookmarked
+                      ? "bg-gold/20"
+                      : "bg-background/10 hover:bg-gold/20"
+                  }`}
+                >
                   <i
-                    className={`${
+                    className={
                       isBookmarked
                         ? "fa-solid fa-bookmark text-gold"
                         : "fa-regular fa-bookmark text-gold"
-                    }`}
+                    }
                   />
-                )}
-              </button>
+                </button>
+              )}
             </div>
           </div>
-          
+
           <div className="flex gap-4 text-sm font-bold bg-background/10 p-4 rounded-xl backdrop-blur-sm border border-gold/20 w-full md:w-auto justify-center">
             <div className="flex flex-col items-center">
               <span className="text-gold/70 text-xs mb-1">{t.era}</span>
-              <span className="text-center">{story.era?.[lang] || t.unspecified}</span>
+              <span className="text-center">
+                {story.era?.[lang] || t.unspecified}
+              </span>
             </div>
             <div className="w-px bg-gold/20 flex-shrink-0"></div>
             <div className="flex flex-col items-center">
               <span className="text-gold/70 text-xs mb-1">{t.location}</span>
-              <span className="text-center">{story.location?.[lang] || t.unspecified}</span>
+              <span className="text-center">
+                {story.location?.[lang] || t.unspecified}
+              </span>
             </div>
           </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
-        
         {/* Sidebar */}
         <div className="lg:col-span-1 bg-card border border-border rounded-card p-5 lg:sticky lg:top-8 shadow-sm">
           <h3 className="text-lg font-extrabold text-forest-dark mb-4 text-center border-b border-border pb-3">
@@ -326,7 +316,6 @@ export default function ProphetStory() {
 
         <div className="lg:col-span-3 w-full overflow-hidden">
           <div className="bg-card rounded-card p-5 md:p-10 shadow-soft border border-border h-fit">
-            
             <div className="border-b border-border pb-6 mb-8 flex items-center gap-4">
               <span className="w-10 h-10 rounded-full bg-forest text-white flex items-center justify-center text-lg font-bold shadow-md flex-shrink-0">
                 {activeChapter + 1}
@@ -338,58 +327,77 @@ export default function ProphetStory() {
 
             {/* sections and verses */}
             <div className="space-y-8">
-              {currentChapter.sections.map((section: StorySection, index: number) => (
-                <div key={index} className="leading-relaxed">
-                  <p className="text-slate-800 dark:text-slate-200 text-base md:text-lg font-medium leading-loose mb-6 text-justify">
-                    {section.text[lang]}
-                  </p>
+              {currentChapter.sections.map(
+                (section: StorySection, index: number) => (
+                  <div key={index} className="leading-relaxed">
+                    <p className="text-slate-800 dark:text-slate-200 text-base md:text-lg font-medium leading-loose mb-6 text-justify">
+                      {section.text[lang]}
+                    </p>
 
-                  {section.ayah && (
-                    <div className="mt-12 mb-10 relative bg-forest/5 dark:bg-forest/20 border-2 border-forest/20 rounded-2xl p-6 py-8 md:p-10 text-center shadow-sm ">
-                      <span className="absolute -top-3.5 ltr:left-6 rtl:right-6 bg-card text-forest-dark dark:text-gold border border-forest/20 px-3 py-1 rounded-full text-xs font-extrabold z-10 shadow-sm">
-                        {t.verse}
-                      </span>
-                      <p dir="rtl" className="text-xl md:text-3xl font-amiri text-forest-dark dark:text-gold-light leading-[3] md:leading-[2.8] mb-4 pt-2">
-                        ﴿{section.ayah.text}﴾
-                      </p>
-                      <p className="text-forest font-bold text-sm">
-                        [{section.ayah.ref[lang] || section.ayah.ref.ar}]
-                      </p>
-                      {section.ayah.audioUrl && (
-                        <audio 
-                          key={section.ayah.audioUrl}
-                          controls 
-                          src={section.ayah.audioUrl}
-                          className="mt-6 w-full max-w-xs mx-auto h-8"
-                        />
-                      )}  
-                    </div>
-                  )}
-                </div>
-              ))}
+                    {section.ayah && (
+                      <div className="mt-12 mb-10 relative bg-forest/5 dark:bg-forest/20 border-2 border-forest/20 rounded-2xl p-6 py-8 md:p-10 text-center shadow-sm ">
+                        <span className="absolute -top-3.5 ltr:left-6 rtl:right-6 bg-card text-forest-dark dark:text-gold border border-forest/20 px-3 py-1 rounded-full text-xs font-extrabold z-10 shadow-sm">
+                          {t.verse}
+                        </span>
+                        <p
+                          dir="rtl"
+                          className="text-xl md:text-3xl font-amiri text-forest-dark dark:text-gold-light leading-[3] md:leading-[2.8] mb-4 pt-2"
+                        >
+                          ﴿{section.ayah.text}﴾
+                        </p>
+                        <p className="text-forest font-bold text-sm">
+                          [{section.ayah.ref[lang] || section.ayah.ref.ar}]
+                        </p>
+                        {section.ayah.audioUrl && (
+                          <audio
+                            key={section.ayah.audioUrl}
+                            controls
+                            src={section.ayah.audioUrl}
+                            className="mt-6 w-full max-w-xs mx-auto h-8"
+                          />
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ),
+              )}
             </div>
           </div>
 
           {/* Chapter navigation buttons */}
           <div className="flex items-center justify-between mt-8 gap-4">
-            
             {activeChapter === totalChapters - 1 ? (
               <button
-                onClick={() => navigate(`/quiz/${id}`)}
+                onClick={() => {
+                  if (!localStorage.getItem("auth_token")) {
+                    setShowLoginModal(true);
+                    return;
+                  }
+
+                  navigate(`/quiz/${id}`);
+                }}
                 className="flex-1 sm:flex-none justify-center px-6 py-3.5 rounded-xl font-extrabold flex items-center gap-2 transition-all bg-gold text-forest-dark hover:bg-gold-light shadow-md hover:-translate-y-1 text-sm md:text-base border border-gold-dark/20"
               >
                 {t.quizBtn}
-                <span className="rtl:hidden inline text-lg md:text-xl">&rarr;</span>
-                <span className="ltr:hidden inline text-lg md:text-xl">&larr;</span>
+                <span className="rtl:hidden inline text-lg md:text-xl">
+                  &rarr;
+                </span>
+                <span className="ltr:hidden inline text-lg md:text-xl">
+                  &larr;
+                </span>
               </button>
             ) : (
               <button
                 onClick={() => setActiveChapter((prev) => prev + 1)}
                 className="flex-1 sm:flex-none justify-center px-4 md:px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all text-sm md:text-base bg-forest-dark text-gold-light hover:bg-forest shadow-md hover:-translate-y-1"
               >
-                <span className="rtl:hidden inline text-lg md:text-xl">&rarr;</span>
+                <span className="rtl:hidden inline text-lg md:text-xl">
+                  &rarr;
+                </span>
                 {t.next}
-                <span className="ltr:hidden inline text-lg md:text-xl">&larr;</span>
+                <span className="ltr:hidden inline text-lg md:text-xl">
+                  &larr;
+                </span>
               </button>
             )}
             <button
@@ -401,14 +409,57 @@ export default function ProphetStory() {
                   : "text-forest-dark bg-card hover:bg-forest/5 shadow-sm hover:-translate-y-1"
               }`}
             >
-              <span className="ltr:hidden inline text-lg md:text-xl">&rarr;</span>
+              <span className="ltr:hidden inline text-lg md:text-xl">
+                &rarr;
+              </span>
               {t.prev}
-              <span className="rtl:hidden inline text-lg md:text-xl">&larr;</span>
+              <span className="rtl:hidden inline text-lg md:text-xl">
+                &larr;
+              </span>
             </button>
           </div>
         </div>
-
       </div>
+      {showLoginModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+          <div className="bg-card rounded-2xl p-8 w-[90%] max-w-md text-center shadow-xl">
+            <i className="fa-solid fa-lock text-5xl text-primary mb-4"></i>
+
+            <h2 className="text-2xl font-bold mb-3">
+              {lang === "ar" ? "سجل دخول أولاً" : "Login Required"}
+            </h2>
+
+            <p className="text-muted-foreground mb-6">
+              {lang === "ar"
+                ? "يجب إنشاء حساب أو تسجيل الدخول حتى تتمكن من حل الاختبارات وحفظ تقدمك."
+                : "Create an account or log in to access quizzes and save your progress."}
+            </p>
+
+            <div className="flex gap-3 justify-center">
+              <button
+                onClick={() => navigate("/login")}
+                className="px-5 py-2 bg-primary text-white rounded-lg"
+              >
+                {lang === "ar" ? "تسجيل الدخول" : "Login"}
+              </button>
+
+              <button
+                onClick={() => navigate("/signup")}
+                className="px-5 py-2 border rounded-lg"
+              >
+                {lang === "ar" ? "إنشاء حساب" : "Sign Up"}
+              </button>
+            </div>
+
+            <button
+              onClick={() => setShowLoginModal(false)}
+              className="mt-5 text-sm text-muted-foreground hover:text-primary"
+            >
+              {lang === "ar" ? "إغلاق" : "Close"}
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

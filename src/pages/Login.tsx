@@ -21,7 +21,8 @@ const content = {
   },
   en: {
     welcome: "Welcome Back",
-    subtitle: "Sign in to continue your journey through the Stories of the Prophets",
+    subtitle:
+      "Sign in to continue your journey through the Stories of the Prophets",
     email: "Email",
     emailPlaceholder: "example@email.com",
     password: "Password",
@@ -55,8 +56,10 @@ export default function Login() {
     setLoading(true);
     try {
       const response = await loginApi({ email, password });
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("userName", response.data.user.name);
+
+      localStorage.setItem("userId", response.user._id);
+      localStorage.setItem("userName", response.user.name);
+
       navigate("/");
       window.location.reload();
     } catch (err: any) {
@@ -67,23 +70,30 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-[calc(100vh-80px)] w-full flex flex-col items-center justify-center px-6 py-10 mt-20" dir={lang === "ar" ? "rtl" : "ltr"}>
+    <div
+      className="min-h-[calc(100vh-80px)] w-full flex flex-col items-center justify-center px-6 py-10 mt-20"
+      dir={lang === "ar" ? "rtl" : "ltr"}
+    >
       {/* Login Card */}
       <div className="w-full max-w-[520px] bg-card border border-border/30 rounded-3xl p-8 md:p-10 shadow-sm">
-        
         {/* Icon & Welcome Header */}
         <div className="text-center mb-8">
           <div className="w-14 h-14 bg-primary/10 text-primary rounded-xl flex items-center justify-center mx-auto mb-5">
             <i className="fa-solid fa-book-open text-xl"></i>
           </div>
-          <h2 className="text-2xl font-bold text-foreground mb-2">{t.welcome}</h2>
+          <h2 className="text-2xl font-bold text-foreground mb-2">
+            {t.welcome}
+          </h2>
           <p className="text-muted-foreground text-sm">{t.subtitle}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Email */}
           <div className="space-y-2">
-            <label htmlFor="email" className="block text-sm font-semibold text-foreground text-right w-fit">
+            <label
+              htmlFor="email"
+              className="block text-sm font-semibold text-foreground text-right w-fit"
+            >
               {t.email}
             </label>
             <div className="relative">
@@ -94,9 +104,11 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className={`w-full
-                          ${lang === "ar"
-                            ? "text-right pr-11 pl-4"
-                            : "text-left pl-11 pr-4"}
+                          ${
+                            lang === "ar"
+                              ? "text-right pr-11 pl-4"
+                              : "text-left pl-11 pr-4"
+                          }
                           bg-secondary/15
                           border
                           border-border/80
@@ -113,9 +125,11 @@ export default function Login() {
                           font-medium`}
                 placeholder={t.emailPlaceholder}
               />
-              <span className={`absolute inset-y-0 ${
-                lang === "ar" ? "right-4" : "left-4"
-              } flex items-center pointer-events-none text-muted-foreground/80`}>
+              <span
+                className={`absolute inset-y-0 ${
+                  lang === "ar" ? "right-4" : "left-4"
+                } flex items-center pointer-events-none text-muted-foreground/80`}
+              >
                 <i className="fa-regular fa-envelope text-base"></i>
               </span>
             </div>
@@ -124,10 +138,16 @@ export default function Login() {
           {/* Password */}
           <div className="space-y-2">
             <div className="flex justify-between items-center">
-              <label htmlFor="password" className="block text-sm font-semibold text-foreground text-right">
+              <label
+                htmlFor="password"
+                className="block text-sm font-semibold text-foreground text-right"
+              >
                 {t.password}
               </label>
-              <Link to="/forgot-password" className="text-xs text-muted-foreground hover:text-primary hover:underline transition-colors">
+              <Link
+                to="/forgot-password"
+                className="text-xs text-muted-foreground hover:text-primary hover:underline transition-colors"
+              >
                 {t.forgotPassword}
               </Link>
             </div>
@@ -139,10 +159,12 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="********"
-                                  className={`w-full
-                            ${lang === "ar"
-                              ? "text-right pr-11 pl-4"
-                              : "text-left pl-11 pr-4"}
+                className={`w-full
+                            ${
+                              lang === "ar"
+                                ? "text-right pr-11 pl-4"
+                                : "text-left pl-11 pr-4"
+                            }
                             bg-secondary/15
                             border
                             border-border/80
@@ -158,9 +180,11 @@ export default function Login() {
                             text-sm
                             font-medium`}
               />
-              <span className={`absolute inset-y-0 ${
-                lang === "ar" ? "right-4" : "left-4"
-              } flex items-center pointer-events-none text-muted-foreground/80`}>
+              <span
+                className={`absolute inset-y-0 ${
+                  lang === "ar" ? "right-4" : "left-4"
+                } flex items-center pointer-events-none text-muted-foreground/80`}
+              >
                 <i className="fa-solid fa-lock text-base"></i>
               </span>
               <button
@@ -168,16 +192,21 @@ export default function Login() {
                 onClick={() => setShowPassword(!showPassword)}
                 className={`absolute inset-y-0 ${
                   lang === "ar" ? "left-4" : "right-4"
-                } flex items-center text-muted-foreground/80 hover:text-primary transition-colors focus:outline-none`}                >
-                
-                <i className={`fa-regular ${showPassword ? 'fa-eye' : 'fa-eye-slash'} text-base`}></i>
+                } flex items-center text-muted-foreground/80 hover:text-primary transition-colors focus:outline-none`}
+              >
+                <i
+                  className={`fa-regular ${showPassword ? "fa-eye" : "fa-eye-slash"} text-base`}
+                ></i>
               </button>
             </div>
           </div>
 
           {/* Remember Me */}
           <div className="flex items-center justify-end gap-2 pt-1">
-            <label htmlFor="rememberMe" className="text-sm text-foreground/70 select-none cursor-pointer">
+            <label
+              htmlFor="rememberMe"
+              className="text-sm text-foreground/70 select-none cursor-pointer"
+            >
               {t.rememberMe}
             </label>
             <input
@@ -209,7 +238,9 @@ export default function Login() {
         {/* Divider */}
         <div className="relative flex py-6 items-center">
           <div className="flex-grow border-t border-border/60"></div>
-          <span className="flex-shrink mx-4 text-muted-foreground/80 text-sm select-none">{t.or}</span>
+          <span className="flex-shrink mx-4 text-muted-foreground/80 text-sm select-none">
+            {t.or}
+          </span>
           <div className="flex-grow border-t border-border/60"></div>
         </div>
 
@@ -217,7 +248,10 @@ export default function Login() {
         <div className="text-center">
           <p className="text-sm text-muted-foreground">
             {t.noAccount}{" "}
-            <Link to="/signup" className="text-primary font-bold hover:underline">
+            <Link
+              to="/signup"
+              className="text-primary font-bold hover:underline"
+            >
               {t.createAccount}
             </Link>
           </p>
@@ -226,7 +260,10 @@ export default function Login() {
 
       {/* Back to Home Link */}
       <div className="text-center mt-6">
-        <Link to="/" className="text-sm text-primary hover:underline font-semibold transition-colors inline-flex items-center gap-1 justify-center">
+        <Link
+          to="/"
+          className="text-sm text-primary hover:underline font-semibold transition-colors inline-flex items-center gap-1 justify-center"
+        >
           <span>{t.backHome}</span>
           <span>—</span>
         </Link>
@@ -234,4 +271,3 @@ export default function Login() {
     </div>
   );
 }
-
