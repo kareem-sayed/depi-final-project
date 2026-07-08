@@ -8,10 +8,10 @@ export const register = async (userData: {
   try {
     const response = await mainClient.post("/auth/register", userData);
     return response.data;
-  } catch (error: any) {
-    const message =
-      error.response?.data?.message || "حدث خطأ أثناء إنشاء الحساب";
-    throw new Error(message);
+  } catch (error) {
+    const axiosError = error as { response?: { data?: { message?: string } } };
+    const message = axiosError.response?.data?.message || "حدث خطأ أثناء إنشاء الحساب";
+    throw new Error(message, { cause: error });
   }
 };
 
@@ -22,16 +22,16 @@ export const login = async (credentials: {
   try {
     const response = await mainClient.post("/auth/login", credentials);
 
-    // Save the token to localStorage on successful login
-    const token = response.data?.token;
+    const token = response.data?.data?.token;
     if (token) {
       localStorage.setItem("auth_token", token);
+      window.dispatchEvent(new Event("authChange"));
     }
 
-    return response.data;
-  } catch (error: any) {
-    const message =
-      error.response?.data?.message || "حدث خطأ أثناء تسجيل الدخول";
-    throw new Error(message);
+    return response.data.data;
+  } catch (error) {
+    const axiosError = error as { response?: { data?: { message?: string } } };
+    const message = axiosError.response?.data?.message || "حدث خطأ أثناء تسجيل الدخول";
+    throw new Error(message, { cause: error });
   }
 };
