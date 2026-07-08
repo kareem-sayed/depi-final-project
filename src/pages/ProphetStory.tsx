@@ -148,12 +148,13 @@ export default function ProphetStory() {
     const progress = JSON.parse(
       localStorage.getItem(`storyProgress_${userId}`) || "{}",
     );
-
+    const wasAlreadyCompleted = progress[id]?.completed || false;
+    const isCurrentlyCompleted = activeChapter === story.chapters.length - 1;
     progress[id] = {
       name: story.name,
       currentChapter: activeChapter + 1,
       totalChapters: story.chapters.length,
-      completed: activeChapter === story.chapters.length - 1,
+      completed: wasAlreadyCompleted || isCurrentlyCompleted,
     };
 
     localStorage.setItem(`storyProgress_${userId}`, JSON.stringify(progress));
