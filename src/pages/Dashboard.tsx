@@ -212,14 +212,38 @@ export default function Dashboard() {
           (item: any) => item.completed,
         ).length;
 
+        let finalQuizzesCompleted = 0;
+        let finalPoints = 0;
+
+        if (token) {
+          try {
+            const quizRes = await fetch("https://backenddepi-production.up.railway.app/api/quiz-results", {
+              headers: { "Authorization": `Bearer ${token}` }
+            });
+            const quizData = await quizRes.json();
+            
+            if (quizData.success) {
+              const resultsArray = quizData.data?.results || quizData.data || [];
+              finalQuizzesCompleted = Array.isArray(resultsArray) ? resultsArray.length : 0;
+              
+              const totalScore = Array.isArray(resultsArray) 
+                ? resultsArray.reduce((sum: number, q: any) => sum + (q.score || 0), 0) 
+                : 0;
+              
+              finalPoints = finalQuizzesCompleted > 0 ? Math.round(totalScore / finalQuizzesCompleted) : 0;
+            }
+          } catch (err) {
+            console.error("Error fetching quiz results:", err);
+          }
+        }
+
         setStats({
           storiesRead: completedStories,
-          quizzesCompleted: 0,
+          quizzesCompleted: finalQuizzesCompleted,
           dayStreak: currentStreak,
-          points: 0,
+          points: finalPoints,
         });
 
-        // مؤقتاً مفيش API للإنجازات
         setAchievements([]);
 
         if (token) {
@@ -242,7 +266,8 @@ export default function Dashboard() {
     };
 
     fetchDashboardData();
-  }, [navigate, lang]);
+  }, [navigate, lang, userId]);
+
   const readCount = stats?.storiesRead ?? 0;
   const progressPercentage = Math.round((readCount / 25) * 100);
 
