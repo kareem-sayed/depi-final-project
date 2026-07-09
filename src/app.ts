@@ -11,8 +11,9 @@ import apiRoutes from './routes/index.js';
 
 const app = express();
 
+
 app.use(helmet());
-app.use(cors({ origin: env.clientUrl, credentials: true }));
+app.use(cors({ origin: env.clientUrl.split(','), credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
