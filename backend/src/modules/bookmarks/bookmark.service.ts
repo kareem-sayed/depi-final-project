@@ -1,5 +1,5 @@
 import { Types } from 'mongoose';
-import { Bookmark, IBookmark } from './bookmark.model';
+import { Bookmark, IBookmark } from './bookmark.model.js';
 
 // ─── Add Bookmark ────────────────────────────────────────────────────────────
 

@@ -10,6 +10,11 @@ interface LoginPayload{
     email:string;
     password:string;
 }
+interface UpdateProfilePayload{
+    name?:string;
+    phone?:string;
+    avatar?:string;
+}
 export const register=async(payload:Registerpayload)=>{
     const existingUser=await User.findOne({email:payload.email});
     if(existingUser){
@@ -38,4 +43,26 @@ export const login=async(payload:LoginPayload)=>{
     const token=generateToken(user._id.toString(),user.role);
     const { password, ...safeUser } = user.toObject();
     return {user: safeUser,token};
+}
+export const getCurrentUser=async(userId:string)=>{
+    const user=await User.findById(userId).select('-password');
+    if(!user){
+        const error=new Error('User not found');
+        (error as any).statusCode=404;
+        throw error;
+    }
+    return user.toObject();
+}
+export const updateCurrentUser=async(userId:string,payload:UpdateProfilePayload)=>{
+    const user=await User.findByIdAndUpdate(
+        userId,
+        {$set:payload},
+        {new:true,runValidators:true}
+    ).select('-password');
+    if(!user){
+        const error=new Error('User not found');
+        (error as any).statusCode=404;
+        throw error;
+    }
+    return user.toObject();
 }

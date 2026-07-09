@@ -10,9 +10,9 @@ import { notFound } from './middleware/notFound.js';
 import apiRoutes from './routes/index.js';
 
 const app = express();
-
+const allowedOrigins = [env.clientUrl.split(',')].flat().map((origin) => origin.trim());
 app.use(helmet());
-app.use(cors({ origin: env.clientUrl, credentials: true }));
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

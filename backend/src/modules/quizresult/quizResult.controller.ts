@@ -48,6 +48,13 @@ export const getResultById = async (
     const userId = req.user!.id;
     const { resultId } = req.params;
 
+    // Validate resultId is a string
+    if (Array.isArray(resultId)) {
+      const error = new Error('Invalid resultId parameter') as Error & { statusCode: number };
+      error.statusCode = 400;
+      throw error;
+    }
+
     const result = await QuizResultService.getResultById(resultId, userId);
     sendSuccess(res, result, 'Quiz result retrieved successfully');
   } catch (error) {
@@ -65,6 +72,13 @@ export const getBestScore = async (
   try {
     const userId = req.user!.id;
     const { quizId } = req.params;
+
+    // Validate quizId is a string
+    if (Array.isArray(quizId)) {
+      const error = new Error('Invalid quizId parameter') as Error & { statusCode: number };
+      error.statusCode = 400;
+      throw error;
+    }
 
     const data = await QuizResultService.getBestScore(userId, quizId);
     sendSuccess(res, data, 'Best score retrieved successfully');

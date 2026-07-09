@@ -1,7 +1,6 @@
 import dotenv from "dotenv";
 import mongoose, { type Types } from "mongoose";
-import path from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { pathToFileURL } from "node:url";
 
 dotenv.config();
 
@@ -59,11 +58,8 @@ type FrontendData = {
   prophetQuizes: Record<string, FrontendQuizQuestion[]>;
 };
 
-const scriptDir = path.dirname(fileURLToPath(import.meta.url));
-const frontendDataDir = path.resolve(scriptDir, "../../../src/data");
-
 const frontendDataUrl = (fileName: string): string => {
-  return pathToFileURL(path.join(frontendDataDir, fileName)).href;
+  return pathToFileURL(`${process.cwd()}/../FrontEnd/depi-final-project/src/data/${fileName}`).href;
 };
 
 const loadFrontendData = async (): Promise<FrontendData> => {

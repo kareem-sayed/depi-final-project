@@ -13,6 +13,13 @@ export const addBookmark = async (
     const userId = req.user!.id;
     const { storyId } = req.params;
 
+    // Validate storyId is a string
+    if (Array.isArray(storyId)) {
+      const error = new Error('Invalid storyId parameter') as Error & { statusCode: number };
+      error.statusCode = 400;
+      throw error;
+    }
+
     const bookmark = await BookmarkService.addBookmark(userId, storyId);
 
     sendCreated(res, bookmark, 'Story bookmarked successfully');
@@ -31,6 +38,13 @@ export const removeBookmark = async (
   try {
     const userId = req.user!.id;
     const { storyId } = req.params;
+
+    // Validate storyId is a string
+    if (Array.isArray(storyId)) {
+      const error = new Error('Invalid storyId parameter') as Error & { statusCode: number };
+      error.statusCode = 400;
+      throw error;
+    }
 
     await BookmarkService.removeBookmark(userId, storyId);
 
@@ -70,6 +84,13 @@ export const checkBookmark = async (
   try {
     const userId = req.user!.id;
     const { storyId } = req.params;
+
+    // Validate storyId is a string
+    if (Array.isArray(storyId)) {
+      const error = new Error('Invalid storyId parameter') as Error & { statusCode: number };
+      error.statusCode = 400;
+      throw error;
+    }
 
     const bookmarked = await BookmarkService.isBookmarked(userId, storyId);
 

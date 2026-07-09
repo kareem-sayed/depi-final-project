@@ -8,6 +8,8 @@ export interface IUser {
   email: string;
   password: string;
   role: UserRole;
+  phone?: string;
+  avatar?: string;
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
 
@@ -38,6 +40,14 @@ const userSchema = new mongoose.Schema<IUser, UserModel>(
       type: String,
       enum: ["admin", "user"],
       default: "user",
+    },
+    phone: {
+      type: String,
+      trim: true,
+    },
+    avatar: {
+      type: String,
+      trim: true,
     },
   },
   {

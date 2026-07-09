@@ -101,8 +101,18 @@ Authorization: Bearer <token>
           name: { type: 'string', example: 'Ahmed Ali' },
           email: { type: 'string', example: 'ahmed@example.com' },
           role: { type: 'string', enum: ['user', 'admin'], example: 'user' },
+          phone: { type: 'string', example: '+201234567890' },
+          avatar: { type: 'string', example: 'https://cdn.example.com/avatar.jpg' },
           createdAt: { type: 'string', format: 'date-time' },
           updatedAt: { type: 'string', format: 'date-time' },
+        },
+      },
+      UpdateProfileRequest: {
+        type: 'object',
+        properties: {
+          name: { type: 'string', minLength: 3, maxLength: 50, example: 'Ahmed Ali' },
+          phone: { type: 'string', example: '+201234567890' },
+          avatar: { type: 'string', format: 'uri', example: 'https://cdn.example.com/avatar.jpg' },
         },
       },
 
@@ -399,6 +409,58 @@ Authorization: Bearer <token>
           },
           400: { $ref: '#/components/responses/ValidationError' },
           401: { description: 'Invalid credentials' },
+          404: { $ref: '#/components/responses/NotFound' },
+        },
+      },
+    },
+
+    '/auth/me': {
+      get: {
+        tags: ['Auth'],
+        summary: 'Get current user profile',
+        description: 'Returns the profile of the currently authenticated user',
+        security: [{ BearerAuth: [] }],
+        responses: {
+          200: {
+            description: 'User profile retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  allOf: [{ $ref: '#/components/schemas/SuccessResponse' }],
+                  properties: { data: { $ref: '#/components/schemas/User' } },
+                },
+              },
+            },
+          },
+          401: { $ref: '#/components/responses/Unauthorized' },
+          404: { $ref: '#/components/responses/NotFound' },
+        },
+      },
+      put: {
+        tags: ['Auth'],
+        summary: 'Update current user profile',
+        description: 'Update profile fields (name, phone, avatar) for the authenticated user. Email, password, role, and other sensitive fields cannot be updated via this endpoint.',
+        security: [{ BearerAuth: [] }],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': { schema: { $ref: '#/components/schemas/UpdateProfileRequest' } },
+          },
+        },
+        responses: {
+          200: {
+            description: 'Profile updated successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  allOf: [{ $ref: '#/components/schemas/SuccessResponse' }],
+                  properties: { data: { $ref: '#/components/schemas/User' } },
+                },
+              },
+            },
+          },
+          400: { $ref: '#/components/responses/ValidationError' },
+          401: { $ref: '#/components/responses/Unauthorized' },
           404: { $ref: '#/components/responses/NotFound' },
         },
       },

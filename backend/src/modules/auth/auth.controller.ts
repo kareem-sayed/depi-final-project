@@ -12,3 +12,14 @@ export const login=asyncHandler(async(req:Request,res:Response,next)=>{
     const result=await authService.login(payload);
     return sendSuccess(res,result,'User logged in successfully');
 })
+export const getMe=asyncHandler(async(req:Request,res:Response,next)=>{
+    const userId=req.user!.id;
+    const user=await authService.getCurrentUser(userId);
+    return sendSuccess(res,user,'Profile fetched successfully');
+})
+export const updateMe=asyncHandler(async(req:Request,res:Response,next)=>{
+    const userId=req.user!.id;
+    const payload=req.body;
+    const user=await authService.updateCurrentUser(userId,payload);
+    return sendSuccess(res,user,'Profile updated successfully');
+})
