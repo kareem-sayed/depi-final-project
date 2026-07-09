@@ -393,11 +393,11 @@ export default function ProphetStory() {
                 className="flex-1 sm:flex-none justify-center px-4 md:px-6 py-3 rounded-xl font-bold flex items-center gap-2 transition-all text-sm md:text-base bg-forest-dark text-gold-light hover:bg-forest shadow-md hover:-translate-y-1"
               >
                 <span className="rtl:hidden inline text-lg md:text-xl">
-                  &rarr;
+                  &larr;
                 </span>
                 {t.next}
                 <span className="ltr:hidden inline text-lg md:text-xl">
-                  &larr;
+                  &rarr;
                 </span>
               </button>
             )}
@@ -411,11 +411,11 @@ export default function ProphetStory() {
               }`}
             >
               <span className="ltr:hidden inline text-lg md:text-xl">
-                &rarr;
+                &larr;
               </span>
               {t.prev}
               <span className="rtl:hidden inline text-lg md:text-xl">
-                &larr;
+                &rarr;
               </span>
             </button>
           </div>
