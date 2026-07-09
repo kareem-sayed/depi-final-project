@@ -18,7 +18,10 @@ export const register = async (userData: {
     return data;
   } catch (error: any) {
     const message =
-      error.response?.data?.message || "حدث خطأ أثناء إنشاء الحساب";
+      error.response?.data?.errors?.[0]?.message ||
+      error.response?.data?.errors?.message ||
+      error.response?.data?.message ||
+      "حدث خطأ أثناء إنشاء الحساب";
     throw new Error(message);
   }
 };
@@ -40,7 +43,10 @@ export const login = async (credentials: {
     return data;
   } catch (error: any) {
     const message =
-      error.response?.data?.message || "حدث خطأ أثناء تسجيل الدخول";
+      error.response?.data?.errors?.[0]?.message ||
+      error.response?.data?.errors?.message ||
+      error.response?.data?.message ||
+      "حدث خطأ أثناء تسجيل الدخول";
     throw new Error(message);
   }
 };
