@@ -5,6 +5,11 @@ import IconBox from "../components/IconBox";
 import MainButton from "../components/MainButton";
 import Sbox from "../components/SBox";
 import { useLanguage } from "../context/LanguageContext";
+import hasabo from "../assets/team/Mohamed Hasabo.jpeg";
+import mostafa from "../assets/team/Mostafa Sobhy.jpg";
+import raafat from "../assets/team/Mohamed Raafat.jpg";
+import kareem from "../assets/team/Kareem Sayed.jpeg";
+import ahmed from "../assets/team/Ahmed Alaa.jpeg";
 
 export default function About() {
   const { lang } = useLanguage();
@@ -40,29 +45,29 @@ export default function About() {
       teamDesc: "الأشخاص اللي ورا هذا المشروع",
       teamMempers: [
         {
-          Name: "محمد أحمد حسبو",
-          Jop: "مطور Back-End",
-          icon: "Mohamed Hasabo.jpeg",
+          Name: "Mohamed Ahmed Hasabo",
+          Jop: "Back-End Developer",
+          icon: hasabo,
         },
         {
-          Name: "مصطفى صبحي فتحي",
-          Jop: "مطور Front-End",
-          icon: "Mostafa Sobhy.jpg",
+          Name: "Mostafa Sobhy Fathy",
+          Jop: "Front-End Developer",
+          icon: mostafa,
         },
         {
-          Name: "محمد أحمد رأفت",
-          Jop: "مطور Front-End",
-          icon: "Mohamed Raafat.jpg",
+          Name: "Mohamed Ahmed Raafat",
+          Jop: "Front-End Developer",
+          icon: raafat,
         },
         {
-          Name: "كريم سيد محمد",
-          Jop: "مطور Front-End",
-          icon: "Kareem Sayed.jpeg",
+          Name: "Kareem Sayed Mohamed",
+          Jop: "Front-End Developer",
+          icon: kareem,
         },
         {
-          Name: "أحمد علاء عبد الوهاب",
-          Jop: "مطور Front-End",
-          icon: "Ahmed Alaa.jpeg",
+          Name: "Ahmed Alaa Abdelwahab",
+          Jop: "Front-End Developer",
+          icon: ahmed,
         },
       ],
       startTitle: "جاهز تبدأ الرحلة؟",
@@ -134,7 +139,10 @@ export default function About() {
 
   return (
     <>
-      <main className="flex-1 pt-10 mt-20 pb-16 px-4" dir={lang === "ar" ? "rtl" : "ltr"}>
+      <main
+        className="flex-1 pt-10 mt-20 pb-16 px-4"
+        dir={lang === "ar" ? "rtl" : "ltr"}
+      >
         <div className="container mx-auto max-w-5xl">
           {/* Header */}
           <header className="text-center mb-16">
@@ -175,7 +183,7 @@ export default function About() {
             <span className="grid md:grid-cols-3 gap-5 pt-5 text-center">
               {cont.teamMempers.map((member) => (
                 <Box
-                  icon={`./src/assets/team/${member.icon}`}
+                  icon={member.icon}
                   HeadLine={member.Name}
                   text={member.Jop}
                   position="mx-auto"
